@@ -1,0 +1,447 @@
+
+<!DOCTYPE html >
+<html data-version="0.0.0.0"
+data-language="en"
+data-root="/"
+data-content-root="../mkquartz/" ng-app="app">
+<head>
+	<link type="text/css" rel="stylesheet" href="../../css/ngDialog-theme-plain.min.css" />
+	<link type="text/css" rel="stylesheet" href="../../css/ngDialog.min.css" />
+	<link rel="stylesheet" href="../../css/font-awesome.css" />
+	<link rel="stylesheet" href="../../css/flexslider.min.css" />
+	<link href="../../css/theme.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../../css/xmq7vjw.css">
+	<script type="text/javascript" src="../../js/es6-shim.min.js"></script>
+	<script type="text/javascript" src="../../js/yepnope.js"></script>
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.flexslider.min.js"></script>
+	<script type="text/javascript" src="../../js/angular.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-route.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-cookies.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-touch.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-aria.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-animate.min.js"></script>
+ 	<script type="text/javascript" src="../../js/angular-messages.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="../../js/hammer.min.js"></script>
+	<script type="text/javascript" src="../../js/angular.hammer.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-flexslider.js"></script>
+	<script type="text/javascript" src="../../js/ngDialog.min.js"></script>
+	<script type="text/javascript" src="../../js/lodash.min.js"></script>
+	<script type="text/javascript" src="../../js/angular-google-maps.min.js"></script>
+	<script src="../../lib/lib"></script>
+	<script src="../../app/app"></script>
+
+	<!-- Google Tag Manager -->
+	<noscript><iframe src='//www.googletagmanager.com/ns.html?id=GTM-MFNKN6'
+	height='0' width='0' style='display:none;visibility:hidden' sandbox=''></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MFNKN6');</script>
+	<!-- End Google Tag Manager -->
+	<script src="../../js/satelliteLib.js"></script>
+									
+	<title>Our Locations</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="description" content="Find a Mkquartz Tile &amp; Stone location near you. With 40+ location nationwide, find the store hours and phone number to visit a Mkquartz store today." />
+	
+	<link rel="canonical" href="../our-locations/" />
+	<link rel="shortcut icon" type="image/ico" href="" />
+		
+	<style type="text/css">
+		.footer {
+			display: none;
+			height: 0;
+		}
+	</style>
+
+</head>
+<body class="ng-scope">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MFNKN6'
+height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	
+<div ng-controller="MenuCtrl">
+
+	<div id="js-site-header" class="site-header" ng-cloak>
+		<nav class="site-header-nav">
+			<a href="../../index.html" title="Go to homepage">
+				<picture>
+					<source media="(min-width: 1024px)" srcset="../../images/mkquartz/mkquartz.svg">
+					<source srcset="../../images/mkquartz/mkquartzz.svg">
+					<img src="../../images/mkquartz/mkquartz.svg" alt="mkquartz logo">
+				</picture>
+			</a>
+
+			<ul id="js-hamburger-menu" class="site-header-top-level-nav" ng-class="{ 'active': isShowingHamburgerMenu }" >
+				<li ng-repeat="m in menu" class="submenu-container">
+					<a ng-show="m.children == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'">{{m.title}}</a>
+					<button ng-show="m.children != 0" type="button" class="site-header-top-level-nav-item dropdown-button"
+						 onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">
+						
+						{{m.title}}
+
+					</button>
+					<ul ng-show="m.children != 0" id="{{ 'menu-' + $index }}" class="submenunavigator submenu hidden">
+						<li ng-repeat="c in m.children" role="none">
+							<a class="dropdown__item" ng-href="{{c.url}}" onmouseover="this.style.backgroundColor = 'rgba(0,0,0,.05)'; this.style.textDecoration = 'none'; this.style.color='#000'" onmouseout="this.style.backgroundColor = 'rgba(0,0,0,0)'">{{c.title}}</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<div class="site-header-menu-buttons" ng-controller="branchLocatorController"  ng-init="init('WA', 'Seattle', '161')" >
+				<!-- <button type="button" ng-click="selectState()" class="ship-to-button">California</button>
+				<button id="menubutton-1" aria-haspopup="true" aria-controls="menu-1" class="site-header-menu-button icon-search" onclick="$('#js-search-input').toggleClass('hidden');$('#js-search-input-box').focus();">
+					Search
+				</button>
+				
+				<div class="number-badge-container" ng-init="initShoppingBag()">
+					<a href="../en/shoppingbag/" class="site-header-menu-button icon-shopping-bag">Shopping Bag</a>
+					<div class="number-badge" ng-if="showShoppingBagItemIcon"><span>{{itemsCount}}</span></div>
+				</div> -->
+
+				<div class="submenu-container">
+					<!-- <button type="button" class="site-header-menu-button icon-user" ng-click="isShowingProfileMenu = !isShowingProfileMenu">Account</button> -->
+					<aside class="submenu submenu--right" ng-if="isShowingProfileMenu">
+						<nav>
+							<ul id="menu-3" role="menu" aria-labelledby="menubutton-3">
+								
+								<li role="none"><a href="../en/account/register/" class="submenu__item">Signup</a></li>
+								<li role="none"><a href="../en/account/" class="submenu__item">Login</a></li>
+								
+							</ul>
+						</nav>
+					</aside>
+				</div>
+			
+				<button type="button" id="menubutton-3" aria-haspopup="true" aria-controls="menu-3" class="site-header-menu-button hamburger" ng-class="{ 'active': isShowingHamburgerMenu }" ng-click="toggleHamburgerMenu()">Menu</button>
+			</div>
+		</nav>
+		<aside class="site-search hidden" id="js-search-input" role="menu" aria-labelledby="menubutton-1">
+			<button type="button" class="close-btn" onclick="$('#js-search-input').toggleClass('hidden')">Close</button>
+			<div class="site-search-container">
+				<div class="site-search-input" ng-cloak oep-search placeholder="Search by product, category or style"></div>
+			</div>
+		</aside>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	window.menu = [{"title":"Featured","url":"/en/","children":[{"title":"New Arrivals ","url":"../featured/new-arrivals/fall-2018/index.html"},{"title":"Costa Allegra ","url":"../featured/costa-allegra"},{"title":"Provincetown ","url":"../featured/provincetown"},{"title":"Remy","url":"../featured/remy"},{"title":"Magnifica","url":"../featured/magnifica"},{"title":"Paseo ","url":"../featured/paseo"},{"title":"Sequel Quartz","url":"../featured/sequel-quartz/"},{"title":"Slabs in Stock ","url":"../featured/slabs"},{"title":"Slab Buying Guide ","url":"../featured/slab-buying-guide/"}]},{"title":"Products","url":"../","children":[{"title":"Backsplashes","url":"../product/list/backsplashes/page.html"},{"title":"Floor Tile","url":"../product/list/floor-tile/page.html"},{"title":"Shower Tile","url":"../product/list/shower-tile/page.html"},{"title":"Decorative","url":"../product/list/decorative/"},{"title":"Ceramic","url":"../product/list/ceramic/"},{"title":"Porcelain","url":"../product/list/porcelain/"},{"title":"Stone","url":"../product/list/stone/"},{"title":"Commercial ","url":"../product/list/f_commercial=Y.html"},{"title":"Slabs","url":"../product/list/slabs/"},{"title":"By Look","url":"../product/list/by-look/"},{"title":"Outdoor","url":"../product/list/f_exterior=Y.html"}]},{"title":"Gallery","url":"../Gallery/","children":[]},{"title":"Blog","url":"../blog/","children":[]},{"title":"Professionals","url":"../pros/","children":[]},{"title":"Locations","url":"../our-locations/","children":[]}];
+</script>
+
+<div class="page-content" ng-class="{'hide-mobile': mobileMenu}">
+	
+<script src="../../Scripts/moment.min.js" type="text/javascript"></script>
+<script src="../../Scripts/moment-timezone-with-data-2010-2020.min.js" type="text/javascript"></script>
+<div id="locations-control" ng-controller="LocationsCtrl" data-ng-map ng-init="initCtrl(86)">
+	<div class="search">
+		<h1>Find a Location</h1>
+		<div id="search" ng-cloak>
+			<input type="search" ng-model="query" placeholder="Enter a City, State or Zip code" ng-enter="findLocation(query)" esc-key="clearSearch()" />
+			<button class="close" ng-show="query.length >= 1" type="close" ng-click="clearSearch()"></button>
+
+			<button class="search-icon" ng-click="findLocation(query)"></button>
+			<button class="location-arrow"></button>
+			<hr class="search-line" />
+		</div>
+		<div class="search-results" ng-class="userEnteredLocation && query === lastSearchResultQuery ? 'query' : ''">
+			<div class="filter-section" ng-init="filter = ''">
+				<div class="filter-item-container">
+					<button class="filter" ng-class="{active: filter == ''}" ng-click="setFilter('')">All</button>
+					<button class="filter" ng-class="{active: filter == 'S'}" ng-click="setFilter('S'); ">Slabyard</button>
+					<button class="filter" ng-class="{active: filter == 'E'}" ng-click="setFilter('E')">Showroom</button>
+					<button class="filter" ng-class="{active: filter == 'C'}" ng-click="setFilter('C')">Customer Service</button>
+				</div>
+			</div>
+			<p ng-show="userEnteredLocation && query === lastSearchResultQuery" ng-cloak>
+				<span class="number-of-results" ng-cloak>{{nearestLocationsCount}}</span> results within 100 miles of <span class="query">"{{query}}"</span>
+				<!--{{nearestLocationsCount > 1 ? "are" : "is"}} in a radius of 100 miles-->
+			</p>
+			<p id="distance" ng-show="userEnteredLocation && query === lastSearchResultQuery" ng-cloak>Location by Distance</p>
+
+		</div>
+	</div>
+	<br />
+	<div class="locations" ng-isolate-scroll="" ng-class="userEnteredLocation && query === lastSearchResultQuery ? 'query' : ''" id="locations-container" ng-cloak>
+		<div class="filter-container">
+			<div class="filter-item">
+				<div class="filter-item-list">
+					<div class="location-item" ng-repeat="item in filteredLocations | orderBy:['distance','city']" ng-class="{'active' : selectedLocation.id == item.id}" ng-click="showLocastion(item)">
+						<div class="location-section">
+							<div class="location-item-container">
+								<div>
+									<div class="my-store" ng-if="item.externalBrandDetails.Title">
+										<a ng-click="$event.stopPropagation();" class="external" ng-class="{'isComingSoon': item.tags.indexOf('isComingSoon') >= 0 }" ng-cloak>{{::item.externalBrandDetails.Title}}
+										</a>
+										<p></p>
+									</div>
+									<div class="distance-box" style="float: right;">
+										<p class="distance" ng-show="item.distance && userEnteredLocation && query === lastSearchResultQuery">{{item.distance}} mi</p>
+									</div>
+								</div>
+								<h3 class="name ng-binding" ng-click="$event.stopPropagation(); goto(item.branchaddressurl)" style="cursor: pointer">{{item.locationcode}} - {{item.city}}, {{item.state}}</h3>
+
+								<div class="store-type" style="display: block">
+									<p ng-if="!item.operationtype.length && item.tags.indexOf('isComingSoon') != 0">
+										mkquartz
+									</p>
+									<p ng-if="item.operationtype.length">
+										<span ng-repeat="op in item.operationtype" style="font-weight: 300">{{op}} {{$last ? '' : ', '}}</span>
+									</p>
+								</div>
+								<div class="address">
+									<span class="info ng-binding">{{item.street}}</span>
+									<span class="info ng-binding">{{item.city}}, {{item.state}} {{item.zip}}</span>
+								</div>
+								<div class="my-store" ng-if="!item.isexternalbrand">
+									<a ng-click="$event.stopPropagation(); changeLocation(item);  selectBranch(item)" style="font-size: 10px; cursor: pointer;" ng-show="myLocationId != item.id">Make this my store
+									</a>
+									<p ng-show="myLocationId == item.id">My store</p>
+									<p></p>
+								</div>
+							</div>
+							<div class="arrow-section">
+								<a ng-href="{{comingSoonBranch(item.tags) ? '/our-locations' : item.branchaddressurl}}/" ng-click="$event.stopPropagation()">
+									<div class="select-arrow">
+										<div class="next"></div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="location-item-mobile" ng-repeat="item in filteredLocations" ng-class="{'active' : selectedLocation.id == item.id}" ng-click="showLocation(item)">
+						<div class="location-section" ng-click="$event.stopPropagation(); goto(item.branchaddressurl)">
+							<div class="location-item-container">
+								<div>
+									<div class="my-store" ng-if="item.externalBrandDetails.Title">
+										<a ng-click="$event.stopPropagation();" class="external" ng-class="{'isComingSoon': item.tags.indexOf('isComingSoon') >= 0 }" ng-cloak>{{::item.externalBrandDetails.Title}}
+										</a>
+										<p></p>
+									</div>
+									<div class="distance-box">
+										<p class="distance" ng-show="item.distance && userEnteredLocation && query === lastSearchResultQuery">{{item.distance}} mi</p>
+									</div>
+								</div>
+								<h3 class="name ng-binding" ng-click="$event.stopPropagation(); goto(item.branchaddressurl)" style="cursor: pointer">{{item.locationcode}} - {{item.city}}, {{item.state}}</h3>
+
+								<br />
+								<div class="store-type">
+									<p ng-if="!item.operationtype.length && item.tags.indexOf('isComingSoon') != 0">
+										mkquartz
+									</p>
+									<p ng-if="item.operationtype.length">
+										<span ng-repeat="op in item.operationtype" style="font-weight: 300">{{op}}{{$last ? '' : ', '}}</span>
+									</p>
+								</div>
+
+								<div class="address">
+									<span class="info ng-binding">{{item.street}}</span>
+									<span class="info ng-binding">{{item.city}}, {{item.state}} {{item.zip}}</span>
+								</div>
+
+								<div class="my-store" ng-if="!item.isexternalbrand">
+									<a ng-click="$event.stopPropagation(); changeLocation(item)" style="font-size: 10px; cursor: pointer;" ng-show="myLocationId != item.id">Make this my store
+									</a>
+									<p ng-show="myLocationId == item.id">My store</p>
+									<p></p>
+								</div>
+							</div>
+							<div class="arrow-section">
+								<a ng-href="{{item.branchaddressurl}}/" ng-click="$event.stopPropagation()">
+									<div class="select-arrow">
+										<div class="next" ></div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="map_canvas" class="map">
+		<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" events="map.events" control="mapControl" bounds='map.bounds'>
+
+		<ui-gmap-markers options="markerOptions" models="filteredLocations" coords="'self'" click="markerClick" animation="DROP" icon="'icon'">
+		</ui-gmap-markers>
+
+		<ui-gmap-window coords="selectedLocation" show="selectedLocation != null" closeclick="markerClose()" options="windowOptions" ng-cloak>
+			<div class="marker-info-inner">
+				<div class="marker-info-window">
+					<div class="info-wrap">
+						<div class="location-icon"></div>
+						<div class="info-txt">
+							<h3>{{selectedLocation.name}}</h3>
+							<a target="_blank" ng-href="{{selectedLocation.branchaddressurl}}">View location details</a>
+						</div>
+					</div>
+					<div>
+					<div class="info-wrap" ng-if="!selectedLocation.tags.includes('isComingSoon')" ng-cloak>
+						<div class="phone-icon"></div>
+						<div class="info-txt">
+							<h4>Call</h4>
+							<p>{{selectedLocation.phone}}</p>
+						</div>
+					</div>
+					<div class="info-wrap">
+						<div class="directions-icon"></div>
+						<div class="info-txt">
+							<h4>Directions</h4>
+							<div class="address">
+								<span class="info">{{selectedLocation.street}}</span>
+								<br>
+								<span class="info">{{selectedLocation.city}}, {{selectedLocation.state}} {{selectedLocation.zip}}</span>
+							</div>
+							<a target="_blank" ng-href="//www.google.com/maps/dir/Current+Location/{{selectedLocation.street}}, {{selectedLocation.city}}, {{selectedLocation.state}} {{selectedLocation.zip}}">Get Driving Directions</a>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</ui-gmap-window>
+	</ui-gmap-google-map>
+
+		<div class="tool-bar">
+			<button class="button zoomin" title="Zoom In" data-zoom="in" ng-click="zoomIn()">+</button>
+			<button class="button zoomout" title="Zoom Out" data-zoom="out" ng-click="zoomOut()">-</button>
+			<button class="button direction" ng-click="getCurrentPosition()"></button>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		angular.module("app.storelocator").value("locations", [{"id":28,"name":"Anaheim Branch","locationcode":"125","street":"1515 E Winston Rd","city":"Anaheim","state":"CA","zip":"92805-6445","phone":"(714) 778-1800","fax":null,"latitude":33.81541500,"longitude":-117.89198870,"branchtype":["C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 8:00 AM - 12:00 PM\nSU: CLOSED","phone":"(714) 778-1800"}],"branchaddressurl":"","operationtype":["Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Anaheim, Store 125"},{"id":40,"name":"Anaheim Showroom","locationcode":"126","street":"1235 S. State College Blvd","city":"Anaheim","state":"CA","zip":"92806-5145","phone":"(714) 778-8453","fax":null,"latitude":33.81669930,"longitude":-117.88998340,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:00 AM - 6:00 PM\nSaturday: 9:00 AM - 6:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(714) 778-8453"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 6:00 PM\nSaturday: 9:00 AM - 6:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(714) 778-8453"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone Showroom in Anaheim, Store 126"},{"id":53,"name":"Auburn Branch","locationcode":"114","street":"4055 Grass Valley Hwy Ste 110","city":"Auburn","state":"CA","zip":"95602-9156","phone":"(530)888-1500","fax":null,"latitude":38.95906640,"longitude":-121.10277560,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(530)888-1500"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(530)888-1500"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":"//maps.googleapis.com/maps/api/streetview?size=350x250&location=38.9597378,-121.1022816&heading=227.32&pitch=-0.76&fov=30","tags":null,"htmltitle":"mkquartz Tile & Stone in Auburn, CA, Store 114"},{"id":30,"name":"Bakersfield Branch","locationcode":"115","street":"4301 Ashe Road","city":"Bakersfield","state":"CA","zip":"93313-2032","phone":"(661)396-0555","fax":null,"latitude":35.31481400,"longitude":-119.07499700,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(661)396-0555"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 4:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(661)396-0555"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(661)396-0555"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Bakersfield, Store 115"},{"id":89,"name":"Boise Branch","locationcode":"166","street":"12376 W Executive Drive","city":"Boise","state":"ID","zip":"83713-5902","phone":"(208)855-2822","fax":null,"latitude":43.61172400,"longitude":-116.33665800,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(208)855-2822"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(208)855-2822"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(208)855-2822"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Mountain Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":"//maps.googleapis.com/maps/api/streetview?size=800x400&location=43.6112242,-116.3368058&fov=110&heading=30&pitch=9","tags":null,"htmltitle":"mkquartz Tile & Stone in Boise, Store 166"},{"id":79,"name":"Charlotte","locationcode":"181","street":"11415 Granite St. Suite B","city":"Charlotte","state":"NC","zip":"28273-7137","phone":"(704)626-4200","fax":null,"latitude":35.11209000,"longitude":-80.92719100,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSU: CLOSED","phone":"(704)626-4200"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSU: CLOSED","phone":"(704)626-4200"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Eastern Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":"//maps.googleapis.com/maps/api/streetview?size=350x250&location=35.1115919,-80.9266477&heading=280&pitch=5&fov=60","tags":null,"htmltitle":"mkquartz Tile & Stone in Charlotte, Store 181"},{"id":64,"name":"Colorado Springs Branch","locationcode":"146","street":"3590 N Citadel Dr","city":"Colorado Springs","state":"CO","zip":"80909-5307","phone":"(719)591-7770","fax":null,"latitude":38.84639850,"longitude":-104.76355630,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(719)591-7770"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(719)591-7770"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(719)591-7770"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Mountain Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Colorado Springs, Store 146"},{"id":95,"name":"Daytona Beach","locationcode":"188","street":"1910 W International Speedway","city":"Daytona Beach","state":"FL","zip":"32114-1218","phone":null,"fax":null,"latitude":29.19291490,"longitude":-81.07618420,"branchtype":["E","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(386) 267-0220"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(386) 267-0220"}],"branchaddressurl":"","operationtype":["Showroom","Slabyard"],"timezone":"Eastern Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"188 - Daytona Beach"},{"id":37,"name":"Deerfield Beach","locationcode":"185","street":"1901 W. Sample Rd","city":"Deerfield Beach","state":"FL","zip":"33064-1322","phone":"(954)917-8002","fax":null,"latitude":26.27568010,"longitude":-80.14966170,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSA: 10:00 AM - 6:00 PM\nSU: CLOSED","phone":"(954)917-8002"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSA: 10:00 AM - 6:00 PM\nSU: CLOSED","phone":"(954)917-8002"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSA: 10:00 AM - 6:00 PM\nSU: CLOSED","phone":"(954)917-8002"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Eastern Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Deerfield Beach, Store 185"},{"id":65,"name":"Denver Branch","locationcode":"145","street":"14155 E 42nd Ave Ste 70","city":"Denver","state":"CO","zip":"80239-4987","phone":"(303)722-2200","fax":null,"latitude":39.77489030,"longitude":-104.83779910,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(303)722-2200"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 4:30 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(303)722-2200"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(303)722-2200"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Mountain Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Denver, Store 145"},{"id":34,"name":"Fresno Branch","locationcode":"101","street":"4285 N Golden State Blvd","city":"Fresno","state":"CA","zip":"93722-6316","phone":"(559) 275-5000","fax":null,"latitude":36.79740650,"longitude":-119.86759880,"branchtype":["C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 8:00 AM - 2:00 PM\nSU: CLOSED","phone":"(559) 275-5000"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 8:00 AM - 2:00 PM\nSU: CLOSED","phone":"(559) 275-5000"}],"branchaddressurl":"","operationtype":["Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Fresno, Store 101"},{"id":60,"name":"Fresno Showroom","locationcode":"116","street":"3567 W. Shaw Ave","city":"Fresno","state":"CA","zip":"93711-3205","phone":"(559)275-9990","fax":null,"latitude":36.80730800,"longitude":-119.85667660,"branchtype":["E"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSU: CLOSED","phone":"(559)275-9990"}],"branchaddressurl":"","operationtype":["Showroom"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Fresno, Store 116"},{"id":52,"name":"Hayward Branch","locationcode":"110","street":"27695 Mission Blvd","city":"Hayward","state":"CA","zip":"94544-4149","phone":"(510)582-5000","fax":null,"latitude":37.64083490,"longitude":-122.05920480,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:30 AM - 5:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSU: CLOSED","phone":"(510)582-5000"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSU: CLOSED","phone":"(510)582-5000"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Hayward, Store 110"},{"id":42,"name":"Jacksonville Branch","locationcode":"186","street":"7750 Philips Hwy","city":"Jacksonville","state":"FL","zip":"32256-6814","phone":"(904)458-8000","fax":null,"latitude":30.22968250,"longitude":-81.59184350,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSu: CLOSED","phone":"(904)458-8000"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSu: CLOSED","phone":"(904)458-8000"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Eastern Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Jacksonville, Store 186"},{"id":80,"name":"Jacksonville Distribution","locationcode":"180","street":"8313 Baycenter Rd.","city":"Jacksonville","state":"FL","zip":"32256-7415","phone":"(904)562-3000","fax":null,"latitude":30.22841600,"longitude":-81.58856100,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(904)562-3000"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(904)562-3000"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Eastern Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Jacksonville, Store 180"},{"id":70,"name":"Kent Branch","locationcode":"160","street":"6841 S 190th","city":"Kent","state":"WA","zip":"98032-1171","phone":"(425)272-2700","fax":null,"latitude":47.43194110,"longitude":-122.24754380,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 4:30 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(425)272-2700"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 4:30 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(425)272-2700"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Kent, Store 160"},{"id":41,"name":"Las Vegas Branch","locationcode":"140","street":"3550 E Sunset Road","city":"Las Vegas","state":"NV","zip":"89120-3224","phone":"(702)896-1500","fax":null,"latitude":36.07318790,"longitude":-115.09696070,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSU: CLOSED","phone":"(702)896-1500"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSU: CLOSED","phone":"(702)896-1500"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSU: CLOSED","phone":"(702)896-1500"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Las Vegas, Store 140"},{"id":87,"name":"Medford Branch","locationcode":"168","street":"3531 Avion Dr.","city":"Medford","state":"OR","zip":"97504-4207","phone":"(541)776-5020","fax":null,"latitude":42.36596500,"longitude":-122.88322500,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(541)776-5020"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(541)776-5020"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(541)776-5020"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Medford, Store 168"},{"id":59,"name":"Miami Branch","locationcode":"184","street":"9200 N W 25TH St","city":"Miami","state":"FL","zip":"33172-1503","phone":"(305)594-0472","fax":null,"latitude":25.79631600,"longitude":-80.34491900,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSunday: CLOSED","phone":"(305) 594-0472"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSunday: CLOSED","phone":"(305) 594-0472"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Eastern Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Miami, Store 184"},{"id":50,"name":"Modesto Branch","locationcode":"104","street":"4813 Greenleaf Court","city":"Modesto","state":"CA","zip":"95356-9481","phone":"(209)545-2000","fax":null,"latitude":37.70189980,"longitude":-121.07008120,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: CLOSED","phone":"(209)545-2000"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: CLOSED\nSunday: CLOSED","phone":"(209)545-2000"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: CLOSED\nSunday: CLOSED","phone":"(209)545-2000"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Modesto, Store 104"},{"id":13,"name":"Morrow Branch","locationcode":"182","street":"1987 Mt Zion Rd","city":"Morrow","state":"GA","zip":"30260-3315","phone":null,"fax":null,"latitude":33.56281500,"longitude":-84.32630850,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSunday: CLOSED","phone":"‭(470) 264-3030‬"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSunday: CLOSED","phone":"‭(470) 264-3030‬"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSunday: CLOSED","phone":"‭(470) 264-3030‬"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Eastern Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Morrow, Store 182"},{"id":47,"name":"Orange Branch","locationcode":"127","street":"2176 N Pacific St.","city":"Orange","state":"CA","zip":"92865-2614","phone":"(714)363-9705","fax":null,"latitude":33.82397860,"longitude":-117.85758790,"branchtype":["S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 9:00 AM - 4:00 PM\nSU: CLOSED","phone":"(714)363-9705"}],"branchaddressurl":"","operationtype":["Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Orange, Store 127"},{"id":56,"name":"Palm Springs","locationcode":"128","street":"73550 Dinah Shore Dr","city":"Palm Desert","state":"CA","zip":"92211-0812","phone":"(760)321-1559","fax":null,"latitude":33.79971800,"longitude":-116.38083700,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 9:00 AM - 4:00 PM\nSunday: 9:00 AM - 1:00 PM","phone":"(760)321-1559"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 9:00 AM - 4:00 PM\nSunday: 9:00 AM - 1:00 PM","phone":"(760)321-1559"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 9:00 AM - 4:00 PM\nSunday: 9:00 AM - 1:00 PM","phone":"(760)321-1559"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Palm Desert, Store 128"},{"id":36,"name":"Phoenix Branch","locationcode":"150","street":"2946 E Broadway","city":"Phoenix","state":"AZ","zip":"85040-0700","phone":"(602)268-2000","fax":null,"latitude":33.40753100,"longitude":-112.01883600,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:00 AM - 4:30 PM\nSaturday: 8:00 AM - 2:00 PM\nSU: CLOSED","phone":"(602)268-2000"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 4:30 PM\nSaturday: 8:00 AM - 2:00 PM\nSU: CLOSED","phone":"(602)268-2000"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 4:30 PM\nSaturday: 8:00 AM - 2:00 PM\nSU: CLOSED","phone":"(602)268-2000"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Phoenix, Store 150"},{"id":96,"name":"Plano Branch","locationcode":"174","street":"900 N. Central Expy","city":"Plano","state":"TX","zip":"75074-6737","phone":null,"fax":"(469) 5736-1289","latitude":33.20560800,"longitude":-96.63746500,"branchtype":["E"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:00 AM - 7:00 PM\nSaturday: 9:00 AM - 6:00 PM\nSunday: 11:00 AM - 5:00 PM ","phone":"(469) 974-6000"}],"branchaddressurl":"","operationtype":["Showroom"],"timezone":"Central Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Plano, Store 174"},{"id":85,"name":"Portland Branch","locationcode":"167","street":"1845 SE 3rd Ave","city":"Portland","state":"OR","zip":"97214-4548","phone":"(503)231-0058","fax":null,"latitude":45.50979600,"longitude":-122.66351100,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(503)231-0058"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(503)231-0058"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(503)231-0058"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Portland, Store 167"},{"id":49,"name":"Rancho Cordova Branch","locationcode":"112","street":"2995 Sunrise Blvd","city":"Rancho Cordova","state":"CA","zip":"95742-6529","phone":"(916)852-1000","fax":null,"latitude":38.59490400,"longitude":-121.26450100,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: CLOSED","phone":"(916)852-1000"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 6:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: CLOSED","phone":"(916)852-1000"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 6:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: CLOSED","phone":"(916)852-1000"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Rancho Cordova, Store 112"},{"id":55,"name":"Salt Lake City","locationcode":"165","street":"3280 S 900 W","city":"Salt Lake","state":"UT","zip":"84119-3318","phone":"(801)466-6641","fax":null,"latitude":40.70026670,"longitude":-111.91886270,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 4:00 PM\nSU: CLOSED","phone":"(801)466-6641"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 10:00 AM - 4:00 PM\nSU: CLOSED","phone":"(801)466-6641"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 4:00 PM\nSU: CLOSED","phone":"(801)466-6641"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Mountain Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Salt Lake, Store 165"},{"id":45,"name":"San Diego Branch","locationcode":"130","street":"7120 Miramar Rd","city":"San Diego","state":"CA","zip":"92121-231","phone":"(858)565-1215","fax":null,"latitude":32.87827500,"longitude":-117.17725570,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:00 AM - 4:30 PM\nSaturday: 8:00 AM - 1:00 PM\nSunday: CLOSED","phone":"(858) 565-1215"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 4:30 PM\nSaturday: 8:00 AM - 1:00 PM\nSunday: CLOSED","phone":"(858) 565-1215"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 4:30 PM\nSaturday: 8:00 AM - 1:00 PM\nSunday: CLOSED","phone":"(858) 565-1215"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in San Diego, Store 130"},{"id":43,"name":"San Jose Branch","locationcode":"108","street":"2301 Junction Ave","city":"San Jose","state":"CA","zip":"95131-1212","phone":"(408)435-5544","fax":null,"latitude":37.38851390,"longitude":-121.91960770,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"MO, TU, WE, FR: 9:00 AM - 5:00 PM\nTH: 9:00 AM - 7:00 PM\nSA: 9:00 AM - 5:00 PM\nSU: 10:00 AM - 3:00 PM","phone":"(408)435-5544"},{"operationtype":"Customer Service","timeofoperation":"MO, TU, WE, FR: 7:00 AM - 5:00 PM\nTH: 7:00 AM - 7:00 PM\nSA: 8:00 AM - 5:00 PM\nSU: 10:00 AM - 3:00 PM","phone":"(408)435-5544"},{"operationtype":"Slabyard","timeofoperation":"MO, TU, WE, FR: 9:00 AM - 5:00 PM\nTH: 9:00 AM - 7:00 PM\nSA: 9:00 AM - 5:00 PM\nSU: 10:00 AM - 3:00 PM","phone":"(408)435-5544"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in San Jose, Store 108"},{"id":39,"name":"Santa Rosa Branch","locationcode":"111","street":"700 Stony Point Rd","city":"Santa Rosa","state":"CA","zip":"95407-6890","phone":"(707)586-1800","fax":null,"latitude":38.42935050,"longitude":-122.74118470,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSunday: CLOSED","phone":"(707)586-1800"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 5:00 PM \nSunday: CLOSED","phone":"(707)586-1800"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Santa Rosa, Store 111"},{"id":82,"name":"Scottsdale Branch","locationcode":"152","street":"15010 N Hayden Rd","city":"Scottsdale","state":"AZ","zip":"85260-2502","phone":"(480)295-7500","fax":null,"latitude":33.62124700,"longitude":-111.90679200,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 4:00 PM\nSU: CLOSED","phone":"(480)295-7500"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 4:00 PM\nSU: CLOSED","phone":"(480)295-7500"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 4:30 PM\nSaturday: 9:00 AM - 3:30 PM\nSU: CLOSED","phone":"(480)295-7500"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Scottsdale, Store 152"},{"id":86,"name":"Seattle Branch","locationcode":"161","street":"5930 6th Ave S","city":"Seattle","state":"WA","zip":"98108-3318","phone":"(206)762-1858","fax":null,"latitude":47.55030500,"longitude":-122.32605800,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(206)762-1858"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(206)762-1858"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(206)762-1858"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Seattle, Store 161"},{"id":71,"name":"So San Francisco Branch","locationcode":"109","street":"139 Marco Way","city":"So. San Francisco","state":"CA","zip":"94080-6917","phone":"(650)876-0100","fax":null,"latitude":37.64217300,"longitude":-122.40440500,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSU: CLOSED","phone":"(650)876-0100"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSU: CLOSED","phone":"(650)876-0100"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSU: CLOSED","phone":"(650)876-0100"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in San Francisco, Store 109"},{"id":63,"name":"Sparks Branch","locationcode":"106","street":"535 E Glendale","city":"Sparks","state":"NV","zip":"89431-6407","phone":"(775)331-4802","fax":null,"latitude":39.52680510,"longitude":-119.73549650,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(775)331-4802"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(775)331-4802"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSU: CLOSED","phone":"(775)331-4802"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Sparks, Store 106"},{"id":88,"name":"Spokane Valley Branch","locationcode":"163","street":"19119 E Broadway Ave.","city":"Spokane Valley","state":"WA","zip":"99016-8577","phone":"(509)321-0717","fax":null,"latitude":47.66480300,"longitude":-117.14761800,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:00 AM - 6:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(509)321-0717"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 6:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(509)321-0717"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 6:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSU: CLOSED","phone":"(509)321-0717"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Spokane Valley, Store 163"},{"id":48,"name":"Stockton Branch","locationcode":"103","street":"2538 N. West Ln  Bldg A 5","city":"Stockton","state":"CA","zip":"95205-2662","phone":"(209) 463-5000","fax":null,"latitude":37.97911270,"longitude":-121.28113410,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 4:30 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(209) 463-5000"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 4:30 PM\nSaturday: 10:00 AM - 2:00 PM\nSU: CLOSED","phone":"(209) 463-5000"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Stockton, Store 103"},{"id":57,"name":"Sylmar Branch","locationcode":"120","street":"16450 Foothill Blvd Ste 100","city":"Sylmar","state":"CA","zip":"91342-1087","phone":"(818)833-0550","fax":null,"latitude":34.31836600,"longitude":-118.48976600,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(818)833-0550"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(818)833-0550"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(818)833-0550"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Sylmar, Store 120"},{"id":51,"name":"Tucson Branch","locationcode":"153","street":"3865 W. Orange Grove Rd","city":"Tucson","state":"AZ","zip":"85741-2870","phone":"(520)747-2200","fax":null,"latitude":32.32278280,"longitude":-111.04771880,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSunday: CLOSED","phone":"(520)747-2200"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:00 AM - 4:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSunday: CLOSED","phone":"(520)747-2200"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:00 AM - 4:00 PM\nSaturday: 10:00 AM - 3:00 PM\nSunday: CLOSED","phone":"(520)747-2200"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Tucson, Store 153"},{"id":46,"name":"Visalia Branch","locationcode":"102","street":"2045 E Main Street","city":"Visalia","state":"CA","zip":"93292-6740","phone":"(559)734-4035","fax":null,"latitude":36.32966800,"longitude":-119.27011300,"branchtype":["E","C"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSU: CLOSED","phone":"(559)734-4035"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSU: CLOSED","phone":"(559)734-4035"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":null,"tags":null,"htmltitle":"mkquartz Tile & Stone in Visalia, Store 102"},{"id":54,"name":"Vista Branch","locationcode":"129","street":"1725 Hacienda Dr Suite A","city":"Vista","state":"CA","zip":"92081-4546","phone":"(760)724-6400","fax":null,"latitude":33.18832580,"longitude":-117.27501080,"branchtype":["E","C","S"],"isactive":true,"timeofoperation":null,"operations":[{"operationtype":"Showroom","timeofoperation":"Monday - Friday: 8:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(760)724-6400"},{"operationtype":"Customer Service","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(760)724-6400"},{"operationtype":"Slabyard","timeofoperation":"Monday - Friday: 7:30 AM - 5:00 PM\nSaturday: 10:00 AM - 5:00 PM\nSunday: 10:00 AM - 5:00 PM","phone":"(760)724-6400"}],"branchaddressurl":"","operationtype":["Showroom","Customer Service","Slabyard"],"timezone":"Pacific Standard Time","isexternalbrand":false,"externalBrandDetails":null,"streetViewImageUrl":"//maps.googleapis.com/maps/api/streetview?size=350x250&location=33.189501,-117.275402&heading=150&pitch=-0.76&fov=80","tags":null,"htmltitle":"mkquartz Tile & Stone in Vista, Store 129"}]);
+	</script>
+</div>
+
+</div>
+	
+	
+
+<!-- <div class="footer--hr">
+	<div class="footer">
+		<div class="footer-container">
+			<div class="footer-item footer-item__column column-1">
+				<oep-sign-up></oep-sign-up>
+				<h4 class="footer-subheader">
+					Receive the latest info on product arrivals, trends, and design tips.
+				</h4>
+				<h6 class="footer-caption">To opt out of future marketing emails, <a href="/en/subscription/unsubscribe/">click here</a>
+				</h6>
+				<div class="footer-container footer-logos__container">
+					<h6 class="logo-header">As seen on</h6>
+					<ul class="logo-list">
+						<li class="logos">
+							<div class="icon icon--160x72 houzz">houzz</div>
+						</li>
+						<li class="logos">
+							<div class="icon icon--160x72 hgtv">hgtv</div>
+						</li>
+						<li class="logos">
+							<div class="icon icon--160x72 luxe">luxe</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-item footer-item__column">
+				<div class="flex-container footer-info">
+                		<ul class="footer-info__item">
+							<li class="title">Company Info</li>
+							<li><a href="/en/about/">About Us</a></li>
+							<li><a href="../our-locations/">Our Locations</a></li>
+							<li><a href="https://mkquartz.applicantpro.com/jobs/" target="_blank">Join Our Team</a></li>
+							<li><a href="/en/california-supply-chains-act/">CA Supply Chains Act</a></li>
+						</ul>
+						<ul class="footer-info__item">
+							<li class="title">Customer Service</li>
+							<li><a href="/en/contact/">Contact Us</a></li>
+							<li><a href="/en/payorder/">Pay Online</a></li>
+							<li><a href="/en/returns/">Returns</a></li>
+							<li><a href="/en/billing-and-shipping/">Billing & Shipping</a></li>
+							<li><a href="/en/terms-of-sale/">Terms of Sale</a></li>
+						</ul>
+						<ul class="footer-info__item">
+							<li class="title">Pro Services</li>
+							<li><a href="/en/business-account/">Connect Your Account Online</a></li>
+							<li><a href="/en/account/businessform/">Create a Business Account</a></li>
+							<li><a href="/en/pros/architects-designers/">Architects &amp;&nbsp;Designers</a></li>
+							<li><a href="/en/pros/contractors/">Contractor</a></li>
+							<li><a href="/en/pros/wholesale/">Wholesale Partners</a></li>
+							<li><a href="/en/pros/national-mosaic/">National Mosaic Program</a></li>
+						</ul>
+						<ul class="footer-info__item resource">
+							<li class="title">Resources</li>
+							<li><a href="/en/installation-care-maintenance/">Installation,&nbsp;Maintenance&nbsp;&amp;&nbsp;Care</a></li>
+							<li><a href="/en/warranty/">Warranty</a></li>
+							<li><a href="/en/how-its-made/">How It's Made</a></li>
+							<li><a href="/en/slab-buying-guide/">Slab Buying Guide</a></li>
+							<li><a href="https://mkquartz.s3.amazonaws.com/assets/pdf/Master_Catalog_2018.pdf" target="_blank">Master Catalog</a></li>
+						</ul>
+				</div>
+				<div class="footer-container footer-social-media">
+					<h5 class="header">Follow Us</h5>
+					<ul class="icons-container">
+						<li class="icons">
+							<a href="https://www.facebook.com/mkquartzTileandStone" target="_blank" class="icon icon--48x48 facebook">facebook</a>
+						</li>
+						<li class="icons">
+							<a href="https://www.instagram.com/mkquartztile/" target="_blank" class="icon icon--48x48 instagram">instagram</a>
+						</li>
+						<li class="icons">
+							<a href="https://twitter.com/mkquartzTile" target="_blank" class="icon icon--48x48 twitter">twitter</a>
+						</li>
+						<li class="icons">
+							<a href="https://www.houzz.com/pro/mkquartztile/mkquartz-tile-and-stone" target="_blank" class="icon icon--48x48 houzz ">houzz</a>
+						</li>
+						<li class="icons">
+							<a href="https://www.pinterest.com/mkquartztile/" target="_blank" class="icon icon--48x48 pinterest">pinterest</a>
+						</li>
+						<li class="icons">
+							<a href="https://www.youtube.com/channel/UCCVOy84vdT-E-LZhxMdbeaw" target="_blank" class="icon icon--48x48 youtube">youtube</a>
+						</li>
+						<li class="icons">
+							<a href="https://www.linkedin.com/company/638656" target="_blank" class="icon icon--48x48 linkedin">linkedin</a>
+						</li>
+						<li class="icons">
+							<a href="https://www.glassdoor.com/Overview/Working-at-mkquartz-EI_IE237090.11,21.htm" target="_blank" class="icon icon--48x48 glassdoor">glassdoor</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-container copy-container">
+			<div class="copy-list">
+				<span class="copy">
+					<img src="mkquartz/images/mkquartz/image/upload/v1486062610/assets/content/footer/logo.svg" />
+					<span class="text">&copy;2018 mkquartz Tile &amp; Stone All Rights Reserved</span>
+				</span>
+				<ul class="terms">
+					<li class="terms-of-use">
+						<a href="/en/terms-and-conditions/">Terms of Use</a>
+					</li>
+					
+					<li class="terms-of-use">
+						<a href="/en/website-policies/">Privacy Policy</a>
+					</li>
+				</ul>
+			</div>
+			<div class="copy-logo">
+				<a target="_blank" href="//www.bbb.org/sdoc/business-reviews/tile-and-marble/mkquartz-tile-stone-in-anaheim-ca-15003127/#bbbonlineclick" class="icon icon--64x24 bbb">bbb
+				</a>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+										<script type="text/javascript">_satellite.pageBottom();</script>
+									
+</body>
+</html>

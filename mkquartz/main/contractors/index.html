@@ -1,0 +1,565 @@
+<!DOCTYPE html >
+<html data-version="0.0.0.0"
+data-language="en"
+data-root="/"
+data-content-root="/mkquartz/" ng-app="app">
+<head>
+									
+	<title>Contractors</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="description" content="Sign up and save! Our contractor program makes it faster and easier to shop for tile, stone, building materials and tools." />
+	<link rel="canonical" href="" />
+	<link rel="shortcut icon" type="image/ico" href="" />
+	
+	<style type="text/css">
+	.button {
+  border-radius: 2px;
+  padding: 15px 45px;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  font-family: Roboto;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  max-width: 100%;
+  display: inline-block;
+  transition: all 100ms linear;
+}
+.button.sq {
+  padding: 20px 35px;
+  border-radius: 0;
+  font-style: normal;
+  font-size: 18px;
+  text-shadow: none;
+}
+.button.blue {
+  background-color: #4587f7;
+  color: #fff;
+}
+.button.blue:hover {
+  background-color: #2b72ed;
+}
+.button.clear {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+}
+.button.clear:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.button.clear-blue {
+  border: 1px solid #337bf4;
+  color: #337bf4;
+}
+.button.clear-blue:hover {
+  background-color: #337bf4;
+  color: #ffffff;
+}
+ 
+  .button {
+    margin-top: 1em;
+  }
+
+  h2 {
+    font-weight: 300;
+  }
+
+  hr {
+    width: 100px;
+    border-top: solid 2px rgb(115, 168, 255);
+    margin-top: 0;
+  }
+
+  #cmsMain p {
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .herobanner {
+    height: 500px;
+    max-width: 100%;
+    background-color: rgb(161, 149, 131);
+    background-image: url(../../images/mkquartz/contractor-banner.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: white;
+  }
+
+  .herobanner:before {
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    
+  }
+
+  .herobanner .textbanner {
+    background-color: rgba(68, 70, 77, 0.51);
+  }
+
+
+  .herobanner .container {
+    display: inline-block;
+    position: relative;
+    top: -20px; /* compensate for .whitespace */
+    width: 650px;
+    max-width: 100%;
+    vertical-align: middle;
+    padding: 25px;
+   
+  }
+
+  .herobanner .whitespace {
+    height: 50px;
+    width: 1040px;
+    position: relative;
+    top: -50px;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+  .herobanner h1 {
+    margin-bottom: .5em;
+    font-weight: 200;
+    font-size: 40px;
+    letter-spacing: 1.5px;
+    color: #EEE;
+  }
+
+  .herobanner p {
+    font-weight: 300;
+    padding: 0 35px;
+    color: rgb(237, 237, 237);
+  }
+
+  .benefits {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .column {
+  display: inline-block;
+  vertical-align: middle;
+  }
+  
+  
+  .benefits .column {
+    width: 24%;
+    display: inline-block;
+    padding: 25px;
+    text-align: center;
+    vertical-align: top;
+    font-weight: 300;
+  }
+
+  .benefits h3 {
+    font-weight: 300;
+  }
+
+  .onestop {
+    height: 700px;
+max-width:100%px;
+margin: 0 auto;
+    margin-top: 3em;
+    background-color: rgb(88, 75, 65);
+    background-image: url(../../images/mkquartz/contractor-man.jpg);
+    background-position: center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+  }
+
+  .onestop:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .onestop .container {
+    display: inline-block;
+    width: 650px;
+    max-width: 90%;
+    vertical-align: middle;
+    padding: 25px;
+    border: solid 1px rgba(200, 200, 200, .5);
+  }
+
+  .onestop p {
+    margin-top: 1.2em;
+    color: rgb(224, 224, 224);
+  }
+
+  .tools {
+    height: 497px;
+max-width:100%; 
+margin: 0 auto;
+    background-color: rgb(247, 247, 247);
+    background-image: url(../../images/mkquartz/tools.jpg);
+    text-align: center;
+    color: #f2c741;
+  }
+
+  .tools:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .tools .container {
+    display: inline-block;
+    width: 650px;
+    max-width: 90%;
+    vertical-align: middle;
+  }
+
+  .tools hr {
+    margin: 20px auto;
+    border-top: solid 2px rgba(255, 255, 255, .5);
+  }
+
+  .tools p {
+    color: rgb(224, 224, 224);
+  }
+
+  .products, .brands {
+    display: inline-block;
+    width: 50%;
+    height: 400px;
+    padding: 3em;
+    border: solid 1px rgb(226, 226, 226);
+    border-top-style: none;
+  }
+
+  .products .container, .brands .container {
+    padding: 0;
+  }
+
+  .products h2, .brands h2 {
+    margin-bottom: 2em;
+  }
+
+  .products .container, .brands .container {
+    width: 414px;
+    max-width: 100%;
+  }
+
+  .products {
+    float: left;
+    border-right-style: none;
+  }
+
+  .products ul {
+    padding-left: 0;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 75px;
+  }
+
+  .products li {
+    white-space: nowrap;
+  }
+
+  .brands img {
+    max-width: 90%;
+    margin-bottom: 2em;
+  }
+
+  .products li {
+    font-size: 16px;
+    line-height: 25px;
+    color: rgb(161, 161, 161);
+  }
+
+  .signup {
+    height: 600px;
+    background-color:#fff;
+    background-size: cover;
+    text-align: center;
+  }
+
+  .signup:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .signup .container {
+    display: inline-block;
+    width: 600px;
+    max-width: 100%;
+    position: relative;
+    top: -25px;
+    vertical-align: middle;
+  }
+
+@media (max-width: 719px) {
+    .herobanner {
+      height: auto;
+      background-image: url(../../images/mkquartz/contractor-banner-mobile.jpg);
+    }
+
+    .herobanner .container {
+      position: static;
+      height: 100%;
+    }
+
+      .herobanner p {
+    font-weight: 300;
+    padding: 0 45px;
+    padding-bottom:40px;
+    color: rgb(237, 237, 237);
+  }
+
+    .whitespace {
+      display: none;
+    }
+
+    .benefits .column {
+      width: 50%;
+    }
+
+ .onestop {
+      height: auto;
+    }
+
+     .onestop .container{
+      margin-top:2em;
+      margin-bottom:2em;
+    }
+
+.benefits h2{
+  padding-top:2em;
+}
+
+
+        .signup {
+      height: auto;
+      padding-bottom: 3em;
+       margin-top: 3em;
+      background-image: none;
+    }
+
+      .onestop .container {
+      border-style: none;
+    }
+  }
+
+
+
+
+  @media (max-width: 500px) {
+    .herobanner {
+      height: auto;
+      background-image: url(../../images/mkquartz/contractor-banner-mobile.jpg);
+    }
+
+    .herobanner .container {
+      position: static;
+      height: 100%;
+    }
+
+    .whitespace {
+      display: none;
+    }
+
+    .benefits .column {
+      width: 50%;
+    }
+
+    .onestop {
+      height: auto;
+    }
+
+    .onestop .container {
+      border-style: none;
+    }
+
+    .brands, .products {
+      width: 100%;
+      height: auto;
+      margin-top: 1em;
+      padding: 1em;
+    }
+
+    .brands {
+      text-align: center;
+    }
+
+    .brands .container {
+      padding: 0;
+    }
+
+    .products ul {
+      -webkit-column-gap: auto;
+    }
+
+    .products h2 {
+      text-align: center;
+    }
+
+    .products li {
+      font-size: 15px;
+    }
+
+    .tools {
+       height: auto;
+      background-color: #2A2A2A;
+      background-image: url(../../images/mkquartz/tools-mobile.jpg);
+    }
+
+      .tools .container {
+    display: inline-block;
+    width: auto;
+    max-width: 90%;
+    vertical-align: middle;
+  padding-top:4em;
+padding-bottom:4em;
+  }
+
+    .signup {
+      height: auto;
+      margin-top: 3em;
+      background-image: none;
+    }
+
+    .signup h2 {
+      margin-bottom: 1em;
+    }
+  }
+	</style>
+			
+</head>
+<body class="ng-scope">
+
+  <div class="page-content" ng-class="{'hide-mobile': mobileMenu}">
+    
+    <div>
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-list-item"><a href="#/">Home</a></li>
+        <li class="breadcrumb-list-item"><a href="#/pros/">MkQuartz Pro Services &amp; Savings</a></li>
+        <li class="breadcrumb-list-item"><a href="">Contractors</a></li>   
+      </ul>
+    </div>
+    
+  <div id="cmsPage">
+    <div id="cmsTop"></div>
+    <div id="cmsMiddle">
+      <div id="cmsLeft"></div>
+      <div id="cmsCenter">
+        <div id="cmsBeforeMain"></div>
+        <div id="cmsMain">
+  <div class="herobanner">
+  <div class="container">
+  <h1>Contractor Pro Services</h1>
+
+  <p>Sign up and save! Our contractor program makes it faster and easier to shop for tile, stone, building materials and tools.</p>
+  </div>
+
+  <div class="whitespace">&nbsp;</div>
+  </div>
+
+  <div class="benefits">
+  <h2>The Benefits</h2>
+
+  <hr />
+  <p>It&#39;s Free to Join</p>
+
+  <div class="column"><img src="../../images/mkquartz/time.png" style="width:100px" />
+  <h3>Faster Service</h3>
+
+  <p>Faster checkout gets you in and out so you can get the job done</p>
+  </div>
+
+  <div class="column"><img src="../../images/mkquartz/price.png" style="width:100px" />
+  <h3>Discounts</h3>
+
+  <p>Get discounts on our already competitive prices, including tile, decorative and natural stone</p>
+  </div>
+
+  <div class="column"><img src="../../images/mkquartz/location.png" style="width:100px" />
+  <h3>Distribution Network</h3>
+
+  <p>Order products and have them delivered to one of our 39 locations</p>
+  </div>
+
+  <div class="column"><img src="../../images/mkquartz/workshop.png" style="width:100px" />
+  <h3>Training Workshops</h3>
+
+  <p>Free workshops and events to keep you updated on new techniques &amp; products</p>
+  </div>
+  </div>
+
+  <div class="onestop">
+  <div class="container">
+  <h2>MkQuartz is your one stop shop!</h2>
+
+  <p>In 1948, our founder, Ed MkQuartz, began servicing contractors and builders in Central California with tile and settings materials. Today, over 60 years later, MkQuartz is one of the largest independent tile and stone importers, manufacturers and distributors, servicing a national and international customer base with over 37 branches throughout the US.</p>
+  </div>
+  </div>
+
+  <div class="tools">
+  <div class="container">
+  <h2>We carry pro tools to make your job easier</h2>
+
+  <hr />
+  <p>MkQuartz offers everyday tools such as grout, spacers, setting materials and power tools &mdash; everything you need for installation.</p>
+  </div>
+  </div>
+
+  <div class="products">
+  <div class="container">
+  <h2>Our Products</h2>
+
+  <ul>
+  <li>Porcelain Tile</li>
+  <li>Engineered Quartz</li>
+  <li>Natural Stone</li>
+  <li>Slabs</li>
+  <li>Grout</li>
+  <li>Sealers</li>
+  <li>Floor Warmers</li>
+  <li>Leveling Systems</li>
+  <li>Thinsets</li>
+  <li>Cleaners</li>
+  <li>Surface Prep Materials</li>
+  <li>Tools</li>
+  </ul>
+  </div>
+  </div>
+
+  <div class="brands">
+  <div class="container">
+  <h2>Pro Brands We Offer</h2>
+  <img src="../../images/mkquartz/brands.jpg" /></div>
+  </div>
+
+  <div class="signup">
+  <div class="container">
+  <div style="text-align:center; padding-top:30px; padding-bottom:20px;"><img src="../../images/mkquartz/comp.png" style="width:150px" /></div>
+
+  <h2>Interested in becoming a partner?</h2>
+
+  <p>Fill out an application, send to <a href="">info@MkQuartz.com</a> and a rep will be in contact with you shortly to complete the process.</p>
+  <!-- <a class="button clear-blue" href="../../Account/businessform">Get Started</a> -->
+  </div>
+  </div>
+
+  </div>
+        <div id="cmsAfterMain"></div>
+      </div>
+      <div class="pull-left" id="cmsRight"></div>
+    </div>
+    <div id="cmsBottom"></div>
+  </div>
+
+  </div>
+					
+</body>
+</html>

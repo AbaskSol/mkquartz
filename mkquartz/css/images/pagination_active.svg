@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>pagination_active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-2013.000000, -3292.000000)">
+            <g id="Buttons" sketch:type="MSLayerGroup" transform="translate(272.000000, 1664.000000)">
+                <g id="pagination_active" transform="translate(1742.000000, 1628.000000)" sketch:type="MSShapeGroup">
+                    <path d="M10.2980234,20.7474105 C15.8208709,20.7474105 20.2980234,16.270258 20.2980234,10.7474105 C20.2980234,8.99003519 19.8447035,7.33853845 19.0486198,5.90347642 C17.3428766,2.82861461 14.0634956,0.747410479 10.2980234,0.747410479 C4.77517594,0.747410479 0.298023437,5.22456298 0.298023437,10.7474105 C0.298023437,16.270258 4.77517594,20.7474105 10.2980234,20.7474105 Z" id="Oval-11-Copy-6" stroke="#60A0FF"></path>
+                    <ellipse id="Oval-11-Copy-5" fill="#60A0FF" cx="10.2980234" cy="10.7474105" rx="7" ry="7"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

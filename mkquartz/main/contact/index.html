@@ -1,0 +1,490 @@
+<!DOCTYPE html >
+<html data-version="0.0.0.0"
+data-language="en"
+data-root="/"
+data-content-root="/mkquartz/" ng-app="app">
+<head>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+	<title>Customer Service</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="canonical" href="" />
+	<link rel="shortcut icon" type="image/ico" href="" />
+	
+<style type="text/css">
+#cmsMain .exp-input-container {
+padding-top: 20px;
+padding-bottom: 5px;
+}
+
+.icon-shopping-bag {
+    background-image: url('') !important;
+}
+
+.icon-search {
+    background-image: url('') !important;
+}
+
+.icon-trashcan {
+    background-image: url('../../images/mkquartz/icon-trashcan.png') !important;
+}
+
+.icon-circle-add {
+    background-image: url('../../images/mkquartz/icon-add.png') !important;
+}
+
+.icon-user {
+    background-image: url('') !important;
+}
+@media only screen and (min-width: 768px){
+.page-header {
+    height: 330px !important;
+    padding: 0 !important;
+}
+}
+.page-header {  
+    padding: 0 !important;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="../../css/app.css" />
+<link rel="stylesheet" type="text/css" href="../../css/customer-service.css" />
+<script src="../../js/vue.js"></script>		
+		
+</head>
+<body class="ng-scope">
+
+	<div class="page-content" ng-class="{'hide-mobile': mobileMenu}">
+		
+		<div>
+			<ul class="breadcrumb-list">
+				<li class="breadcrumb-list-item"><a href="../../index.html">Home</a></li>
+				<li class="breadcrumb-list-item"><a href="">Customer Service</a></li>
+				
+			</ul>
+		</div>
+		
+	<div id="cmsPage">
+		<div id="cmsTop"></div>
+		<div id="cmsMiddle">
+			<div id="cmsLeft"></div>
+			<div id="cmsCenter">
+				<div id="cmsBeforeMain"></div>
+				<div id="cmsMain">
+		<div class="page-header customer-service">
+		
+		<div class="wrapper">
+			<h1 class="page-header-title">Customer Service</h1>
+			<p class="page-header-subtitle">How can we help?</p>
+		</div>
+	</div>
+
+	<div class="field">
+		<div class="grid-container">
+
+			<div id="customer-support-hours" class="sidebar col-5">
+				<header class="sidebar-header">
+					<h2 class="sidebar-subsection-title">Contact Us</h2>
+					<p>Need help or have a question? Fill out the contact form or give us a call:</p>
+					<p>Local: <a href="tel:+17148291000">22-222-222</a></p>
+					<p>Toll Free: <a href="tel:+18007608453">7867564534</a></p>
+				</header>
+				<div class="sidebar-subsection">
+					<h3 class="sidebar-subsection-title">Customer Service Hours</h3>
+					<ul class="list">
+						<li>Mon-Fri: 7:30 AM - 4:00 PM</li>
+						<li>Sat-Sun: Closed</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="js-customer-service" class="main-content" v-cloak>
+
+				<form class="push-1 col-10" v-on:submit.prevent="handleSubmit">
+					<div class="form-group">
+						<header class="form-group-header">
+							<h3 class="form-group-title--large">Contact Information</h3>
+						</header>
+
+						<div class="grid-collapse">
+							<label class="exp-input-container col-5-of-10" v-bind:class="{ 'error': errors.has('fname') }">
+								<strong>First Name</strong>
+								<input autofocus autocomplete="given-name" name="fname" type="text" v-model="form.fname" v-validate="'required'" />
+								<span v-if="errors.has('fname')" class="input-error">{{ errors.first('fname') }}</span>
+							</label>
+
+							<label class="exp-input-container col-5-of-10" v-bind:class="{ 'error': errors.has('lname') }">
+								<strong>Last Name</strong>
+								<input autocomplete="family-name" name="lname" type="text" v-model="form.lname" v-validate="'required'" />
+								<span v-if="errors.has('lname')" class="input-error">{{ errors.first('lname') }}</span>
+							</label>
+
+							<label class="exp-input-container col-10-of-10" v-bind:class="{ 'error': errors.has('address-line1') }">
+								<strong>Address Line 1</strong>
+								<input autocomplete="address-line1" name="address-line1" type="text" v-model="form.addressline1" v-validate="'required'"
+								/>
+								<span v-if="errors.has('address-line1')" class="input-error">{{ errors.first('address-line1') }}</span>
+							</label>
+
+							<label class="exp-input-container col-8-of-8">
+								<strong>Address Line 2</strong> (optional)
+								<input autocomplete="address-line2" name="address-line2" placeholder="Apt, Unit, Suite, etc." type="text" v-model="form.addressline2"
+								/>
+							</label>
+
+							<label class="exp-input-container col-5-of-10" v-bind:class="{'error': errors.has('city')}">
+								<strong>City</strong>
+								<input autocomplete="address-level2" name="city" type="text" v-model="form.city" v-validate="'required'" />
+								<span v-if="errors.has('city')" class="input-error">{{ errors.first('city') }}</span>
+							</label>
+
+							<label class="exp-input-container col-3-of-10" v-bind:class="{ 'error': errors.has('state') }">
+								<strong>State</strong>
+								<select autocomplete="address-level1" name="state" v-model="form.state" v-validate="'required'" v-bind:class="{ 'placeholder': !form.state }">
+									<option value="" disabled selected>Select...</option>
+									<option v-for="state in states" v-bind:value="state.abbreviation">{{ state.name }}</option>
+								</select>
+								<span v-if="errors.has('state')" class="input-error">{{ errors.first('state') }}</span>
+							</label>
+
+							<label class="exp-input-container col-2-of-10" v-bind:class="{ 'error': errors.has('zip') }">
+								<strong>ZIP Code</strong>
+								<input autocomplete="postal-code" maxlength="5" name="zip" type="text" v-model="form.zip" v-validate="'required|digits:5'"
+								/>
+								<span v-if="errors.has('zip')" class="input-error">{{ errors.first('zip') }}</span>
+							</label>
+
+							<label class="exp-input-container col-5-of-10" v-bind:class="{'error': errors.has('phone')}">
+								<strong>Phone</strong>
+								<input autocomplete="tel" id="phone" maxlength="15" name="phone" placeholder="+1-555-555-5555" type="tel" v-model="form.phone"
+									v-validate="'required'" />
+								<span v-if="errors.has('phone')" class="input-error">{{ errors.first('phone') }}</span>
+							</label>
+
+							<label class="exp-input-container col-5-of-10" v-bind:class="{'error': errors.has('email')}">
+								<strong>Email</strong>
+								<input autocomplete="email" name="email" type="email" placeholder="jane.applesauce@domain.com" v-bind:class="{'error': errors.has('email')}"
+									v-model="form.email" v-validate="'required|email'" />
+								<span v-if="errors.has('email')" class="input-error">{{ errors.first('email') }}</span>
+							</label>
+
+							<input name="honeypot" type="text" placeholder="Do not put anything here or form will not send." v-model="form.honeypot"
+							/>
+
+							<div class="form-field col-10-of-10">
+								<p class="fieldset-title" style="margin-top: 20px;">Preferred Method of Contact</p>
+								<div class="fieldset-content fieldset-content--inline">
+									<label class="custom-input-container">
+										Email
+										<input name="preferredContact" type="radio" value="email" v-model="form.preferredContact" v-validate="'required'" />
+										<span class="radio"></span>
+									</label>
+
+									<label class="custom-input-container">
+										Telephone
+										<input name="preferredContact" type="radio" value="phone" v-model="form.preferredContact" />
+										<span class="radio"></span>
+									</label>
+								</div>							
+								<label v-if="errors.has('preferredContact')" class="exp-input-container" style="padding-top: 0;">
+									<span class="input-error">Please select one of these options.</span>
+								</label>
+							</div>
+
+							<label class="exp-input-container col-10-of-10" v-bind:class="{ 'error': errors.has('customerType') }">
+								<strong>Customer Type</strong>
+								<select name="customerType" v-model="form.customerType" v-on:change="onCustomerType" v-validate="'required'">
+									<option value="" disabled selected>Select ...</option>
+									<option value="Homeowner">Homeowner</option>
+									<option value="Dealer">Dealer</option>
+									<option value="Architect/Designer">Architect/Designer</option>
+									<option value="Contractor/Fabricator">Contractor/Fabricator</option>
+									<option value="Building/Property Manager">Building/Property Manager</option>
+								</select>
+								<span v-if="errors.has('customerType')" class="input-error">{{ errors.first('customerType') }}</span>
+							</label>
+
+							<label v-if="isBusiness" class="exp-input-container col-10-of-10"  v-bind:class="{ 'error': errors.has('company') }">
+								<strong>Company Name</strong> 
+								<input autocomplete="organization" name="company" placeholder="Required" type="text" v-model="form.company" v-validate="'required'"  v-bind:class="{ 'error': errors.has('company') }" />
+								<span v-if="errors.has('company')" class="input-error">{{ errors.first('company') }}</span>
+							</label>
+						</div>
+
+					</div>
+
+					<!-- Additional Information -->
+					<div class="form-group">
+						<header class="form-group-header">
+							<h3 class="form-group-title--large">What do you need help with?</h3>
+						</header>
+
+						<label class="exp-input-container"  v-bind:class="{ 'error': errors.has('subject') }">
+							<strong>Subject</strong>
+							<select name="subject" v-model="form.subject" v-bind:class="{'error': errors.has('subject')}" v-on:change="onSubjectChange"
+								v-validate="'required'">
+								<option value="" disabled selected>Select ...</option>
+								<option value="Request a price quote or place an order">Request a price quote or place an order</option>
+								<option value="Request a sample">Request a sample</option>
+								<option value="Create a business account">Create a business account</option>
+								<option value="Trouble with my online account">Trouble with my online account</option>
+								<option value="Help finding a product">Help finding a product</option>
+								<option value="Product Warranty or job issues">Product Warranty / Job Issues</option>
+								<option value="Other">Other</option>
+							</select>
+							<span v-show="errors.has('subject')" class="input-error">{{ errors.first('subject') }}</span>
+						</label>
+					</div>
+
+					<!-- Finding A Product -->
+					<div class="form-group" v-if="isShowingFindingAProduct">
+
+						<div class="form-group-header">
+							<h3 class="form-group-title--large">Finding A Product</h3>
+							<p>Please provide an image of the product you are looking for and a brief description such as the product&apos;s material
+								type (e.g. granite) and the product&apos;s dimensions.</p>
+						</div>
+
+						<div class="input-container grid-collapse">
+							<label class="label col-10-of-10">Upload Images</label>
+
+							<div class="drop-area col-1-of-3" v-bind:class="{'has-file': file1}">
+								<p v-if="!file1" class="milli">Drop files here or click to select file.
+									<br />5 MB max files size.</p>
+								<p class="drop-area-success milli" v-else-if="file1" class="milli">{{ file1.name }}</p>
+								<button class="drop-area-remove-btn" v-if="file1" type="button" v-on:click="removeImage">Remove</button>
+								<input type="file" name="file1" id="file1" accept="image/*" v-validate="'image|size:5120'" v-on:change="handleFile" />
+							</div>
+
+							<div class="drop-area col-1-of-3" v-bind:class="{'has-file': file2}">
+								<p v-if="!file2" class="milli">Drop files here or click to select file.
+									<br />5 MB max files size.</p>
+								<p class="drop-area-success milli" v-else-if="file2" class="milli">{{ file2.name }}</p>
+								<button class="drop-area-remove-btn" v-if="file2" type="button" v-on:click="removeImage">Remove</button>
+								<input type="file" name="file2" id="file2" accept="image/*" v-validate="'image|size:5120'" v-on:change="handleFile" />
+							</div>
+
+							<div class="drop-area col-1-of-3" v-bind:class="{'has-file': file3}">
+								<p v-if="!file3" class="milli">Drop files here or click to select file.
+									<br />5 MB max files size.</p>
+								<p class="drop-area-success milli" v-else-if="file3" class="milli">{{ file3.name }}</p>
+								<button class="drop-area-remove-btn" v-if="file3" type="button" v-on:click="removeImage">Remove</button>
+								<input type="file" name="file3" id="file3" accept="image/*" v-validate="'image|size:5120'" v-on:change="handleFile" />
+							</div>
+						</div>
+					</div>
+
+					<!-- Request a price quote or place an order -->
+					<div class="form-group" v-if="isShowingQuoteAndOrderRequest">
+						<header class="form-group-header">
+							<h3 class="form-group-title--large">Request a price quote or place an order</h3>
+							<p class="form-group-subtitle">Enter the product information below.</p>
+						</header>
+										
+						<!-- Job name is required when there are 0 elements in the orderRequests-->
+						<div v-if="form.orderRequests.length == 0">
+							<div class="form-group-row grid collapse" v-if="displayJobnameForRequestPriceOrPlaceAnOrder">
+								<label class="exp-input-container" v-bind:class="{ 'error': errors.has('jobname') }">
+									<strong>Job Name</strong>
+									<input type="text" name="jobname" v-model="newOrderRequest.jobname" v-validate="'required'" />
+									<span v-show="errors.has('jobname')" class="input-error">{{ errors.first('jobname') }}</span>
+								</label>
+							</div>
+						</div>
+
+						<!-- Job name is displayed and it is NOT required when there is at least 1 element in the orderRequests-->
+						<div v-if="form.orderRequests.length >= 1">
+							<div class="form-group-row grid collapse" v-if="displayJobnameForRequestPriceOrPlaceAnOrder">
+								<label class="exp-input-container">
+									<strong>Job Name</strong>
+									<input type="text" name="jobname" v-model="newOrderRequest.jobname" />									
+								</label>
+							</div>
+						</div>
+						
+						<!-- Job name is NOT displayed-->
+						<div class="form-group-row grid collapse" v-if="!displayJobnameForRequestPriceOrPlaceAnOrder">
+							<label class="exp-input-container">
+								<strong>Job Name</strong>
+								<input type="text" name="jobname" v-model="newOrderRequest.jobname" />
+							</label>
+						</div>
+
+						<!-- This is going to be required only if there are zero elements in newOrderRequest -->
+						<div class="grid-collapse" v-if="form.orderRequests.length == 0">
+
+							<label class="exp-input-container col-4-of-10" v-bind:class="{ 'error': errors.has('itemCode') }"> 
+								<strong>Item Code </strong>
+								<input type="text" name="itemCode" v-model="newOrderRequest.itemCode" v-validate="'required'" />
+								<span class="input-error">You need to add at least 1 Item</span>
+							</label>
+
+							<label class="exp-input-container col-2-of-10" v-bind:class="{ 'error': errors.has('qty') }">
+								<strong>Quantity</strong>
+								<input type="text" name="qty" v-model="newOrderRequest.qty" v-validate="'required'" />
+							</label>
+
+							<label class="exp-input-container col-2-of-10" v-bind:class="{ 'error': errors.has('unit') }">
+								<strong>Unit</strong>
+								<select name="unit" v-model="newOrderRequest.unit" v-validate="'required'">
+									<option value="" disabled selected>Select ...</option>
+									<option value="sq ft">Square feet</option>
+									<option value="pcs">Pieces</option>
+									<option value="sheets">Sheets</option>
+								</select>
+							</label>
+							
+						</div>
+						<div class="form-group-row grid-collapse" v-if="form.orderRequests.length == 0" style="margin-top: 10px;">
+							<button class="btn" style="margin-left: 20px; margin-bottom: 10px;margin-top: 5px;" type="button" name="btnAdd"	
+								v-on:click="addOrderRequest" >
+								Add Item
+							</button>
+						</div>
+
+						<!-- This is going to be required only if there is at least one elemente in newOrderRequest -->
+						<div class="grid-collapse" v-if="form.orderRequests.length >= 1">
+
+							<label class="exp-input-container col-4-of-10">
+								<strong>Item Code</strong>
+								<input type="text" name="itemCode" v-model="newOrderRequest.itemCode" />
+							</label>
+												
+							<label class="exp-input-container col-2-of-10">
+								<strong>Quantity</strong>
+								<input type="text" name="qty" v-model="newOrderRequest.qty" />
+							</label>
+
+							<label class="exp-input-container col-2-of-10">
+								<strong>Unit</strong>
+								<select name="unit" v-model="newOrderRequest.unit">
+									<option value="" disabled selected>Select ...</option>
+									<option value="sq ft">Square feet</option>
+									<option value="pcs">Pieces</option>
+									<option value="sheets">Sheets</option>
+								</select>
+							</label>
+
+						</div>
+
+						<div class="form-group-row grid-collapse" v-if="form.orderRequests.length >= 1"  style="margin-top: 10px;">
+							<button class="btn" style="margin-left: 20px; margin-bottom: 10px;margin-top: 5px;" type="button" v-on:click="addOrderRequest">
+								Add Item
+							</button>						
+						</div>
+
+					</div>
+
+					<div class="form-group" v-if="isShowingQuoteAndOrderRequest">
+						<!-- Display jobname on the list-->
+						<ul class="customer-service-item-list" v-if="displayJobnameForRequestPriceOrPlaceAnOrder">
+							<li v-for="(orderRequest, index) in form.orderRequests">
+								<span>{{ orderRequest.jobname }} {{ orderRequest.qty }} {{ orderRequest.unit }} of {{ orderRequest.itemCode }}</span>&nbsp;&nbsp;
+								<span style="cursor:pointer; text-decoration:underline;" v-on:click="removeOrder(index)">(Remove Item)</span>								
+							</li>
+						</ul>
+
+						<!-- Don't display jobname on the list-->
+						<ul class="customer-service-item-list" v-if="!displayJobnameForRequestPriceOrPlaceAnOrder">
+							<li v-for="(orderRequest, index) in form.orderRequests">
+								<span> {{ orderRequest.qty }} {{ orderRequest.unit }} of {{ orderRequest.itemCode }}</span>&nbsp;&nbsp;
+								<span style="cursor:pointer; text-decoration:underline;" v-on:click="removeOrder(index)">(Remove Item)</span>							
+							</li>
+						</ul>
+					</div>
+
+					<!-- Request a sample -->
+					<div class="form-group" v-if="isShowingSampleRequest">
+						<header class="form-group-header">
+							<h3 class="form-group-title--large">Request a sample</h3>
+							<p class="form-group-subtitle">Enter the product information below.</p>
+						</header>
+
+						<label class="exp-input-container">
+							<strong>Job Name</strong>
+							<input type="text" name="job" v-model="form.job" />
+						</label>
+
+						<!-- Required if there are 0 items -->
+						<label class="exp-input-container" v-if="form.sampleRequests.length == 0" v-bind:class="{ 'error': errors.has('itemCode') }">
+							<strong>Item Code</strong>
+							<input type="text" name="itemCode" v-model="newSampleRequest" v-on:keyup.enter="addSampleRequest" v-validate="'required'" />							
+							<button type="button" class="btn" style="margin-top:10px;" v-on:click="addSampleRequest">
+								Add  Item
+							</button>
+							<span v-show="errors.has('itemCode')" class="input-error">{{ errors.first('itemCode') }}</span>
+						</label>
+						<!-- Not required if there is at least one element -->
+						<label class="exp-input-container" v-if="form.sampleRequests.length >= 1">
+							<strong>Item Code</strong>							
+							<input type="text" name="itemCode" v-model="newSampleRequest" v-on:keyup.enter="addSampleRequest" />							
+							<button type="button" class="btn" style="margin-top:10px;" v-on:click="addSampleRequest">
+								Add Item
+							</button>						
+						</label>
+			
+						<ul v-if="form.sampleRequests" class="customer-service-item-list">
+							<li v-for="(sampleRequest, index) in form.sampleRequests">
+								<span>{{ sampleRequest }}</span>&nbsp;&nbsp;
+								<span style="cursor:pointer; text-decoration:underline;" v-on:click="removeSample(index)">(Remove Item)</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="form-group">
+						<label class="exp-input-container">
+							<strong>Message</strong>
+							<textarea maxlength="1024" name="message" rows="6" v-model="form.message" placeholder="Please provide any additional information here."></textarea>
+						</label>
+					</div>
+
+					<div class="form-cta">
+						<button type="submit" class="btn" v-bind:disabled="isSubmitting">Submit</button>
+					</div>
+				</form>
+
+				<!-- Modals -->
+				<div v-if="isSubmitting" class="overlay">
+					<div class="modal">
+						<div class="modal__contents">
+							<p>Submitting form ...</p>
+						</div>
+					</div>
+				</div>
+
+				<div v-else-if="!isSubmitting && isSuccessful" class="overlay">
+					<div class="modal">
+						<div class="modal__contents">
+							<h3>Form Submitted</h3>
+							<p>Thank you for contacting us. We will get back to you within 2 business days or less.</p>
+							<a class="outline-btn" href="/">Return to Homepage</a>
+						</div>
+					</div>
+				</div>
+
+				<div v-else-if="!isSubmitting && hasFailed" class="overlay">
+					<div class="modal">
+						<div class="modal__contents">
+							<h3>Something went wrong...</h3>
+							<p>There was a problem with sending your form. Please try again later.</p>
+							<button class="outline-btn" type="button" v-on:click="closeDialog">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script src="../../js/customer-service-v7.bundle.js"></script>
+	</div>
+				<div id="cmsAfterMain"></div>
+			</div>
+			<div class="pull-left" id="cmsRight"></div>
+		</div>
+		<div id="cmsBottom"></div>
+	</div>
+
+	</div>
+						
+</body>
+</html>

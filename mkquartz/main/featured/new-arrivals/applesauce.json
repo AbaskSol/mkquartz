@@ -1,0 +1,28 @@
+{
+	"collections": [
+		{
+			"name": "Spring 2017",
+			"url": "spring-2017/"
+		},
+		{
+			"name": "Summer 2017",
+			"url": "summer-2017/"
+		},
+		{
+			"name": "Fall 2017",
+			"url": "fall-2017/"
+		},
+		{
+			"name": "Winter 2017",
+			"url": "winter-2017/"
+		},
+		{
+			"name": "Summer 2018",
+			"url": "summer-2018/"
+		},
+		{
+			"name": "Fall 2018",
+			"url": "fall-2018/"
+		}
+	]
+}

@@ -1,0 +1,13 @@
+.customer-service-item-list {
+  margin-bottom: 30px; }
+  .customer-service-item-list li {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    color: rgba(0, 0, 0, 0.7); }
+    .customer-service-item-list li span {
+      margin-top: 3px; }

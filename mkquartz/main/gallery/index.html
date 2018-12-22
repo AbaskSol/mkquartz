@@ -1,0 +1,681 @@
+<!DOCTYPE html >
+<html data-version="0.0.0.0"
+data-language="en"
+data-root="/"
+data-content-root="/mkquartz/" ng-app="app">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	
+	<title>Gallery | MkQuartz Tile &amp; Stone | Tile Shops &amp; Stores</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="canonical" href="" />
+	<link rel="shortcut icon" type="image/ico" href="" />
+	<!-- <script src="../../bundles/app-spa.js"></script> -->
+	
+<style>		
+.gallery
+{
+	min-height: 50px;
+}
+.gallery-title
+{
+    font-size: 36px;
+    color: #660000;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 45px;
+}
+.gallery-title:after {
+    content: "";
+    position: absolute;
+    width: 7.5%;
+    left: 46.5%;
+    height: 45px;
+    border-bottom: 1px solid #5e5e5e;
+}
+.filter-button
+{
+    font-size: 18px;
+    border: 1px solid #42B32F;
+    border-radius: 5px;
+    text-align: center;
+    color: #42B32F;
+    margin-bottom: 30px;
+}
+.filter-button:hover
+{
+    font-size: 18px;
+    border: 1px solid lightseagreen;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: lightseagreen;
+}
+.btn-default:active .filter-button:active
+{
+    background-color: #42B32F;
+    color: white;
+}
+.port-image
+{
+    width: 100%;
+}
+.gallery_product
+{
+    margin-bottom: 30px;
+}
+.gallerybutton{
+	background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    outline: none !important;
+}
+.fade:not(.show) {
+    opacity: 0;
+}
+.alert, .modal {
+    position: absolute;
+    top: 38% !important;
+    left: 50% !important;
+    /* display: block !important; */
+    overflow: unset;
+    max-width: calc(50%);
+    max-height: calc(50%);
+    transform: translate(-50%, -50%) !important;
+    border-radius: 3px;
+    background-color: transparent;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.75);
+}
+.modal {
+    /* position: absolute; */
+    /* right: 0; */
+    bottom: 0;
+    /* left: 0; */
+    z-index: 1050;
+    /* display: none; */
+    /* overflow: hidden; */
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+.modal-open .modal {
+    overflow-x: unset;
+    overflow-y: unset;
+}
+body.modal-open {
+    overflow: inherit;
+	height: auto;;
+}
+.btn-change5{
+    height: 40px;
+    width: 140px;
+    background: #31708f;
+    margin: 20px;
+    float: left;
+    border:0px;
+    color:#fff;
+    box-shadow: 0 0 1px #ccc;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    -webkit-box-shadow: 75px 0px 0 0 #660000 inset , -75px 0px 0 #660000 inset;
+}
+.btn-change5:hover{
+    -webkit-box-shadow: 0px 0px 0 0 #660000 inset , 0px 0px 0 #660000 inset;
+}
+.footer--hr .footer a {
+    font-size: 15px;
+    font-weight: 700;
+	text-decoration: none;
+}
+</style>
+			
+</head>
+<body class="ng-scope">
+
+	<div class="page-content" ng-class="{'hide-mobile': mobileMenu}">
+		
+	<div class="banner-section">
+		<div id="bContentTop" class="Banner ContentTop"></div>
+	</div>
+<br>
+	<div class="container">
+    	
+		<div class="row">
+			<div class="gallery">
+				<h1 class="gallery-title">Gallery</h1>
+			</div>
+		</div>
+
+		<div class="row">
+        <div>
+            <button class="btn-change5 filter-button" data-filter="all">All</button>&nbsp;&nbsp;
+            <button class="btn-change5 filter-button" data-filter="floor">Floor Tiles</button>&nbsp;&nbsp;
+            <button class="btn-change5 filter-button" data-filter="outdoor">Outdoor Tiles</button>&nbsp;&nbsp;
+            <button class="btn-change5 filter-button" data-filter="decorative">Decorative Tiles</button>&nbsp;&nbsp;
+            <button class="btn-change5 filter-button" data-filter="kitchen">Kitchen Tiles</button>
+		</div>
+		</div>	
+        <br>
+		
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter floor gallerybutton" data-toggle="modal" data-target="#myModal">
+				<img src="../../images/mkquartz/DOLMATUN1836.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Floor Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/DOLMATUN1836.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+			
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter outdoor gallerybutton" data-toggle="modal" data-target="#myModal1">
+				<img src="../../images/mkquartz/DOLMATUN22MO.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal1" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Outdoor Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/DOLMATUN22MO.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter floor gallerybutton" data-toggle="modal" data-target="#myModal2">
+				<img src="../../images/mkquartz/DECACAISC34RMO.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal2" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Floor Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/DECACAISC34RMO.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+	
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter kitchen gallerybutton" data-toggle="modal" data-target="#myModal3">
+				<img src="../../images/mkquartz/TRVSCABOS44T.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal3" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">kitchen Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/TRVSCABOS44T.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter decorative gallerybutton" data-toggle="modal" data-target="#myModal4">
+				<img src="../../images/mkquartz/DECAMBWAV44-V.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal4" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Decorative Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/DECAMBWAV44-V.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+           
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter kitchen gallerybutton" data-toggle="modal" data-target="#myModal5">
+				<img src="../../images/mkquartz/TRVAYMCRM2424FH.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal5" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Kitchen Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/TRVAYMCRM2424FH.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+           
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter decorative gallerybutton" data-toggle="modal" data-target="#myModal6">
+				<img src="../../images/mkquartz/GLSCITNEC12STGMC.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal6" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Decorative Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/GLSCITNEC12STGMC.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+            
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter kitchen gallerybutton" data-toggle="modal" data-target="#myModal7">
+				<img src="../../images/mkquartz/TCRAMA48S.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal7" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Kitchen Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/TCRAMA48S.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter kitchen gallerybutton" data-toggle="modal" data-target="#myModal8">
+				<img src="../../images/mkquartz/GLSCITPAH12STGMC.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal8" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Kitchen Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/GLSCITPAH12STGMC.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+           
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter floor gallerybutton" data-toggle="modal" data-target="#myModal9">
+				<img src="../../images/mkquartz/TCRDAGCHVS.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal9" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Floor Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/TCRDAGCHVS.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+        
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter decorative gallerybutton" data-toggle="modal" data-target="#myModal10">
+				<img src="../../images/mkquartz/GLSELM5858-OP.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal10" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Decorative Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/GLSELM5858-OP.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+	
+			<button type="button" class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter outdoor gallerybutton" data-toggle="modal" data-target="#myModal11">
+				<img src="../../images/mkquartz/SLTMUTCOL0404T.jpg" class="img-responsive">
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal11" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Outdoor Tile</h3>
+							<button type="button" class="close fa fa-close" data-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<img src="../../images/mkquartz/SLTMUTCOL0404T.jpg" class="img-responsive">
+						</div>
+					</div>	
+				</div>
+			</div>
+        
+    </div>
+
+
+
+	<!-- <div class="row">
+		<div class="col-md-12">
+		<div class="col-md-3">
+			<img class="img-responsive zoom" src="../../images/mkquartz/TRVSIENA1212T.jpg">
+		</div>
+		<div class="col-md-3">
+			<img class="img-responsive zoom" src="../../images/mkquartz/TRVSCABOS44T.jpg">
+		</div>
+		<div class="col-md-3">
+			<img class="img-responsive zoom" src="../../images/mkquartz/NATCOTCER1414G.jpg">
+		</div>
+		<div class="col-md-3">
+			<img class="img-responsive zoom" src="../../images/mkquartz/Cad_Red.jpg">
+		</div>
+		</div>
+	</div>
+	<div class="row">
+			<div class="col-md-12">
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/TRVAYMCRM2424FH.jpg">
+			</div>
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/GLSCITNEC12STGMC.jpg">
+			</div>
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/TCRAMA48S.jpg">
+			</div>
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/GLSCITPAH12STGMC.jpg">
+			</div>
+			</div>
+	</div>
+	<div class="row">
+			<div class="col-md-12">
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/TCRDAGCHVS.jpg">
+			</div>
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/GLSELM5858-OP.jpg">
+			</div>
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/GLSECP5858-MA.jpg">
+			</div>
+			<div class="col-md-3">
+				<img class="img-responsive zoom" src="../../images/mkquartz/SLTMUTCOL0404T.jpg">
+			</div>
+			</div>
+	</div> -->
+		
+	<!-- <div ng-controller="GalleryController" class="content-section plp" ng-cloak>
+		
+		
+
+	<div class="filter-section plp-sidebar">
+	<div>
+		<div ng-if="filterActions.hasSelectedOptions()" class="results-for">
+			<h2>Filtered by:</h2>
+			<a href ng-click="filterActions.resetSelectedOptions()" class="pull-right">Reset</a>
+			<ul>
+				<li ng-repeat="option in model.selectedOptions">
+					<a href ng-click="filterActions.unselectOption(option)">{{option.option}}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="refinement plp-accordion {{r.key}}" ng-repeat="r in galleryModel.refinements" ng-class="{ 'closed': !model.refinementHandlers[r.key], 'is-expanded': model.refinementHandlers[r.key] }">
+			<button ng-click="model.refinementHandlers[r.key] = !model.refinementHandlers[r.key]" ng-class="{ 'closed': !model.refinementHandlers[r.key], 'is-expanded': model.refinementHandlers[r.key] }" class="uppercase plp-accordion-btn" onclick="$(this).parent().toggleClass('is-expanded').toggleClass('closed'), $(this).toggleClass('is-expanded').toggleClass('closed') ">{{r.title}}</button>
+		
+			<ul>
+				
+				<li ng-repeat="o in r.options  | limitTo: model.moreFilters[r.key].quantity">
+					<ng-include src="filterActions.getRefinementTemplate(r)"></ng-include>
+					<h5>hi</h5>
+				</li>
+				<li ng-if="model.moreFilters[r.key].show && model.moreFilters[r.key].more && r.options.length > model.moreFilterMaxCount"  class="more" ng-click="filterActions.expandMoreFilter(r.length, r.key)">More</li>
+				<li ng-if="model.moreFilters[r.key].show && !model.moreFilters[r.key].more && r.options.length > model.moreFilterMaxCount" class="less" ng-click="filterActions.collapseMoreFilter(5, r.key)">Less</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<script type="text/ng-template" id="refinement">
+	<a href ng-if="!o.selected" ng-click="filterActions.selectOption(r, o)">{{filterActions.getOptionTitle(o)}}</a>
+	<span ng-if="o.selected">{{filterActions.getOptionTitle(o)}}</span>
+	<a href ng-if="o.selected" ng-click="filterActions.selectOption(r, o)" class="pull-right">x</a>
+	</script>
+
+	<script type="text/ng-template" id="refinement.ColorGroup">
+	<a href ng-click="filterActions.selectOption(r, o)">
+		<span class="marker" ng-class="filterActions.getOptionClass(r, o)" ng-title="filterActions.getOptionTitle(o)"></span>
+	</a>
+	</script>
+
+	<script type="text/ng-template" id="refinement.MosaicShape">
+	<div id="shapes_block">
+		<a href ng-click="filterActions.selectOption(r, o)">
+			<div ng-class="filterActions.getOptionClass(r, o)" ng-title="filterActions.getOptionTitle(o)"></div>
+			<p>{{o.value}}</p>
+		</a>
+	</div>
+	</script>
+
+	<script type="text/ng-template" id="refinement.TileShape">
+	<div id="shapes_block">
+		<a href ng-click="filterActions.selectOption(r, o)">
+			<div ng-class="filterActions.getOptionClass(r, o)" ng-title="filterActions.getOptionTitle(o)"></div>
+			<p>{{o.value}}</p>
+		</a>
+	</div>
+	</script>
+	<div class="mobile-filter-dialog progress-enabled" ng-cloak ng-show="model.mobileFilterDialogShow" ng-class="{'busy':model.mobileFilterDialogBusy}">
+	<ul>
+		<li ng-repeat="refinement in refinements"
+			class="{{refinement.key}}"
+			ng-hide="refinement.options.length == 0">
+			<h2 class="filter-item" ng-class="{'expanded': refinement.expanded}" ng-click="refinement.expanded = !refinement.expanded">{{refinement.title}}</h2>
+			<ul>
+				<li ng-repeat="option in refinement.options">
+					<a ng-class="{'selected': option.selected}" ng-show="option.selected || refinement.expanded" ng-click="option.selected = !option.selected">
+					<span ng-switch on="refinement.key">
+						<span ng-switch-when="ColorGroup" class="color {{ 'v1_assets-' + option.value.toLowerCase() + (option.preSelected ? '_check' : '')  }}"></span>
+						<span ng-switch-default class="text"><span class="marker"><span>&#x2714;</span></span>{{option.text}}</span>
+					</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="actions">
+		<a ng-click="mobileFilterActions.applyFilter()">Apply</a>
+		<a ng-click="mobileFilterActions.resetFilter()">Reset</a>
+		<a ng-click="mobileFilterActions.closeFilterDialog();">Cancel</a>
+	</div>
+	</div>
+
+		<div class="results-section plp-main">
+			<div class="results-container">
+				<div class="banner-section">
+					<div id="bContentCenter" class="Banner ContentCenter"><div class="flashblock flashblock--info" style="max-width: 1720px; margin: 16px auto 24px;">Pricing can vary by state and is based on final shipping destination at checkout.</div></div>
+				</div>
+
+				<div class="pagination plp-controller">
+
+	<div class="plp-display-option">
+		<label for="sort-by">Sort By</label>
+		<select name="sort-by" id="sort-by">
+			<option ng-repeat="s in galleryModel.sorting.sortingItems"
+				ng-click="navigationActions.onSortingClick(s)"
+				ng-selected="{{galleryModel.sorting.selectedItem.text == s.text }}">{{s.text}}
+			</option>
+		</select>
+
+	</div>
+
+	<div class="plp-display-option">
+		<label for="per-page">Per Page: </label>
+
+		<select name="per-page" id="per-page">
+			<option ng-repeat="p in model.pageSizes"
+				ng-click="navigationActions.onPageSizeClick(p)"
+				ng-selected="{{galleryModel.paging.pageSize == p}}">{{p}}
+
+			</option>
+		</select>
+	</div>
+
+	<div class="plp-prev-next">
+
+		<div ng-if="galleryModel.paging.currentPageIndex > 1" ng-click="navigationActions.onPageNavigationClick(galleryModel.paging.currentPageIndex - 1)">
+			<button class="plp-prev-next-btn prev">
+			</button>
+		</div>
+
+		<div class="plp-prev-next-pages">
+			Page {{galleryModel.paging.currentPageIndex}} of {{galleryModel.paging.countOfPages}}
+		</div>
+
+		<div ng-if="galleryModel.paging.currentPageIndex < galleryModel.paging.countOfPages" ng-click="navigationActions.onPageNavigationClick(galleryModel.paging.currentPageIndex + 1)">
+			<button class="plp-prev-next-btn next">
+			</button>
+		</div>
+	</div>
+
+
+	</div>
+	<div class="clearfix"></div>
+
+
+				<div class="plp-product-container">
+
+					
+	<div class="image-list" ng-class="[model.gridSize]">
+	<div ng-repeat="image in galleryModel.images" class="image">
+		<div class="image-list__container">
+			<div class="image-list__container--info">
+				<div>
+					<a ng-click="imageActions.onOpenDetailDialog(image); $event.preventDefault();" ng-href="{{image.url}}">
+						<img ng-src="{{image.src}}" alt="{{image.alt}}" title="{{image.title}}" class="main-image"/>
+					</a>
+					<div class="tag-section">
+						<div class="image-list-icon__share" ng-init="socialMenu" ng-click="socialMenu = !socialMenu">
+							<div class="social-menu" ng-show="socialMenu">
+								<div class="social-menu__container" >
+									<a ng-repeat="provider in ['facebook', 'twitter', 'pinterest']" href="#" socialshare socialshare-provider="{{::provider}}" share-title="{{image.title}}" socialshare-url="{{modelActions.getCurrentSecureImageUrl()}}" socialshare-media="{{image.src}}">
+										<div class="social-menu__item">
+											<i class="{{::provider}}"></i>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				
+			</div>	
+			<div class="image-info">
+				<div class="image-info__container">
+					<div class="image-tags">
+						<div class="image-tags__title" >{{image.title}}</div>
+					</div>
+					<div>
+						<div class="image-detail__link"  ng-click="imageActions.onOpenDetailDialog(image);" ng-href="{{image.url}}">
+							<span class="gallery-detail linked-arrowed">View details</span>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="related-images" ng-if="image.projectImages.length > 0">
+					<div class="related-images__title" >In This Project</div>
+					<a ng-repeat="pi in image.projectImages" ng-href="{{pi.url}}" ng-click="imageActions.onOpenDetailDialog(pi); $event.preventDefault();">
+						<img ng-src="{{pi.src}}" alt="{{pi.alt}}" title="{{pi.title}}" class="project-image"/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+				</div>
+
+				<div class="banner-section">
+					<div id="bContentBottom" class="Banner ContentBottom"></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<script type="text/javascript">
+		angular.module("app.spa")
+			.value("galleryModel", null);
+
+	</script> -->
+
+	</div>	
+		
+	
+<script>
+$(document).ready(function(){
+
+$(".filter-button").click(function(){
+	var value = $(this).attr('data-filter');
+	
+	if(value == "all")
+	{
+		//$('.filter').removeClass('hidden');
+		$('.filter').show('1000');
+	}
+	else
+	{
+//      $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//      $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+		$(".filter").not('.'+value).hide('3000');
+		$('.filter').filter('.'+value).show('3000');
+		
+	}
+});
+
+if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
+});
+</script>
+
+</body>
+</html>

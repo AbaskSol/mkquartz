@@ -1,0 +1,77 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * bodoni-urw:
+ *   - http://typekit.com/eulas/00000000000000000001793d
+ * brandon-grotesque:
+ *   - http://typekit.com/eulas/0000000000000000000132df
+ *   - http://typekit.com/eulas/0000000000000000000132e3
+ * ltc-bodoni-175:
+ *   - http://typekit.com/eulas/000000000000000000010b17
+ * proxima-nova:
+ *   - http://typekit.com/eulas/00000000000000003b9b093b
+ *   - http://typekit.com/eulas/00000000000000003b9b0931
+ *   - http://typekit.com/eulas/00000000000000003b9b0934
+ *   - http://typekit.com/eulas/00000000000000003b9b0932
+ *
+ * © 2009-2018 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2018-04-10 14:20:20 UTC"}*/
+
+/* @import url("../p.typekit.net/p825a.css?s=1&amp;k=xmq7vjw&amp;ht=tk&amp;f=139.171.175.5474.5630.10294.10296.11262&amp;a=3311212&amp;app=typekit&amp;e=css"); */
+
+@font-face {
+font-family:"proxima-nova";
+src:url("af/71f83c/00000000000000003b9b093b/27/l3b0e?subset_id=2&amp;fvd=n7&amp;v=3") format("woff2"),url("af/71f83c/00000000000000003b9b093b/27/d3b0e?subset_id=2&amp;fvd=n7&amp;v=3") format("woff"),url("af/71f83c/00000000000000003b9b093b/27/a3b0e?subset_id=2&amp;fvd=n7&amp;v=3") format("opentype");
+font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"proxima-nova";
+src:url("af/ed0e78/00000000000000003b9b0931/27/l9d3c?subset_id=2&amp;fvd=n1&amp;v=3") format("woff2"),url("af/ed0e78/00000000000000003b9b0931/27/d9d3c?subset_id=2&amp;fvd=n1&amp;v=3") format("woff"),url("af/ed0e78/00000000000000003b9b0931/27/a9d3c?subset_id=2&amp;fvd=n1&amp;v=3") format("opentype");
+font-style:normal;font-weight:100;
+}
+
+@font-face {
+font-family:"proxima-nova";
+src:url("af/4838bd/00000000000000003b9b0934/27/l0b8e?subset_id=2&amp;fvd=n4&amp;v=3") format("woff2"),url("af/4838bd/00000000000000003b9b0934/27/d0b8e?subset_id=2&amp;fvd=n4&amp;v=3") format("woff"),url("af/4838bd/00000000000000003b9b0934/27/a0b8e?subset_id=2&amp;fvd=n4&amp;v=3") format("opentype");
+font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"proxima-nova";
+src:url("af/437c3d/00000000000000003b9b0932/27/l6651?subset_id=2&amp;fvd=n3&amp;v=3") format("woff2"),url("af/437c3d/00000000000000003b9b0932/27/d6651?subset_id=2&amp;fvd=n3&amp;v=3") format("woff"),url("af/437c3d/00000000000000003b9b0932/27/a6651?subset_id=2&amp;fvd=n3&amp;v=3") format("opentype");
+font-style:normal;font-weight:300;
+}
+
+@font-face {
+font-family:"ltc-bodoni-175";
+src:url("af/3c382e/000000000000000000010b17/27/l519b?subset_id=1&amp;fvd=i4&amp;v=3") format("woff2"),url("af/3c382e/000000000000000000010b17/27/d519b?subset_id=1&amp;fvd=i4&amp;v=3") format("woff"),url("af/3c382e/000000000000000000010b17/27/a519b?subset_id=1&amp;fvd=i4&amp;v=3") format("opentype");
+font-style:italic;font-weight:400;
+}
+
+@font-face {
+font-family:"brandon-grotesque";
+src:url("af/1da05b/0000000000000000000132df/27/l0b8e?subset_id=2&amp;fvd=n4&amp;v=3") format("woff2"),url("af/1da05b/0000000000000000000132df/27/d0b8e?subset_id=2&amp;fvd=n4&amp;v=3") format("woff"),url("af/1da05b/0000000000000000000132df/27/a0b8e?subset_id=2&amp;fvd=n4&amp;v=3") format("opentype");
+font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"brandon-grotesque";
+src:url("af/8f4e31/0000000000000000000132e3/27/l3b0e?subset_id=2&amp;fvd=n7&amp;v=3") format("woff2"),url("af/8f4e31/0000000000000000000132e3/27/d3b0e?subset_id=2&amp;fvd=n7&amp;v=3") format("woff"),url("af/8f4e31/0000000000000000000132e3/27/a3b0e?subset_id=2&amp;fvd=n7&amp;v=3") format("opentype");
+font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"bodoni-urw";
+src:url("af/2c6431/00000000000000000001793d/27/lafdb?subset_id=2&amp;fvd=i3&amp;v=3") format("woff2"),url("af/2c6431/00000000000000000001793d/27/dafdb?subset_id=2&amp;fvd=i3&amp;v=3") format("woff"),url("af/2c6431/00000000000000000001793d/27/aafdb?subset_id=2&amp;fvd=i3&amp;v=3") format("opentype");
+font-style:italic;font-weight:300;
+}
+
+.tk-proxima-nova { font-family: "proxima-nova",sans-serif; }
+.tk-ltc-bodoni-175 { font-family: "ltc-bodoni-175",serif; }
+.tk-brandon-grotesque { font-family: "brandon-grotesque",sans-serif; }
+.tk-bodoni-urw { font-family: "bodoni-urw",serif; }

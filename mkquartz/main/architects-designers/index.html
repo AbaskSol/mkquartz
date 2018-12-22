@@ -1,0 +1,670 @@
+<!DOCTYPE html >
+<html data-version="0.0.0.0"
+data-language="en"
+data-root="/"
+data-content-root="/mkquartz/" ng-app="app">
+<head>
+	
+	<title>Mkquartz Architects &amp; Designers</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="canonical" href="" />
+	<link rel="shortcut icon" type="image/ico" href="" />
+	
+	<style type="text/css">
+	.button {
+  border-radius: 2px;
+  padding: 15px 45px;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  font-family: Roboto;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  max-width: 100%;
+  display: inline-block;
+  transition: all 100ms linear;
+}
+.button.sq {
+  padding: 20px 35px;
+  border-radius: 0;
+  font-style: normal;
+  font-size: 18px;
+  text-shadow: none;
+}
+.button.blue {
+  background-color: #4587f7;
+  color: #fff;
+}
+.button.blue:hover {
+  background-color: #2b72ed;
+}
+.button.clear {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+}
+.button.clear:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.button.clear-blue {
+  background-color: #ffffff;
+  border: 1px solid #337bf4;
+  color: #337bf4;
+}
+.button.clear-blue:hover {
+  background-color: #337bf4;
+  color: #ffffff;
+}
+
+  .button {
+    margin-top: 1em;
+  }
+
+  #cmsMain p {
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  p, h2, h3 {
+    font-weight: 300;
+  }
+
+  hr.small {
+    display: inline-block;
+    width: 100px;
+    margin-top: 0;
+  }
+
+  hr.blue {
+    border-top: solid 2px rgb(115, 168, 255);
+  }
+
+  hr.white {
+    border-top: solid 2px rgba(255, 255, 255, .5);
+  }
+
+  hr.grey {
+    border-top: solid 2px rgb(220, 221, 220);
+  }
+
+  .banner {
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+  }
+
+  .herobanner {
+    height: 500px;
+    position: relative;
+    background-color: rgb(241, 241, 238);
+    background-image: url(../../images/mkquartz/architects-designers-bg.jpg);
+  }
+
+  .banner:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .textbanner {
+    display: inline-block;
+    width: 650px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 50px 70px;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+  }
+
+  .herobanner .textbanner {
+    background-color: rgba(68, 70, 77, 0.51);
+  }
+
+  .herobanner h1 {
+    margin-bottom: .5em;
+    font-weight: 200;
+    font-size: 40px;
+    letter-spacing: 1.5px;
+    color: #EEE;
+  }
+
+  .herobanner p {
+    padding: 0 25px;
+    font-weight: 300;
+    color: rgb(237, 237, 237);
+  }
+
+
+  .herobanner .whitespace {
+    width: 1040px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    top: -50px;
+    background-color: white;
+  }
+
+  .slogancontainer {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 300;
+  }
+
+  .qualityproducts {
+    position: relative;
+    margin-bottom: 100px;
+  }
+
+  .qualityproducts .container {
+    width: 1040px;
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 0 400px 0 0;
+  }
+
+  hr.divider {
+    border-width: 1px;
+    margin: 75px 0;
+  }
+
+  .qualityproducts .flourish {
+    position: absolute;
+    right: 0px;
+  }
+
+  .qualityproducts .iconcontainer {
+    display: inline-block;
+    margin: 0 15px 15px 0;
+    text-align: center;
+  }
+
+  .qualityproducts .iconcontainer p {
+    margin-top: 25px;
+  }
+
+  .service {
+    height: 700px;
+    background-image: url(../../images/mkquartz/personalized-service.jpg);
+    background-color: rgb(148, 149, 153);
+    color: white;
+  }
+
+  .service p {
+    color: inherit;
+  }
+
+  .whiteborder {
+    border: 1px solid rgba(255, 255, 255, .5);
+  }
+
+  .samples img, .samples .description {
+    width: 49.5%;
+    display: inline-block;
+  }
+
+  .samples img {
+    border-right: solid 1px rgb(220, 221, 220);
+  }
+
+  .samples .description {
+    display: inline-block;
+    width: 500px;
+    vertical-align: middle;
+    padding-left: 50px;
+  }
+
+  .samples .description:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .samples hr {
+    margin-top: 0;
+  }
+
+  .samples .button {
+    margin: 1em 0;
+  }
+
+  .shipping {
+    max-width: 910px;
+    width: 90%;
+    margin: 0 auto 75px auto;
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .shipping img {
+    max-width: 100%;
+    margin-top: 3em;
+  }
+  
+  .customers{
+    height: 600px;
+    background-image: url(../../images/mkquartz/ourcustomer-bg.jpg);
+    background-color: rgb(156, 163, 183);
+    color: white;
+  }
+
+  .customers p {
+    color: inherit;
+  }
+
+  .customers img {
+    display: block;
+    margin: 50px auto 0;
+  }
+
+  .quotecontainer img, .quotecontainer .content {
+    display: inline-block;
+    width: 49%;
+    vertical-align: middle;
+  }
+
+  .quotecontainer .content {
+    height: 100%;
+    padding-left: 100px;
+  }
+
+  .quotecontainer .content * {
+    max-width: 500px;
+  }
+
+  .quotecontainer h3, .quotecontainer .name {
+    color: inherit;
+    text-transform: uppercase;
+  }
+
+  .quotecontainer hr {
+    margin: 20px 0;
+  }
+
+  .quotecontainer .quote {
+    line-height: 1.5em;
+  }
+
+  .quotecontainer .name, .quotecontainer .company {
+    font-size: 14px;
+  }
+
+  .quotecontainer .name{
+    font-weight: 400;
+  }
+
+  .quotecontainer .portriat {
+    width: 50px;
+    float: left;
+    margin: 0 25px 25px 0;
+    position: relative;
+    top: 10px;
+  }
+
+  .quotecontainer .install {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .quotecontainer .install img {
+    width: 100%;
+  }
+
+  .quote {
+    margin-bottom: 3em;
+  }
+
+  .clients {
+    margin-bottom: 75px;
+    text-align: center;
+  }
+
+  .clients hr {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 75px;
+  }
+
+  .clients img {
+    max-width: 90%;
+  }
+
+  .action {
+    height: 500px;
+    background-image: url(../../images/mkquartz/materials-final.jpg);
+    background-color: rgb(219, 215, 212);
+    color: white;
+  }
+
+  .action .textbanner {
+    background-color: rgba(107, 150, 234, 0.5);
+  }
+
+  .action h2 {
+    margin-bottom: 20px;
+  }
+
+  .action p {
+    color: inherit;
+  }
+
+  .action a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .share {
+    width: 90%;
+    margin: 75px auto;
+    padding: 25px;
+  }
+
+  .share:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .share .column {
+    display: inline-block;
+    width: 50%;
+    padding: 25px;
+    vertical-align: middle;
+  }
+
+  .share .column:nth-of-type(2) {
+    border-left: 1px solid #ebebeb;
+    padding: 0 50px;
+  }
+
+  .share h2 {
+    max-width: 70%;
+  }
+
+  .share img, .share h2 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .share img {
+    margin-right: 25px;
+  }
+
+  @media(max-width: 500px) {
+    .herobanner {
+      height: auto;
+    }
+
+    .textbanner {
+      padding: 25px;
+      border-style: none;
+    }
+
+    .herobanner .whitespace {
+      display: none;
+    }
+
+    .slogancontainer, .flourish {
+      display: none;
+    }
+
+    .qualityproducts .container {
+      text-align: center;
+      padding: 25px;
+      margin: 0;
+    }
+
+    .qualityproducts .container {
+      margin: 0 auto;
+    }
+
+    .service {
+      height: 400px;
+    }
+
+    .customers {
+      height: auto;
+    }
+
+    .quotecontainer {
+      display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+      display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;      /* TWEENER - IE 10 */
+      display: -webkit-flex;     /* NEW - Chrome */
+      display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .quotecontainer .install {
+      width: 100%;
+      -webkit-order: -1;
+      order: -1;
+    }
+    
+    .quotecontainer .content, .quotecontainer img {
+      width: 100%;
+      height: auto;
+    }
+
+    .quotecontainer .content {
+      width: 90%;
+      max-width: 90%;
+      padding: 0 25px;
+    }
+
+    .quotecontainer h3 {
+      margin-top: 50px;
+    }
+
+    .action {
+      height: auto;
+    }
+
+    .action .textbanner {
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .samples {
+      text-align: center;
+    }
+
+    .samples img, .samples .description {
+      width: 100%;
+    }
+
+    .samples .description {
+      padding: 25px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .quotecontainer .content {
+      padding: 0 40px 0 50px;
+    }
+
+    .share .column {
+      width: 100%;
+      padding: 0;
+    }
+
+    .share .column:nth-of-type(2) {
+      border: none;
+      padding: 0;
+    }
+
+    .share h2 {
+      display: block;
+      width: 100%;
+      margin: 0 auto 1em auto;
+      text-align: center;
+    }
+
+    .share img {
+      display: none;
+    }
+  }
+	</style>
+	
+</head>
+<body class="ng-scope">
+
+	<div class="page-content" ng-class="{'hide-mobile': mobileMenu}">
+		
+		<div>
+			<ul class="breadcrumb-list">
+				<li class="breadcrumb-list-item"><a href="#/">Home</a></li>
+				<li class="breadcrumb-list-item"><a href="#/pros/">Mkquartz Pro Services &amp; Savings</a></li>
+				<li class="breadcrumb-list-item"><a href="">Mkquartz Architects &amp; Designers</a></li>
+				
+			</ul>
+		</div>
+		
+    <div id="cmsPage">
+      <div id="cmsTop"></div>
+      <div id="cmsMiddle">
+        <div id="cmsLeft"></div>
+        <div id="cmsCenter">
+          <div id="cmsBeforeMain"></div>
+          <div id="cmsMain">
+    <div class="herobanner banner">
+    <div class="textbanner">
+      <h1>Architects & Designers</h1>
+      <p>Let us help you with your next project! <br/>Your dedicated representative can assist you with selecting the best products for your project.</p>
+    </div>
+    <div class="whitespace"></div>
+  </div>
+
+  <div class="qualityproducts">
+    <div class="slogancontainer">
+      <h3>The perks of partnership</h3>
+      <hr class="small blue"/>
+    </div>
+    <div class="container">
+      <h2>Beautiful, Quality Products</h2>
+      <img class="flourish" src="../../images/mkquartz/moodboard-right.jpg">
+      <hr class="small grey"/>
+      <p>We care deeply about quality, and know you do too. For more than 60 years it has been Mkquartz goal to make tile that will retain its beauty for generations to come. Our experience in creating commercially rated tile and stone products translates to the highest level of performance engineering.</p>
+      <!-- <p>Request or download a <a href="http://ebook.mkquartz.com">catalog</a>.</p> -->
+      <hr class="divider grey"/>
+      <div class="iconcontainer">
+        <img src="../../images/mkquartz/porcelain-tile-icon.jpg">
+        <p>Porcelain Tile</p>
+      </div>
+      <div class="iconcontainer">
+        <img src="../../images/mkquartz/decorative-icon.jpg">
+        <p>Decorative</p>
+      </div>
+      <div class="iconcontainer">
+        <img src="../../images/mkquartz/natural-stone-icon.jpg">
+        <p>Natural Stone</p>
+      </div>
+      <div class="iconcontainer">
+        <img src="../../images/mkquartz/slab-icon.jpg">
+        <p>Slabs</p>
+      </div>
+      <div class="iconcontainer">
+        <img src="../../images/mkquartz/outdoor-living-icon.jpg">
+        <p>Outdoor Living</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="service banner">
+    <div class="textbanner whiteborder">
+      <h2>Personalized Service</h2>
+      <hr class="small white"/>
+      <p>Mkquartz understands the importance of person to person, individualized service. That’s why we pair you with a dedicated representative to assist you in bringing your vision to life.</p>
+    </div>
+  </div>
+
+  <div class="samples">
+  <div class="samples"><img src="../../images/mkquartz/samples-2.jpg" />
+    <div class="description">
+      <h2>Free Samples</h2>
+      <hr class="small grey"/>
+      <p>We want to make sure you find the perfect match. Architects and designers receive free samples to share with clients.</p>
+      <!-- <a class="button clear-blue" href="mailto:sampleme@mkquartz.com">Request Free Samples</a> -->
+    </div>
+    <hr class="grey"/>
+  </div>
+
+  <div class="shipping">
+    <h2>Fast Nationwide Shipping</h2>
+    <hr class="small blue"/>
+    <p>With 37 locations, including 4 distribution centers, we can get you the material you need when you need it.</p>
+    <img src="../../images/mkquartz/distribution.jpg"/>
+  </div>
+
+  <div class="customers banner">
+    <div class="textbanner">
+      <h2>Kind Words From Our Customers</h2>
+      <img style="width:39px" src="../../images/mkquartz/down-arrow.png">
+    </div>
+  </div>
+
+  <div class="quotecontainer">
+    <div class="install">
+      <img src="../../images/mkquartz/lumina.jpg"/>
+    </div>
+    <div class="content">
+      <h3>&ldquo;Lumina&rdquo; Project</h3>
+      <hr class="small blue"/>
+      <p class="quote">&ldquo;I've dealt with hundreds of subcontractors, suppliers and vendors through my years of working in this business and I am always looking for potential partners that can support and work with us in achieving what we set out to do. I believe that I have found exactly that in Mkquartz.&rdquo;</p>
+      <img class="portriat" src="../../images/mkquartz/jeff-testimonial.jpg">
+      <p class="name">Jeff Chang</p>
+      <p class="company">General Contractor<br/> Lend Lease Group</p>
+    </div>
+  </div>
+
+  <div class="quotecontainer">
+    <div class="content">
+      <h3>&ldquo;Pizza My Heart&rdquo; Project</h3>
+      <hr class="small blue"/>
+      <p class="quote">&ldquo;More than versatile tile and flooring solutions, we value our relationship with Mkquartz.  Their team has become a valuable resource in helping us create beautiful spaces for our clients.&rdquo;</p>
+      <img class="portriat" src="../../images/mkquartz/testimonial2.jpg">
+      <p class="name">Misato Eddy</p>
+      <p class="company">Interior Designer<br/>Wald, Ruhnke 
+      & Dost Architects</p>
+    </div>
+    <div class="install">
+      <img src="../../images/mkquartz/pizzmyheart.jpg"/>
+    </div>
+  </div>
+
+  <div class="clients">
+    <hr class="divider grey">
+    <h2>Trusted By</h2>
+    <hr class="small blue"/>
+    <img src="../../images/mkquartz/clients.jpg">
+  </div>
+
+  <div class="action banner">
+    <div class="textbanner">
+      <h2>Let's Work Together</h2>
+      <p>Email <a href="mailto:info@mkquartz.com">info@Mkquartz.com</a> to meet your personal design representative</p>
+    </div>
+  </div>
+  </div>
+          <div id="cmsAfterMain"></div>
+        </div>
+        <div class="pull-left" id="cmsRight"></div>
+      </div>
+      <div id="cmsBottom"></div>
+    </div>
+
+    </div>
+	
+	</div>
+
+</body>
+</html>

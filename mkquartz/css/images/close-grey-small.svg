@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24.527px" height="24.526px" viewBox="0 0 24.527 24.526" enable-background="new 0 0 24.527 24.526" xml:space="preserve">
+<g id="Helpers">
+</g>
+<g id="Multiply">
+	<g>
+		<defs>
+			<rect id="SVGID_1_" width="24.527" height="24.526"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<g clip-path="url(#SVGID_2_)">
+			<g>
+				<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#C6C6C6" points="24.527,1.066 23.461,0 12.264,11.197 1.066,0 0,1.066 
+					11.197,12.263 0,23.46 1.066,24.526 12.264,13.33 23.461,24.526 24.527,23.459 13.33,12.263 				"/>
+			</g>
+		</g>
+		<rect clip-path="url(#SVGID_2_)" fill-rule="evenodd" clip-rule="evenodd" fill="none" width="24.527" height="24.526"/>
+		<rect clip-path="url(#SVGID_2_)" fill-rule="evenodd" clip-rule="evenodd" fill="none" width="24.527" height="24.526"/>
+	</g>
+</g>
+</svg>
