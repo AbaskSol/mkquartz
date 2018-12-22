@@ -1,0 +1,4 @@
+#Ignore the node_modules and images
+node_modules
+mkquartz/images
+

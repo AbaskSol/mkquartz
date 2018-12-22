@@ -11,19 +11,18 @@ var users = require('./routes/users');
 var app = express();
 
 var mysql      = require('mysql');
-// var connection = mysql.createConnection({
-//   host     : 'aa1upa5smcobczo.cjih6vzbpopo.us-east-2.rds.amazonaws.com',
-//   database : 'mkquartz',
-//   user     : 'mkqadmin',
-//   password : 'Gobblego01',
-// });
-
 var connection = mysql.createConnection({
-    host     : 'localhost',
+    host     : 'aa1upa5smcobczo.cjih6vzbpopo.us-east-2.rds.amazonaws.com',
     database : 'mkquartz',
-    user     : 'root',
-    password : 'mysql',
+    user     : 'mkqadmin',
+    password : 'Gobblego01',
 });
+/*var connection = mysql.createConnection({
+  host     : process.env.RDS_HOSTNAME,
+  user     : process.env.RDS_USERNAME,
+  password : process.env.RDS_PASSWORD,
+  port     : process.env.RDS_PORT
+});*/
 
 connection.connect(function(err) {
     if (err) {
