@@ -150,7 +150,7 @@
             ];
 
             this.tearsheet = {
-                url: ''
+                url: '../../../images/MK-QUARTZ-LLC.pdf'
             };
 
             this.gallery = [

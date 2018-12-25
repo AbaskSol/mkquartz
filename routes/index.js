@@ -2,18 +2,18 @@ var express = require('express');
 var router = express.Router();
 
 var mysql      = require('mysql');
-/*var connection = mysql.createConnection({
+var connection = mysql.createConnection({
     host     : 'localhost',
     database : 'mkquartz',
     user     : 'root',
     password : 'mysql',
-});*/
-var connection = mysql.createConnection({
-  host     : 'aa1upa5smcobczo.cjih6vzbpopo.us-east-2.rds.amazonaws.com',
-  database : 'mkquartz',
-  user     : 'mkqadmin',
-  password : 'Gobblego01',
 });
+// var connection = mysql.createConnection({
+//   host     : 'aa1upa5smcobczo.cjih6vzbpopo.us-east-2.rds.amazonaws.com',
+//   database : 'mkquartz',
+//   user     : 'mkqadmin',
+//   password : 'Gobblego01',
+// });
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.sendFile('index.html');

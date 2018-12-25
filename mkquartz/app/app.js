@@ -268,6 +268,9 @@ function() {
             .when('/wholesale', {
 				templateUrl : '../main/wholesale/index.html'
             })
+            .when('/account', {
+				templateUrl : '../main/account/register.html'
+            })
 	});
 }(),
 function() {
@@ -767,6 +770,7 @@ function() {
             {title:"Gallery", url:"#/gallery", children:[]},
             {title:"Blog", url:"#/blog", children:[]},
             {title:"Professionals", url:"#/pros", children:[]},
+            // {title:"signup", url:"#/account", children:[]}
         ]
         var productReq = {
             method: 'GET',
