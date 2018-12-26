@@ -268,8 +268,22 @@ function() {
             .when('/wholesale', {
 				templateUrl : '../main/wholesale/index.html'
             })
-            .when('/account', {
-				templateUrl : '../main/account/register.html'
+            .when('/dashboard' , {
+                templateUrl : '../main/account/dashboard/dashboard.html',
+                resolve: {
+                    "check":function($rootScope,$location){
+                        if(localStorage.getItem("isValidURL") == 'true'){
+                            $location.path('/dashboard');
+                        }
+                        else {
+                            $location.path('/login');
+                            alert("You dont have access");
+                        }
+                    }
+                } 
+            })
+            .when('/login', {
+                templateUrl : '../main/account/login/login.html'
             })
 	});
 }(),
@@ -702,12 +716,49 @@ function() {
 }(),
 function() {
     "use strict";
-    angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings", function(n, t, i, r) {
+    angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
+        n.login = function() {
+           localStorage.setItem("isValidURL", false);
+            var postJSON = JSON.stringify({
+              userid: n.loginuserid,
+              password: n.loginpassword
+            });
+            console.log(postJSON);
+            i({
+              method: 'POST',
+              url: '/loginuser',
+              data: postJSON
+            }).then(function mySuccess(response){
+              console.log(response.status);
+               if(response.data.status == "Y"){
+                localStorage.setItem("isValidURL", true);
+                document.getElementById("mkFooter").style.display = "block";
+                n.transient.showHeadFooter = true;
+                location.href ="#/dashboard";
+                
+              }
+              console.log('Data passed for verification..');
+            }, function myError(response){
+              console.log('Error posting the data..');
+            })
+          }
+
+        
+
+          
+
+
         n.menu = t.menu;
         n.menub = t.menub;
         n.transient = {
             showProdForm : false,
+            showHeadFooter:true
         }
+        document.getElementById("mkFooter").style.display = "block";
+        if(location.href.indexOf("login") >= 0){
+            n.transient.showHeadFooter = false;
+            document.getElementById("mkFooter").style.display = "none";
+        };
         // n.toggleMenu = function(){
         //     debugger;
         //     var elem = document.getElementById("menu-1");

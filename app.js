@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+/*var algorithm = 'aes-256-cbc';
+var key = crypto.randomBytes(32);
+var iv = crypto.randomBytes(16);*/
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -21,7 +24,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   database : 'mkquartz',
   user     : 'root',
-  password : 'mysql',
+  password : 'mysql1995',
 });
 /*var connection = mysql.createConnection({
   host     : process.env.RDS_HOSTNAME,
@@ -54,12 +57,54 @@ app.use(express.static(path.join(__dirname, 'mkquartz')));
 app.use('/', routes);
 app.use('/users', users);
 
+// login post request handler
+app.post('/loginuser', function(req, res){
+  console.log(req.body);
+  connection.query(`SELECT * FROM users WHERE userid = '${req.body.userid}'`, (err, result) => {
+    if(err){
+      console.log('No user found');
+    }
+    else {
+      var details = JSON.parse(JSON.stringify(result));
+      if(req.body.password == details[0].password) {
+        res.json({status:"Y"});        
+        console.log('loggedin');
+      }
+      else{
+        console.log('The password is incorrect..');
+      }
+    }
+  })
+})
+
+/*
+//encrypt function from crypto
+function encrypt(text) {
+  let cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key), iv);
+  let encrypted = cipher.update(text);
+  encrypted = Buffer.concat([encrypted, cipher.final()]);
+  return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
+ }
+
+ //decrypt function from crypto
+ function decrypt(text) {
+  let iv = Buffer.from(text.iv, 'hex');
+  let encryptedText = Buffer.from(text.encryptedData, 'hex');
+  let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), iv);
+  let decrypted = decipher.update(encryptedText);
+  decrypted = Buffer.concat([decrypted, decipher.final()]);
+  return decrypted.toString();
+ }
+*/
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
 
 // error handlers
 

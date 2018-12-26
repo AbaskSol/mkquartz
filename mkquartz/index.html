@@ -97,7 +97,9 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 
 <div ng-controller="MenuCtrl">
 
-	<div id="js-site-header" class="site-header" ng-cloak>
+	<!--############## SITE HEADER #################-->
+
+	<div id="js-site-header" class="site-header" ng-cloak  ng-if="transient.showHeadFooter">
 		<nav class="site-header-nav">
 			<a href="#/" title="Go to homepage">
 				<picture>
@@ -165,7 +167,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 						<nav>
 							<ul id="menu-3" role="menu" aria-labelledby="menubutton-3">
 								
-								<li role="none"><a href="#/register" class="submenu__item">Signup</a></li>
+								<li role="none"><a href="#/login" class="submenu__item">Login</a></li>
 								<!-- <li role="none"><a href="../en/account/" class="submenu__item">Login</a></li> -->
 								
 							</ul>
@@ -194,8 +196,9 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 	
 </div>
 	
+	<!--##############  SITE FOOTER  ##########-->
 
-<div class="footer--hr">
+	<div class="footer--hr" id="mkFooter">
 	<div class="footer">
 		<div class="footer-container">
 			<div class="footer-item footer-item__column column-1">
