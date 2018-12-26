@@ -809,14 +809,7 @@ function() {
         n.menuList = [
             {title: "Featured", url:"#/featured/", children:[
                 {title:"New Arrivals", url:"#/fall-2018"},
-                {title:"Costa Allegra", url:"#/costa-allegra"},
-                {title:"Provincetown", url:"#/provincetown"},
-                {title:"Remy", url:"#/remy"},
-                {title:"Magnifica", url:"#/magnifica"},
-                {title:"Paseo",url:"#/paseo"},
-                {title:"Sequel Quartz",url:"#/sequel-quartz"},
-                {title:"Slabs in Stock",url:"#/slab"},
-                {title:"Slab Buying Guide", url:"#/slab-buying-guide"}]},
+                {title:"Costa Allegra", url:"#/costa-allegra"}]},
             {title:"Products", url:"#/products/", children:[]},
             {title:"Gallery", url:"#/gallery", children:[]},
             {title:"Blog", url:"#/blog", children:[]},
@@ -3060,6 +3053,7 @@ function() {
             colorFlag: false
         }
         n.customProdList = [];
+        
         var productReq = {
             method: 'GET',
             url:'/api/v1/getProductList',
@@ -3109,12 +3103,13 @@ function() {
         })
         n.actualProduct = [];
         n.filterCustomProduct = function(sortType){
+            
             n.actualProduct = [];
             n.selectedColorProduct = [];
             for (var key in n.criteria) {
-                if (n.criteria[key] == true) {
+                if (n.criteria[key] == true ) {
                     angular.forEach(n.customProdList, function(value, k){
-                        if(value[key]){
+                        if(value[key] && value.category == n.categoryName){
                             var availableProducts = n.actualProduct.filter(function(v){
                                 return v.id == value.id;
                             })
@@ -3123,7 +3118,7 @@ function() {
                     })
                 }else if(key == 'selectedColor'){
                     angular.forEach(n.actualProduct, function(value, k){
-                        if(value[key]){
+                        if(value[key] && value.category == n.categoryName){
                              var availableProducts = n.selectedColorProduct.filter(function(o){
                              return o.id == value.id;
                             })
