@@ -96,7 +96,7 @@
     <div>
         <ol class="breadcrumb-list">
             <li class="breadcrumb-list-item"><a href="#/">Home</a></li>
-            <li class="breadcrumb-list-item"><a href="">Outdoor</a></li>
+            <li class="breadcrumb-list-item"><a href="">QUARTZ</a></li>
             
         </ol>
     </div>
@@ -261,14 +261,14 @@
                     <div id="productContent" class="plp-product-container">
                         <div class="plp-product-container">
     
-                        <a class="product-card" ng-repeat="p in actualProduct track by (p.id + p.name)" title="Eclipse Wall Mosaic in Eternity">
+                        <a class="product-card" ng-repeat="p in actualProduct track by (p.id + p.name)" title="{{p.p_name}}">
     
                             
                             <!-- <span class="product-card-tag product-card-tag-urlfriendly--best-seller">Best Seller</span> -->
                             
     
                             <div class="product-card-image-container">
-                                <img src="../images/{{categoryName}}/{{p.imagePath}}" alt="Eclipse Wall Mosaic in Eternity" />
+                                <img src="../images/{{categoryName}}/{{p.imagePath}}" alt="{{p.p_name}}" />
                             </div>
     
                             <h3 class="product-card-title">

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-30-black-search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/Search">
+            <g id="Group" transform="translate(6.000000, 4.000000)"></g>
+            <path d="M18.9056439,20.3198574 C17.5509601,21.3729184 15.8487115,22 14,22 C9.581722,22 6,18.418278 6,14 C6,9.581722 9.581722,6 14,6 C18.418278,6 22,9.581722 22,14 C22,15.8487115 21.3729184,17.5509601 20.3198574,18.9056439 L23.7071068,22.2928932 C24.0976311,22.6834175 24.0976311,23.3165825 23.7071068,23.7071068 C23.3165825,24.0976311 22.6834175,24.0976311 22.2928932,23.7071068 L18.9056439,20.3198574 Z M14,20 C17.3137085,20 20,17.3137085 20,14 C20,10.6862915 17.3137085,8 14,8 C10.6862915,8 8,10.6862915 8,14 C8,17.3137085 10.6862915,20 14,20 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

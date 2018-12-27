@@ -732,6 +732,7 @@ function() {
               console.log(response.status);
                if(response.data.status == "Y"){
                 localStorage.setItem("isValidURL", true);
+                document.getElementById("js-site-header").style.display = "block";
                 document.getElementById("mkFooter").style.display = "block";
                 n.transient.showHeadFooter = true;
                 location.href ="#/dashboard";
@@ -757,6 +758,7 @@ function() {
         document.getElementById("mkFooter").style.display = "block";
         if(location.href.indexOf("login") >= 0){
             n.transient.showHeadFooter = false;
+            document.getElementById("js-site-header").style.display = "none";
             document.getElementById("mkFooter").style.display = "none";
         };
         // n.toggleMenu = function(){
