@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2018 at 10:55 AM
+-- Generation Time: Dec 27, 2018 at 11:18 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -121,14 +121,14 @@ INSERT INTO `product` (`id`, `p_name`, `mosaic`, `deco`, `tile`, `slab`, `catego
 (75, 'MK-Ice-snow', 1, 0, 0, 0, 'QUARTZ', 'black,green', '1"x2",2"x2",3"x2"', 'MK-Ice-snow.jpg'),
 (76, 'MK-LUNA', 1, 0, 0, 0, 'QUARTZ', 'black,green,white', '1"x2",2"x2"', 'MK-LUNA.jpg'),
 (77, 'MK-MS3-2131', 0, 1, 0, 0, 'QUARTZ', 'black,green,white', '3"x6",1"x2"', 'MK-MS3-2131.jpg'),
-(78, 'MK-Platinum', 1, 0, 0, 0, 'QUARTZ\r\n', 'black,green,white', '1"x2",2"x2"', 'MK-Platinum.jpg'),
-(79, 'MK-Shimmer', 1, 0, 0, 0, 'QUARTZ\r\n', '1"x2",2"x2"', 'black,green,white', 'MK-Shimmer.jpg'),
+(78, 'MK-Platinum', 1, 0, 0, 0, 'QUARTZ', 'black,green,white', '1"x2",2"x2"', 'MK-Platinum.jpg'),
+(79, 'MK-Shimmer', 1, 0, 0, 0, 'QUARTZ', '1"x2",2"x2"', 'black,green,white', 'MK-Shimmer.jpg'),
 (80, 'MK-silver', 1, 0, 0, 0, 'QUARTZ', 'red,black', '3"x6",1"x2"', 'MK-silver.jpg'),
-(81, 'MK-speckle', 1, 0, 0, 0, 'QUARTZ\r\n', 'black,green,white', '1"x2",2"x2"', 'MK-speckle.jpg'),
+(81, 'MK-speckle', 1, 0, 0, 0, 'QUARTZ', 'black,green,white', '1"x2",2"x2"', 'MK-speckle.jpg'),
 (82, 'MK-Strawberry', 0, 1, 0, 0, 'QUARTZ', 'green,white', '2"x2",3"x2"', 'MK-Strawberry.jpg'),
 (83, 'MK-TCE504', 1, 0, 0, 0, 'QUARTZ', 'green,white', '1"x2",2"x2"', 'MK-TCE504.jpg'),
 (84, 'MK-TCE1203', 0, 1, 0, 0, 'QUARTZ', 'black,green', '3"x6",1"x2"', 'MK-TCE1203.jpg'),
-(85, 'MK-TCE2011', 1, 0, 0, 0, 'QUARTZ\r\n', 'red,black', '1"x2",2"x2",3"x2"', 'MK-TCE2011.jpg'),
+(85, 'MK-TCE2011', 1, 0, 0, 0, 'QUARTZ', 'red,black', '1"x2",2"x2",3"x2"', 'MK-TCE2011.jpg'),
 (86, 'MK-TCE2012', 1, 0, 0, 0, 'QUARTZ', 'green,white', '3"x6",1"x2"', 'MK-TCE2012.jpg'),
 (87, 'MK-TCE2013', 1, 0, 0, 0, 'QUARTZ', 'black,green', '1"x2",2"x2"', 'MK-TCE2013.jpg'),
 (88, 'MK-TCE2014', 1, 0, 0, 0, 'QUARTZ', 'red,black', '2"x2",3"x2"', 'MK-TCE2014.jpg'),
