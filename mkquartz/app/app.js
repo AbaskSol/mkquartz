@@ -717,8 +717,8 @@ function() {
 function() {
     "use strict";
     angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
+        localStorage.setItem("isValidURL", false);
         n.login = function() {
-           localStorage.setItem("isValidURL", false);
             var postJSON = JSON.stringify({
               userid: n.loginuserid,
               password: n.loginpassword

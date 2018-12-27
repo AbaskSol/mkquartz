@@ -85,7 +85,15 @@ data-content-root="/mkquartz/" ng-app="app">
 	{
     color: white !important;
 	}
-	</style>
+	@media only screen and (max-width: 1139px){
+	.site-header-top-level-nav.active {
+		height: 132%;
+	}
+	.submenu {
+    padding-top: 0px !important;
+    padding-bottom: 4px !important;
+	}
+   </style>
 	
 </head>
 <body class="ng-scope">
@@ -104,7 +112,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 			<a href="#/" title="Go to homepage">
 				<picture>
 					<source media="(min-width: 1024px)" srcset="images/mkquartz/mkquartz.svg">
-					<source srcset="images/mkquartz/mkquartzz.svg">
+					<source srcset="images/mkquartz/mkquartz.svg">
 					<img src="images/mkquartz/mkquartz.svg" alt="mkquartz logo">
 				</picture>
 			</a>

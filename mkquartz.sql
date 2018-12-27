@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 26, 2018 at 02:11 PM
+-- Generation Time: Dec 27, 2018 at 06:51 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -87,6 +87,24 @@ INSERT INTO `product` (`id`, `p_name`, `mosaic`, `deco`, `tile`, `slab`, `catego
 (41, 'MK-9902', 1, 0, 0, 0, 'QUARTZ', 'red,green', '2"x2",2"x1"', 'MK-9902.jpg'),
 (42, 'MK-9904', 1, 0, 0, 0, 'QUARTZ', 'red,green', '1"x2",2"x2"', 'MK-9904.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `userid` varchar(12) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `password`) VALUES
+('admin', 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -96,6 +114,12 @@ INSERT INTO `product` (`id`, `p_name`, `mosaic`, `deco`, `tile`, `slab`, `catego
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userid`);
 
 --
 -- AUTO_INCREMENT for dumped tables

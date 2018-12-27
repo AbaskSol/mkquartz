@@ -24,7 +24,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   database : 'mkquartz',
   user     : 'root',
-  password : 'mysql1995',
+  password : 'mysql',
 });
 /*var connection = mysql.createConnection({
   host     : process.env.RDS_HOSTNAME,
