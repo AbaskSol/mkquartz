@@ -1,25 +1,19 @@
-<!DOCTYPE html >
-<html data-version="0.0.0.0" data-language="en" data-root="/" data-content-root="/mkquartz/" ng-app="app">
-
 <head>
-  <!-- <base href="/"> -->
-  <link type="text/css" rel="stylesheet" href="../../css/ngDialog-theme-plain.min.css" />
-  <link type="text/css" rel="stylesheet" href="../../css/ngDialog.min.css" />
-  <link rel="stylesheet" href="../../css/font-awesome.css" />
-  <link rel="stylesheet" href="../../css/flexslider.min.css" />
-  <link href="../../css/theme.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="../../css/xmq7vjw.css">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <style>
     body {
       margin: 0;
-      background-image: url(../../images/Triangolo_2x.jpg);
+    }
+    #loginBody {
+      /* width: 100%; */
+      min-height: 850px; 
+      background-image: url("../../../images/mkquartz/white-rectangle-tile-in-kitchen.jpg");
+      background-size: cover;
     }
     .regFormContainer {
         width: 35%;
         min-width: 350px;
         border: 1px solid gainsboro;
+        background-color: #fff;
         border-radius: 10px;
         margin: 100px auto 0;
         padding: 50px 0 75px;
@@ -38,6 +32,7 @@
         font-size: 15px;
       }*/
       .inpRegForm {
+        outline: 0;
         font-size: 14px; 
         font-weight: 200;
         width: 70%;
@@ -46,67 +41,46 @@
         border: none;
         border-bottom: 2px solid gainsboro; 
         padding: 8px 0 6px;
-        
+      }
+      .inpRegForm:focus {
+        border-bottom: 2px solid #0FACF3;
       }
       .inpRegForm form {
         padding: 10px 0;
       }
       .regFormButton {
+        outline: 0;
         width: 70%;
-        
         border: none;
         border-radius: 25px; 
         background-color: #0FACF3;
-        box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, 0.2);
         color : #fff;
         display: block;
         margin: 35px auto 0;
         padding: 5px;
       }
+      .regFormButton:hover {
+      box-shadow: 2px 4px 12px 1px rgba(0, 0, 0, 0.2);        
+      }
     </style>
 </head>
 
 <body class="ng-scope">
-  <br>
-  <div ng-controller="MenuCtrl">
-    <div class="regFormContainer">
-      <h4>LOG IN</h4>
-      <form>
-        <div><input type="text" class="inpRegForm" ng-model="loginuserid" placeholder="User ID"></div>
-        <div><input type="password" class="inpRegForm" ng-model="loginpassword" placeholder="Password"></div>
-        <button class="regFormButton" ng-click="login()">LOGIN</button>
-      </form>
-    </div>
-    <!-- <input type="text" ng-model="loginUserId">
-    <p>{{loginUserId}}</p> -->
+  <div id="loginBody">
     <br>
+    <div ng-controller="loginCtrl" id="loginBodyCon">
+      <div class="regFormContainer">
+        <h4>LOG IN</h4>
+        <form>
+          <div><input type="text" class="inpRegForm" ng-model="loginuserid" placeholder="User ID"></div>
+          <div><input type="password" class="inpRegForm" ng-model="loginpassword" placeholder="Password"></div>
+          <button class="regFormButton" ng-click="login()">LOGIN</button>
+        </form>
+      </div>
+      <!-- <input type="text" ng-model="loginUserId">
+    <p>{{loginUserId}}</p> -->
+      <br>
+    </div>
+
   </div>
-
-
-  <script type="text/javascript" src="../../js/es6-shim.min.js"></script>
-  <script type="text/javascript" src="../../js/yepnope.js"></script>
-  <script type="text/javascript" src="../../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../../js/jquery.flexslider.min.js"></script>
-  <script type="text/javascript" src="../../js/angular.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-route.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-cookies.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-touch.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-aria.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-animate.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-messages.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-sanitize.min.js"></script>
-  <script type="text/javascript" src="../../js/hammer.min.js"></script>
-  <script type="text/javascript" src="../../js/angular.hammer.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-flexslider.js"></script>
-  <script type="text/javascript" src="../../js/ngDialog.min.js"></script>
-  <script type="text/javascript" src="../../js/lodash.min.js"></script>
-  <script type="text/javascript" src="../../js/angular-google-maps.min.js"></script>
-  <script src="../../js/lib.js"></script>
-  <script src="../../app/app.js"></script>
-  <script src="../../js/paseo.js"></script>
-  <script src="../../js/costa-allegra.js"></script>
-  <script src="../../js/provincetown.js"></script>
-  <script src="../../js/satelliteLib.js"></script>
 </body>
-
-</html>

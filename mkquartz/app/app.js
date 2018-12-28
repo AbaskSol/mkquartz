@@ -716,15 +716,17 @@ function() {
 }(),
 function() {
     "use strict";
-    angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
-        localStorage.setItem("isValidURL", false);
-        n.login = function() {
+    //########## POSTING login details ##########
+    angular.module("app").controller("loginCtrl",["$scope","$http",function($scope,$http){
+        document.getElementById("js-site-header").style.display = "none";
+        document.getElementById("mkFooter").style.display = "none";
+        $scope.login = function() {
             var postJSON = JSON.stringify({
-              userid: n.loginuserid,
-              password: n.loginpassword
+              userid: $scope.loginuserid,
+              password: $scope.loginpassword
             });
             console.log(postJSON);
-            i({
+            $http({
               method: 'POST',
               url: '/loginuser',
               data: postJSON
@@ -732,9 +734,10 @@ function() {
               console.log(response.status);
                if(response.data.status == "Y"){
                 localStorage.setItem("isValidURL", true);
+                document.getElementById("loginBody").style.display = "none";
+                document.getElementById("loginBodyCon").style.display = "none";
                 document.getElementById("js-site-header").style.display = "block";
                 document.getElementById("mkFooter").style.display = "block";
-                n.transient.showHeadFooter = true;
                 location.href ="#/dashboard";
                 
               }
@@ -743,24 +746,33 @@ function() {
               console.log('Error posting the data..');
             })
           }
+    }]);
 
-        
+    //########### Home Controller #########
+    angular.module("app").controller("homeCtrl",function(){
+        document.getElementById("js-site-header").style.display = "block";
+        document.getElementById("mkFooter").style.display = "block";
+    });
 
-          
-
+    angular.module("app").controller("dashboardMainCtrl",["$scope",function($scope){
+        $scope.launchProductEditor = function(){
+            $scope.dashboardTemp = "Product";
+        }
+        $scope.launchUserEditor = function(){
+            $scope.dashboardTemp = "User";
+        }
+    }]);
+    //########### Menu Controller ##########
+    angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
+        localStorage.setItem("isValidURL", false);
 
         n.menu = t.menu;
         n.menub = t.menub;
         n.transient = {
             showProdForm : false,
-            showHeadFooter:true
         }
-        document.getElementById("mkFooter").style.display = "block";
-        if(location.href.indexOf("login") >= 0){
-            n.transient.showHeadFooter = false;
-            document.getElementById("js-site-header").style.display = "none";
-            document.getElementById("mkFooter").style.display = "none";
-        };
+        // document.getElementById("js-site-header").style.display = "block";
+        // document.getElementById("mkFooter").style.display = "block";
         // n.toggleMenu = function(){
         //     debugger;
         //     var elem = document.getElementById("menu-1");
@@ -798,7 +810,9 @@ function() {
         n.hasChildren = function() {
             return n.selected && n.selected.children && n.selected.children.length > 0
         };
-        n.isShowingHamburgerMenu = !1;
+        n.loginEventClick = function(){
+            location.href = "#/login";
+        }
         n.toggleHamburgerMenu = function() {
             n.isShowingHamburgerMenu ? (n.isShowingHamburgerMenu = !1, document.body.style.overflow = "visible") : (n.isShowingHamburgerMenu = !0, document.body.style.overflow = "hidden")
         };
