@@ -1,43 +1,112 @@
 <head>
   <style>
-  .dashboardMainContainer {
-    overflow: hidden;
-    width: 100%;
-    min-height: 450px;
-    background-color:blanchedalmond;
-  }
-  .dashboardSidebarContainer {
-    overflow: hidden;
-    min-width: 350px;
-    min-height: 442px; 
-    float: left;
-  }
-  .dashboardSidebarContainer a {
-    color: white;
-    font-size: 1.8em;
-    background-color: antiquewhite;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    padding: 30%;
-    border: 1.5px solid rgb(255, 248, 240);
-  }
-  .dashboardContentCon {
-    float: right;
-    margin-right: 50px;
-  }
+    body {
+      text-align: center;
+    }
+    .tabmenu {
+      margin-top: 20px;
+      border-bottom: 1px solid;
+    }
+
+    .tabmenu li.active {
+      border: 1px solid;
+      border-bottom: 1px solid #fff;
+    }
+
+    .tabmenu li {
+      display: inline;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+
+    .btnAD {
+      display: inline-block;
+      background-color: black;
+      color: #fff;
+      border: none;
+      margin: 5px;
+      padding: 5px 10px;
+      border-radius: 2px;
+    }
+
+    .btnUrs {
+      display: inline-block;
+      background-color: black;
+      color: #fff;
+      border: none;
+      margin: 5px;
+      padding: 2.5px 5px;
+    }
+
+    .dashboardMainCon {
+      min-height: 200px;
+    }
+
+    .dashboardProMenu {
+      width: 100%;
+      padding: 5px;
+      margin: 5px auto;
+    }
+
+    .dashboardProMenu img {
+      display: block;
+      width: 50%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .dashboardProMenu .productItem {
+      display: inline-block;
+      margin: 2px auto;
+      padding: 10px;
+      background-color: #e3d0c217;
+      width: 250px;
+      border-radius: 2px;
+    }
+    .dashboardProMenu p {
+      margin: 0;
+      color: #fff;
+    }
   </style>
 </head>
 
-<body class="ng-scope">
-  <div class="dashboardMainContainer">
-    <div class="dashboardSidebarContainer">
-      <div class="dashboardProductSub"><a ng-click="launchProductEditor()">Product</a></div>
-      <div class="dashboardUserSub"><a ng-click="launchUserEditor()">User</a></div>
-    </div>
-    <div class="dashboardContentCon" ng-controller="dashboardMainCtrl">
-      <div ng-bind="dashboardTemp"></div>
+<body>
+
+  <div class="dashboardMainCon" ng-controller='dashboardMainCtrl'>
+    <ul class="tabmenu">
+      <li ng-class="{'active': tabName=='tab1'}" ng-click="tabName='products'">PRODUCTS</li>
+      <li ng-class="{'active': tabName=='tab2'}" ng-click="tabName='users'">USERS</li>
+    </ul>
+
+    <div ng-switch="tabName">
+      <div ng-switch-default class="dashboardProMenu">
+        <div class="productItem">
+          <p>Product01</p><img src="../../../images/mkquartz/AGOTAITAUSPIMO.jpg" alt="product01"><button class="btnAD">ADD</button><button
+            class="btnAD">DEL</button>
+        </div>
+        <div class="productItem">
+          <p>Product01</p><img src="../../../images/mkquartz/AGOTAITAUSPIMO.jpg" alt="product02"><button class="btnAD">ADD</button><button
+            class="btnAD">DEL</button>
+        </div>
+        <div class="productItem">
+          <p>Product01</p><img src="../../../images/mkquartz/AGOTAITAUSPIMO.jpg" alt="product03"><button class="btnAD">ADD</button><button
+            class="btnAD">DEL</button>
+        </div>
+        <div class="productItem">
+          <p>Product01</p><img src="../../../images/mkquartz/AGOTAITAUSPIMO.jpg" alt="product04"><button class="btnAD">ADD</button><button
+            class="btnAD">DEL</button>
+        </div>
+      </div>
+      <div ng-switch-when="users">
+        <div><button class="btnUrs">Change Password</button></div>
+        <div><button class="btnUrs">Register user</button></div>
+      </div>
     </div>
   </div>
-</script>
+
+  <script>
+    angular.module('app', []).controller('dashboardMainCtrl', function ($scope) {
+      $scope.tabName = "products";
+    });
+  </script>
 </body>
