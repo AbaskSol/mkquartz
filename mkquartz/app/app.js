@@ -266,13 +266,13 @@ function() {
 				templateUrl : '../main/contractors/index.html'
             })
             .when('/wholesale', {
-				templateUrl : '../main/wholesale/index.html'
+                templateUrl : '../main/wholesale/index.html'
             })
             .when('/dashboard' , {
                 templateUrl : '../main/account/dashboard/dashboard.html',
                 resolve: {
                     "check":function($rootScope,$location){
-                        if(localStorage.getItem("isValidURL") == 'true'){
+                        if(sessionStorage.getItem("isValidURL") == 'true'){
                             $location.path('/dashboard');
                         }
                         else {
@@ -718,7 +718,7 @@ function() {
     "use strict";
     //########## POSTING login details ##########
     angular.module("app").controller("loginCtrl",["$scope","$http",function($scope,$http){
-        localStorage.setItem("isValidURL", false);
+        sessionStorage.setItem("isValidURL", false);
         document.getElementById("js-site-header").style.display = "none";
         document.getElementById("mkFooter").style.display = "none";
         $scope.login = function() {
@@ -734,7 +734,7 @@ function() {
             }).then(function mySuccess(response){
               console.log(response.status);
                if(response.data.status == "Y" || response.data.sessionob != null){
-                localStorage.setItem("isValidURL", true);
+                sessionStorage.setItem("isValidURL", true);
                 document.getElementById("loginBody").style.display = "none";
                 document.getElementById("loginBodyCon").style.display = "none";
                 document.getElementById("js-site-header").style.display = "block";
@@ -764,6 +764,17 @@ function() {
     }]);
     //########### Menu Controller ##########
     angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
+        // var loginCK = JSON.stringify({ssid:sessionStorage.sid});
+        // console.log(loginCK);
+        // n({
+        //     method: 'POST',
+        //     url: '/checklogin',
+        //     data: loginCK
+        // }).then(function mySuccess(response){
+
+        // },function myError(response){
+
+        // })
 
         n.menu = t.menu;
         n.menub = t.menub;
@@ -1844,11 +1855,11 @@ function() {
     "use strict";
     angular.module("app").service("branchLocatorService", ["$http", "appSettings", function(n, t) {
         this.GetlocationWasGeoLocated = function() {
-            var n = localStorage.getItem("locationWasGeoLocated");
+            var n = sessionStorage.getItem("locationWasGeoLocated");
             return n === "true"
         };
         this.SetLocationWasGeoLocated = function() {
-            localStorage.setItem("locationWasGeoLocated", "true")
+            sessionStorage.setItem("locationWasGeoLocated", "true")
         };
         this.ChooseBranchByCode = function(i, r) {
             var u = {
@@ -3108,8 +3119,9 @@ function() {
                             n.criteria.size.push(value.size)
                         }
                     }
-
-                    n.customProdList.push(value);
+                    if(value.category == n.categoryName){
+                        n.customProdList.push(value);
+                    }
                 })
                 n.filterCustomProduct();
             }else{
