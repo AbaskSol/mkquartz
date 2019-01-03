@@ -3,6 +3,7 @@ var router = express.Router();
 // var algorithm = 'aes-256-cbc';
 // var key = crypto.randomBytes(32);
 // var iv = crypto.randomBytes(16);
+var session = require('express-session');
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
@@ -30,7 +31,10 @@ connection.connect(function(err) {
     }
     console.log('Connected as id ' + connection.threadId);
 });
-
+router.use(session({
+  secret:'hg13at111edfbas1ah1u123s130i',
+  resave: false
+}));
 //######### GET Homepage #########
 router.get('/', function(req, res, next) {
   res.sendFile('index.html');
@@ -44,8 +48,8 @@ router.get('/api/v1/getProductList' ,(req, response, next) =>{
       throw error;
     return response.json(res)
   });
-
 })
+
 router.get('/api/v1/getCategoryList' ,(req, response, next) =>{
   const results = [];
   connection.query('SELECT Distinct category FROM product', function (error, res, fields) {
@@ -74,7 +78,6 @@ router.post('/api/v1/createProduct' ,(req, res, next) =>{
     }      
     return res.json({status : "Y"})
   });
-
   connection.end(); 
 
 })
@@ -91,7 +94,7 @@ router.delete('/api/v1/deleteProduct/:productId' ,(req, res, next) =>{
   });
 
 })
-
+var sessionob;
 //######### Login User REQ Handler #########
 router.post('/loginuser', function(req, res){
   console.log(req.body);
@@ -101,11 +104,15 @@ router.post('/loginuser', function(req, res){
     }
     else {
       var details = JSON.parse(JSON.stringify(result));
+      req.session.sid = req.sessionID;
+      req.session.user = details[0].userid;
+      sessionob = req.session;
       if(req.body.password == details[0].password) {
-        res.json({status:"Y"});        
+        res.json({status:"Y",sessionob:sessionob});        
         console.log('loggedin');
       }
       else{
+        res.json({status:"N",sessionob:'{}'});
         console.log('The password is incorrect..');
       }
     }

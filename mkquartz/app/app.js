@@ -718,6 +718,7 @@ function() {
     "use strict";
     //########## POSTING login details ##########
     angular.module("app").controller("loginCtrl",["$scope","$http",function($scope,$http){
+        localStorage.setItem("isValidURL", false);
         document.getElementById("js-site-header").style.display = "none";
         document.getElementById("mkFooter").style.display = "none";
         $scope.login = function() {
@@ -732,14 +733,13 @@ function() {
               data: postJSON
             }).then(function mySuccess(response){
               console.log(response.status);
-               if(response.data.status == "Y"){
+               if(response.data.status == "Y" || response.data.sessionob != null){
                 localStorage.setItem("isValidURL", true);
                 document.getElementById("loginBody").style.display = "none";
                 document.getElementById("loginBodyCon").style.display = "none";
                 document.getElementById("js-site-header").style.display = "block";
                 document.getElementById("mkFooter").style.display = "block";
                 location.href ="#/dashboard";
-                
               }
               console.log('Data passed for verification..');
             }, function myError(response){
@@ -764,7 +764,6 @@ function() {
     }]);
     //########### Menu Controller ##########
     angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
-        localStorage.setItem("isValidURL", false);
 
         n.menu = t.menu;
         n.menub = t.menub;
