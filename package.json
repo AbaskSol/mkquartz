@@ -6,15 +6,16 @@
     "start": "supervisor ./bin/www"
   },
   "dependencies": {
-    "ejs": "latest",
     "aws-sdk": "latest",
-    "express": "latest",
     "body-parser": "latest",
-    "mysql": "latest",
     "cookie-parser": "~1.4.3",
     "debug": "^4.1.0",
+    "ejs": "latest",
+    "express": "latest",
+    "express-session": "^1.15.6",
     "jade": "~1.11.0",
     "morgan": "^1.9.1",
+    "mysql": "latest",
     "serve-favicon": "^2.5.0",
     "supervisor": "^0.12.0"
   }

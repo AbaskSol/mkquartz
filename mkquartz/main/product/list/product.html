@@ -1,4 +1,53 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+<style>		
+.fade {
+    opacity: 0;
+}
+.alert, .modal {
+    position: absolute;
+    top: 0 !important;
+    left: 50% !important;
+    /* display: block !important; */
+    overflow: unset;
+    max-width: calc(50%);
+    max-height: calc(50%);
+    transform: translate(-50%, -50%) !important;
+    border-radius: 3px;
+    background-color: transparent;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.75);
+}
+.modal {
+    /* position: absolute; */
+    /* right: 0; */
+    bottom: 0;
+    /* left: 0; */
+    z-index: 1050;
+    /* display: none; */
+    /* overflow: hidden; */
+    -webkit-overflow-scrolling: touch;
+    outline: 0; 
+}
+.modal-open {
+    padding-right: 0px !important;
+}
+.modal-open .modal {
+    overflow-x: unset;
+    overflow-y: unset;
+}
+body.modal-open {
+    overflow: inherit;
+    height: auto;;
+}
 
+</style>
+
+</head>
+<body>
 <div class="page-content" ng-class="{'hide-mobile': mobileMenu}">
 	
     <div>
@@ -80,7 +129,7 @@
     }
     @media only screen and (min-width: 1280px)
     {.product-card {
-    width: 250px;
+    width: 289px;
 }}
     </style>
     
@@ -96,8 +145,7 @@
     <div>
         <ol class="breadcrumb-list">
             <li class="breadcrumb-list-item"><a href="#/">Home</a></li>
-            <li class="breadcrumb-list-item"><a href="">QUARTZ</a></li>
-            
+            <li class="breadcrumb-list-item"><a href="">{{categoryName}}</a></li>         
         </ol>
     </div>
     <div id="productList" ng-controller="ProductListController">
@@ -255,37 +303,44 @@
                 <div>
                     <div>
                         <div>
-                            <div id="bContentCenter" class="Banner ContentCenter"><!-- tid 81, bId 72 --><div class="flashblock flashblock--info" style="max-width: 1720px; margin: 16px auto 24px;">Pricing can vary by state and is based on final shipping destination at checkout.</div></div>
+                            <div id="bContentCenter" class="Banner ContentCenter"><!-- tid 81, bId 72 --></div>
+                        <br>
                         </div>
                     </div>
+                   
                     <div id="productContent" class="plp-product-container">
                         <div class="plp-product-container">
     
-                        <a class="product-card" ng-repeat="p in actualProduct track by (p.id + p.name)" title="{{p.p_name}}">
-    
-                            
-                            <!-- <span class="product-card-tag product-card-tag-urlfriendly--best-seller">Best Seller</span> -->
-                            
-    
-                            <div class="product-card-image-container">
-                                <img src="../images/{{categoryName}}/{{p.imagePath}}" alt="{{p.p_name}}" />
-                            </div>
-    
-                            <h3 class="product-card-title">
-                                {{p.p_name}}
-                            </h3>
-                            
-                            <!-- <div class="product-card-item-code">
-                                GLSECPLNR-ET
-                            </div> -->
-    
-                            <!-- <div class="product-card-details">
-    
+                            <a class="product-card" ng-repeat="p in actualProduct track by (p.id + p.name)" title="{{p.p_name}}" data-toggle="modal" data-target="#imageModal" ng-click="setImageToEnlarge(p)">
+                                <div class="product-card-image-container">
+                                    <img src="../images/{{categoryName}}/{{p.imagePath}}" alt="{{p.p_name}}" />
+                                    
+                                </div>    
+                                <h3 class="product-card-title">
+                                    {{p.p_name}}
+                                </h3>
+                                <div class="modal fade" id="imageModal" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">{{imageData.p_name}}</h3>
+                                                    <button type="button" class="close fa fa-close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                        <div class="product-card-image-container">
+                                                                <img src="../images/{{categoryName}}/{{imageData.imagePath}}" alt="{{imageData.p_name}}" />
+                                                            </div>
+                                    
+                                                            <!-- <h3 class="product-card-title">
+                                                                {{imageData.p_name}}
+                                                            </h3> -->
+                                                </div>  
+                                            </div>	
+                                        </div>
+                                    </div>      
                                 
-                                <span class="product-card-price">MSRP: $11.98 / Sq. Ft. </span>
-                                
-                            </div> -->
-                        </a>
+                            </a>
     
                         </div>
                     </div>
@@ -349,7 +404,7 @@
             </a>
         </div>
     </div>
-    
+  
     
     <script type="text/javascript">
         angular.module("app")
@@ -386,5 +441,6 @@
         });
     </script>
     
-    </div>
-    
+</div>
+</body>
+</html>

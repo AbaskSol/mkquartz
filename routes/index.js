@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   database : 'mkquartz',
   user     : 'root',
-  password : 'mysql1995',
+  password : 'mysql',
 });
 // var connection = mysql.createConnection({
 //     host     : 'aa1upa5smcobczo.cjih6vzbpopo.us-east-2.rds.amazonaws.com',

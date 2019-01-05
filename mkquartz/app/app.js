@@ -916,6 +916,7 @@ function() {
             });
         }
     }
+    
 
     }])
 }(),
@@ -3166,6 +3167,10 @@ function() {
                 n.actualProduct = n.customProdList;
             } 
         }
+        n.imageData = {};
+        n.setImageToEnlarge = function(data){
+            n.imageData = data;
+        }
         n.setColor = function(c, flag){
             if(flag && n.criteria.selectedColor.indexOf(c) == -1){
                 n.criteria.selectedColor.push(c)
@@ -3229,7 +3234,8 @@ function() {
             });
             e.location.href = f + "?" + t.join("&")
         };
-        n.resetFilter()
+        n.resetFilter();
+        
     }
     angular.module("app").controller("ProductListController", ["$scope", "$http", "spinner", "appSettings", "productListModel", "baseUrl", "$window", "ngDialog", "$routeParams", n])
 }(),
