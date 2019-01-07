@@ -824,7 +824,14 @@ function() {
             location.href = "#/login";
         }
         n.toggleHamburgerMenu = function() {
-            n.isShowingHamburgerMenu ? (n.isShowingHamburgerMenu = !1, document.body.style.overflow = "visible") : (n.isShowingHamburgerMenu = !0, document.body.style.overflow = "hidden")
+            document.getElementById("js-hamburger-menu").classList.remove("hidden");
+             
+            if(n.isShowingHamburgerMenu){
+                (n.isShowingHamburgerMenu = !1, document.body.style.overflow = "visible")
+            }
+              else{
+                (n.isShowingHamburgerMenu = !0, document.body.style.overflow = "hidden")
+             } 
         };
         n.$on("shoppingBagItemsChanged", function(t, i) {
             n.showShoppingBagItemIcon = i > 0 ? !0 : !1;

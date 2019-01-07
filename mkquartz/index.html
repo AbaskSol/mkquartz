@@ -131,9 +131,11 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 				</li>
 			</ul> -->
 
-				<ul id="js-hamburger-menu" class="site-header-top-level-nav" ng-class="{ 'active': isShowingHamburgerMenu }">
+				<ul id="js-hamburger-menu" class="site-header-top-level-nav hm-menu" ng-class="{ 'active': isShowingHamburgerMenu }">
 					<li ng-repeat="m in menuList" class="submenu-container">
-						<a ng-show="m.children.length == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'">{{m.title}}</a>
+						<a ng-show="m.children.length == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" 
+						onclick="$('.hm-menu').not($(this).next()).addClass('hidden');$('.hamburger').removeClass('active');"
+						onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'">{{m.title}}</a>
 						<button ng-show="m.children.length > 0" type="button" class="site-header-top-level-nav-item dropdown-button"
 						 onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">
 
@@ -142,7 +144,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 						</button>
 						<ul ng-show="m.children.length > 0" id="{{ 'menu-' + $index }}" class="submenunavigator submenu hidden">
 							<li ng-repeat="c in m.children" role="none">
-								<a class="dropdown__item" onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')"
+								<a class="dropdown__item" onclick="$('.hm-menu').not($(this).next()).addClass('hidden');$('.hamburger').removeClass('active');$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')"
 								 ng-href="{{c.url}}" onmouseover="this.style.backgroundColor = 'rgba(0,0,0,.05)'; this.style.textDecoration = 'none'; this.style.color='#000'"
 								 onmouseout="this.style.backgroundColor = 'rgba(0,0,0,0)'">{{c.title}}</a>
 							</li>
@@ -171,7 +173,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 				</div>
 
 				<button type="button" id="menubutton-3" aria-haspopup="true" aria-controls="menu-3" class="site-header-menu-button hamburger"
-				 ng-class="{ 'active': isShowingHamburgerMenu }" ng-click="toggleHamburgerMenu()">Menu</button>
+				 ng-class="{ 'active': isShowingHamburgerMenu }" ng-click="toggleHamburgerMenu();">Menu</button>
 				<!-- </div> -->
 			</nav>
 			<aside class="site-search hidden" id="js-search-input" role="menu" aria-labelledby="menubutton-1">
