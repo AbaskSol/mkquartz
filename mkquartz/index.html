@@ -82,12 +82,31 @@
 		.hp-display-1 {
 				color: white !important;
 		}
+		
 		@media only screen and (max-width: 1139px) {
 			.site-header-top-level-nav.active {
 				height: 132%;
 			}
 		}
-	
+		.hmhort{
+			display: flex !important;
+			visibility: unset !important;
+		}
+		.hmvert{
+			display: none;
+		}
+		@media only screen and (max-width: 1132px) {
+			.hmhort{
+				display: none !important;
+			}
+			
+		}
+		/* @media only screen and (max-width: 1247px){
+			.hidden {
+				visibility: unset !important;
+			}
+		} */
+			
    </style>
 
 </head>
@@ -131,7 +150,27 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 				</li>
 			</ul> -->
 
-				<ul id="js-hamburger-menu" class="site-header-top-level-nav hm-menu" ng-class="{ 'active': isShowingHamburgerMenu }">
+				<ul id="js-hamburger-menu" class="site-header-top-level-nav hm-menu hmhort" ng-class="{ 'active': isShowingHamburgerMenu }">
+					<li ng-repeat="m in menuList" class="submenu-container">
+						<a ng-show="m.children.length == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" 
+						onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'">{{m.title}}</a>
+						<button ng-show="m.children.length > 0" type="button" class="site-header-top-level-nav-item dropdown-button"
+						 onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">
+
+							{{m.title}}
+
+						</button>
+						<ul ng-show="m.children.length > 0" id="{{ 'menu-' + $index }}" class="submenunavigator submenu hidden">
+							<li ng-repeat="c in m.children" role="none">
+								<a class="dropdown__item" onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')"
+								 ng-href="{{c.url}}" onmouseover="this.style.backgroundColor = 'rgba(0,0,0,.05)'; this.style.textDecoration = 'none'; this.style.color='#000'"
+								 onmouseout="this.style.backgroundColor = 'rgba(0,0,0,0)'">{{c.title}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<ul id="js-hamburger-menu-1" class="site-header-top-level-nav hm-menu hmvert" ng-class="{ 'active': isShowingHamburgerMenu }">
 					<li ng-repeat="m in menuList" class="submenu-container">
 						<a ng-show="m.children.length == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" 
 						onclick="$('.hm-menu').not($(this).next()).addClass('hidden');$('.hamburger').removeClass('active');"

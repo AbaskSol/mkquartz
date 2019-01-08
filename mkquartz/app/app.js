@@ -823,15 +823,19 @@ function() {
         n.loginEventClick = function(){
             location.href = "#/login";
         }
+        var swaphm = false;
         n.toggleHamburgerMenu = function() {
             document.getElementById("js-hamburger-menu").classList.remove("hidden");
-             
+           
             if(n.isShowingHamburgerMenu){
                 (n.isShowingHamburgerMenu = !1, document.body.style.overflow = "visible")
-            }
-              else{
+                document.getElementById("js-hamburger-menu-1").style.display="none !important";
+            }else{
                 (n.isShowingHamburgerMenu = !0, document.body.style.overflow = "hidden")
-             } 
+                document.getElementById("js-hamburger-menu-1").classList.remove("hidden");
+                document.getElementById("js-hamburger-menu-1").style.display="block !important";
+            } 
+            swaphm = n.isShowingHamburgerMenu;
         };
         n.$on("shoppingBagItemsChanged", function(t, i) {
             n.showShoppingBagItemIcon = i > 0 ? !0 : !1;
@@ -856,10 +860,11 @@ function() {
          i(productReq).then(function(data){
             if(Array.isArray(data.data) && data.data.length > 0){
                 n.productList = data.data;
-                for(var a in n.productList){
+                for(var a in n.productList){ 
+                    n.productList[a].urlParam = n.productList[a].category.split(' ').join('');
                     if(n.catList.indexOf(n.productList[a].category) == -1){
                         n.catList.push(n.productList[a].category)
-                        n.menuList[1].children.push({title: n.productList[a].category, url:"#/products/"+n.productList[a].category})
+                        n.menuList[1].children.push({title: n.productList[a].category, url:"#/products/"+n.productList[a].urlParam})
                     }
                 }
                 // n.menuList[1].children = n.catList;
@@ -3101,6 +3106,7 @@ function() {
                     value.deco = value.deco == 1?true:false;
                     value.tile = value.tile == 1?true:false;
                     value.slab = value.slab == 1?true:false;
+                    value.urlParam = value.category.split(' ').join('')
                     if (value.color.indexOf(',') != -1) {
                         var segments = value.color.split(',');
                         angular.forEach(segments, function(v, k){
@@ -3127,7 +3133,7 @@ function() {
                             n.criteria.size.push(value.size)
                         }
                     }
-                    if(value.category == n.categoryName){
+                    if(value.urlParam == n.categoryName){
                         n.customProdList.push(value);
                     }
                 })
@@ -3144,7 +3150,8 @@ function() {
             for (var key in n.criteria) {
                 if (n.criteria[key] == true ) {
                     angular.forEach(n.customProdList, function(value, k){
-                        if(value[key] && value.category == n.categoryName){
+                        value.urlParam = value.category.split(' ').join('')
+                        if(value[key] && value.urlParam == n.categoryName){
                             var availableProducts = n.actualProduct.filter(function(v){
                                 return v.id == value.id;
                             })
@@ -3153,7 +3160,8 @@ function() {
                     })
                 }else if(key == 'selectedColor'){
                     angular.forEach(n.actualProduct, function(value, k){
-                        if(value[key] && value.category == n.categoryName){
+                        value.urlParam = value.category.split(' ').join('')
+                        if(value[key] && value.urlParam == n.categoryName){
                              var availableProducts = n.selectedColorProduct.filter(function(o){
                              return o.id == value.id;
                             })

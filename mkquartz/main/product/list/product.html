@@ -135,10 +135,34 @@ body.modal-open {
     @media only screen and (min-width: 1280px)
     {.product-card {
     width: 289px;
-}}
-.product-card-title {
-    line-height: 6px;
-}
+    }}
+    .product-card-title {
+        line-height: 6px;
+    }
+    @media only screen and (max-width: 1132px) {
+        .product-card-image-container img{
+            height: 74%;
+        }
+		.product-card-image-container {
+            margin-bottom: 0px;
+            padding-top: 201px;
+            margin-top: -22px;
+        }	
+        .product-card-title {
+            line-height: 0px;
+        }
+        h3{
+            margin-top: 0px;
+        }
+	}
+    @media only screen and (max-width: 1132px) {
+        .hp-product-carousel-cell img {
+            width: 63% !important;
+        }
+        .hp-product-carousel-cell{
+            left: 388px !important;
+        }
+	}
     </style>
     
     
