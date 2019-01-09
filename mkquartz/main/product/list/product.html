@@ -155,14 +155,6 @@ body.modal-open {
             margin-top: 0px;
         }
 	}
-    @media only screen and (max-width: 1132px) {
-        .hp-product-carousel-cell img {
-            width: 63% !important;
-        }
-        .hp-product-carousel-cell{
-            left: 388px !important;
-        }
-	}
     </style>
     
     
@@ -174,13 +166,14 @@ body.modal-open {
     </div></div>
         </div>
     </div>
+    <div id="productList" ng-controller="ProductListController">
     <div>
         <ol class="breadcrumb-list">
             <li class="breadcrumb-list-item"><a href="#/">Home</a></li>
             <li class="breadcrumb-list-item"><a href="">{{categoryName}}</a></li>         
         </ol>
     </div>
-    <div id="productList" ng-controller="ProductListController">
+    
     
         <div class="mobile-filter-dialog progress-enabled" ng-cloak ng-show="data.filterDialogShow" ng-class="{'busy':data.filterDialogBusy}">
             <ul>
@@ -242,10 +235,10 @@ body.modal-open {
             <div>					
                 <div class="refinements">
     
-                <div class="refinement multiple plp-accordion is-expanded ColorGroup">
+                <div class="refinement multiple plp-accordion closed Size">
     
-                <button class="plp-accordion-btn  is-expanded" onclick="$(this).parent().toggleClass('is-expanded').toggleClass('closed'), $(this).toggleClass('is-expanded').toggleClass('closed') ">
-                    Color Family 
+                <button class="plp-accordion-btn  " onclick="$(this).parent().toggleClass('is-expanded').toggleClass('closed'), $(this).toggleClass('is-expanded').toggleClass('closed') ">
+                Color Family 
                 </button>
     
     

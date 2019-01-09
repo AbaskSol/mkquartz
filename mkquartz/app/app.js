@@ -3197,6 +3197,7 @@ function() {
             }
             n.filterCustomProduct('sortOnColor');
         }
+        
         n.categoryName=rp.category
         n.productListModel = u;
         n.data = {
