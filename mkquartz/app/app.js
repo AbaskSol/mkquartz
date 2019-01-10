@@ -3092,7 +3092,7 @@ function() {
             colorFlag: false
         }
         n.customProdList = [];
-        
+        n.label = '';
         var productReq = {
             method: 'GET',
             url:'/api/v1/getProductList',
@@ -3134,6 +3134,7 @@ function() {
                         }
                     }
                     if(value.urlParam == n.categoryName){
+                        n.label = value.category;
                         n.customProdList.push(value);
                     }
                 })
@@ -3152,6 +3153,7 @@ function() {
                     angular.forEach(n.customProdList, function(value, k){
                         value.urlParam = value.category.split(' ').join('')
                         if(value[key] && value.urlParam == n.categoryName){
+                            n.label = value.category;
                             var availableProducts = n.actualProduct.filter(function(v){
                                 return v.id == value.id;
                             })
@@ -3162,6 +3164,7 @@ function() {
                     angular.forEach(n.actualProduct, function(value, k){
                         value.urlParam = value.category.split(' ').join('')
                         if(value[key] && value.urlParam == n.categoryName){
+                            n.label = value.category;
                              var availableProducts = n.selectedColorProduct.filter(function(o){
                              return o.id == value.id;
                             })
