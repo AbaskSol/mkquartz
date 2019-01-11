@@ -719,24 +719,24 @@ function() {
     //########## POSTING login details ##########
     angular.module("app").controller("loginCtrl",["$scope","$http",function($scope,$http){
         sessionStorage.setItem("isValidURL", false);
-        document.getElementById("js-site-header").style.display = "none";
-        document.getElementById("mkFooter").style.display = "none";
+        $scope.loginModel = {};
+        // document.getElementById("js-site-header").style.display = "none";
+        // document.getElementById("mkFooter").style.display = "none";
         $scope.login = function() {
-            var postJSON = JSON.stringify({
-              userid: $scope.loginuserid,
-              password: $scope.loginpassword
-            });
-            console.log(postJSON);
+ 
+            console.log($scope.loginModel);
             $http({
               method: 'POST',
               url: '/loginuser',
-              data: postJSON
+              data: $scope.loginModel
             }).then(function mySuccess(response){
               console.log(response.status);
+              
                if(response.data.status == "Y" || response.data.sessionob != null){
                 sessionStorage.setItem("isValidURL", true);
-                document.getElementById("loginBody").style.display = "none";
-                document.getElementById("loginBodyCon").style.display = "none";
+                localStorage.setItem('loggedUser',JSON.stringify({userId:response.data.sessionob.userid,role:response.data.sessionob.role}));
+                // document.getElementById("loginBody").style.display = "none";
+                // document.getElementById("loginBodyCon").style.display = "none";
                 document.getElementById("js-site-header").style.display = "block";
                 document.getElementById("mkFooter").style.display = "block";
                 location.href ="#/dashboard";
@@ -764,18 +764,35 @@ function() {
     }]);
     //########### Menu Controller ##########
     angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
-        // var loginCK = JSON.stringify({ssid:sessionStorage.sid});
-        // console.log(loginCK);
-        // n({
-        //     method: 'POST',
-        //     url: '/checklogin',
-        //     data: loginCK
-        // }).then(function mySuccess(response){
-
-        // },function myError(response){
-
-        // })
-
+        sessionStorage.setItem("isValidURL", false);
+        n.loginModel = {};
+        n.userData = {};
+        // document.getElementById("js-site-header").style.display = "none";
+        // document.getElementById("mkFooter").style.display = "none";
+        n.login = function() {
+ 
+            i({
+              method: 'POST',
+              url: '/loginuser',
+              data: n.loginModel
+            }).then(function mySuccess(response){
+              console.log(response.status);
+              
+               if(response.data.status == "Y" || response.data.sessionob != null){
+                n.setHeaderMenu();
+                sessionStorage.setItem("isValidURL", true);
+                n.userData = {userId:response.data.sessionob.userid,role:response.data.sessionob.role};
+                // document.getElementById("loginBody").style.display = "none";
+                // document.getElementById("loginBodyCon").style.display = "none";
+                document.getElementById("js-site-header").style.display = "block";
+                document.getElementById("mkFooter").style.display = "block";
+                location.href ="#/dashboard";
+              }
+              console.log('Data passed for verification..');
+            }, function myError(response){
+              console.log('Error posting the data..');
+            })
+          }
         n.menu = t.menu;
         n.menub = t.menub;
         n.transient = {
@@ -843,16 +860,35 @@ function() {
         })
         n.productList = [{productId:"", productName:"", categories:"", imagePath:"", color:"", price:""}];
         n.catList = [];
+        
         n.menuList = [
-            {title: "Featured", url:"#/featured/", children:[
+            {title: "Featured", url:"#/featured/", role:0, children:[
                 {title:"New Arrivals", url:"#/fall-2018"},
                 {title:"Costa Allegra", url:"#/costa-allegra"}]},
-            {title:"Products", url:"#/products/", children:[]},
-            {title:"Gallery", url:"#/gallery", children:[]},
-            {title:"Blog", url:"#/blog", children:[]},
-            {title:"Professionals", url:"#/pros", children:[]},
+            {title:"Products", url:"#/products/", role:0, children:[]},
+            {title:"Gallery", url:"#/gallery", role:0, children:[]},
+            {title:"Blog", url:"#/blog", role:0, children:[]},
+            {title:"Professionals", url:"#/pros", role:0, children:[]},
+            {title:"Manage Products", url:"#/dashboard", role:1, children:[]},
+            {title:"Manage user", url:"#/dashboard", role:1, children:[]},
             // {title:"signup", url:"#/account", children:[]}
         ]
+        n.setHeaderMenu = function(){
+            for(var a in n.menuList) {
+                n.menuList[a].flag = false;
+                if(n.menuList[a].role == 0 && (n.userData.role == 0 || n.userData.role == 1)){
+                    n.menuList[a].flag = true;
+                }else if(n.menuList[a].role == 1 && n.userData.role == 1){
+                    n.menuList[a].flag = true;
+                }else if( !n.userData.role && n.menuList[a].role == 0){
+                    n.menuList[a].flag = true;
+                }
+            }
+            
+            console.log(n.menuList)
+             
+        };
+        n.setHeaderMenu();
         var productReq = {
             method: 'GET',
             url:'/api/v1/getProductList',

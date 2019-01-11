@@ -106,6 +106,7 @@ router.post('/loginuser', function(req, res){
       var details = JSON.parse(JSON.stringify(result));
       req.session.sid = req.sessionID;
       req.session.user = details[0].userid;
+      req.session.role = details[0].role;
       sessionob = req.session;
       if(req.body.password == details[0].password) {
         res.json({status:"Y",sessionob:sessionob});        

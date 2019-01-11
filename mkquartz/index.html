@@ -107,34 +107,57 @@
 				visibility: unset !important;
 			}
 		} */
-		.alert, .modal {
-    /* position: absolute; */
-    /* top: -30% !important; */
-    /* left: 100% !important; */
-    /* display: block !important; */
-    overflow: unset;
-    /* max-width: calc(180%); */
-    /* max-height: calc(50%); */
-    transform: translate(-50%, -50%) !important;
-    border-radius: 3px;
-    background-color: transparent;
-    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.75);
+		.pop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    z-index: 100001 !important;
 }
-.modal {
-    /* position: absolute; */
-	top: 50%;
-    right: 0;
-    bottom: 0;
+.pop-content {
+    position: absolute;
+    top: 50%;
     left: 50%;
-    z-index: 1050;
-    /* display: none; */
-    /* overflow: hidden; */
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 38%;
+	height: 60%;
+    border-radius: 0.5rem;
 }
-.modal-open {
-    padding-right: 0px !important;
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
 }
+.close-button:hover {
+    background-color: darkgray;
+}
+.show-pop {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+.regFormContainer{
+	text-align: center;
+}
+@media only screen and (max-width: 1132px) {
+	.pop-content{
+		width: 59%;
+    	height: 69%;
+		}
+			
+	}
 </style>
 
 </head>
@@ -179,7 +202,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 			</ul> -->
 
 				<ul id="js-hamburger-menu" class="site-header-top-level-nav hm-menu hmhort" ng-class="{ 'active': isShowingHamburgerMenu }">
-					<li ng-repeat="m in menuList" class="submenu-container">
+					<li ng-repeat="m in menuList"  ng-if="m.flag" class="submenu-container">
 						<a ng-show="m.children.length == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" 
 						onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'">{{m.title}}</a>
 						<button ng-show="m.children.length > 0" type="button" class="site-header-top-level-nav-item dropdown-button"
@@ -236,7 +259,28 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 				</div> -->
 
 				<div class="submenu-container">
-					<button type="button" class="site-header-menu-button icon-user" ng-click="loginEventClick()">Account</button>
+					<button type="button" class="site-header-menu-button icon-user trigger">Account</button>
+					<div class="pop">
+						<div class="pop-content">
+							<span class="close-button">×</span>
+							<div id="loginBody">
+								<br>
+								<div id="loginBodyCon">
+									<div class="regFormContainer">
+									<h4>LOG IN</h4>
+									<form>
+										<div><input type="text" class="inpRegForm" ng-model="loginModel.userid" placeholder="User ID"></div>
+										<div><input type="password" class="inpRegForm" ng-model="loginModel.password" placeholder="Password"></div>
+										<button class="regFormButton" ng-click="login()">LOGIN</button>
+									</form>
+									</div>
+									<!-- <input type="text" ng-model="loginUserId">
+									<p>{{loginUserId}}</p> -->
+									<br>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<button type="button" id="menubutton-3" aria-haspopup="true" aria-controls="menu-3" class="site-header-menu-button hamburger"
@@ -403,6 +447,26 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 </script> -->
 
 	<script type="text/javascript">_satellite.pageBottom();</script>
+	<script>
+var pop = document.querySelector(".pop");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
+
+function togglepop() {
+    pop.classList.toggle("show-pop");
+}
+
+function windowOnClick(event) {
+    if (event.target === pop) {
+        togglepop();
+    }
+}
+
+trigger.addEventListener("click", togglepop);
+closeButton.addEventListener("click", togglepop);
+window.addEventListener("click", windowOnClick);
+
+</script>
 </body>
 
 </html>
