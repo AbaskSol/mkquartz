@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 10, 2019 at 01:24 PM
+-- Generation Time: Jan 14, 2019 at 01:38 PM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -195,15 +195,16 @@ INSERT INTO `product` (`id`, `p_name`, `mosaic`, `deco`, `tile`, `slab`, `catego
 CREATE TABLE IF NOT EXISTS `users` (
   `userid` varchar(12) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `sessionid` varchar(100) DEFAULT NULL
+  `sessionid` varchar(100) DEFAULT NULL,
+  `role` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `password`, `sessionid`) VALUES
-('admin', 'admin', NULL);
+INSERT INTO `users` (`userid`, `password`, `sessionid`, `role`) VALUES
+('admin', 'admin', NULL, 1);
 
 --
 -- Indexes for dumped tables

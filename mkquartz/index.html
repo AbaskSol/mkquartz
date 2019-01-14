@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="css/flexslider.min.css" />
 	<link href="css/theme.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="css/xmq7vjw.css">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
 	<meta name="google-site-verification" content="HK6IqsxpreHSkv6RTYSzHubuzGEJzI2nqY-SvJfpBug" />
 	<!-- Google Tag Manager -->
@@ -30,23 +29,23 @@
 
 	<link rel="canonical" href="/" />
 
-	<link rel="shortcut icon" type="image/ico" href="images/mkquartz/mkkk.png" />
+	<link rel="shortcut icon" type="image/ico" href="http://s3-us-east-2.amazonaws.com/mkqimages/images/mkquartz/mkquartz-logo.png" />
 	<style>
 		.icon-cog {
 			background-image: url('images/mkquartz/cog.png') !important;
 			background-size: 25px 25px;
 		}
 		div.subdivision {
-                width: 100%;
-                height: 100%;
-                /* margin: auto; */
-				background: #0000003d;
-                position: absolute;
-                left: 0;
-                right: 0;
-                top:0;
-                bottom:0;
-				z-index: 2;
+			width: 100%;
+			height: 100%;
+			/* margin: auto; */
+			background: #0000003d;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top:0;
+			bottom:0;
+			z-index: 2;
         }
 		.tablediv{
 			position: absolute;
@@ -62,28 +61,27 @@
 			background-color: white;
 		}
 		.btn-circle.btn-lg {
-		width: 45px;
-		height: 45px;
-		padding: 13px 4px;
-		font-size: 18px;
-		line-height: 1.33;
-		border-radius: 25px;
-		border: #2452d4;
-		background-color: #2452d4;
-		color: #f7f5f1;
+			width: 45px;
+			height: 45px;
+			padding: 13px 4px;
+			font-size: 18px;
+			line-height: 1.33;
+			border-radius: 25px;
+			border: #2452d4;
+			background-color: #2452d4;
+			color: #f7f5f1;
 		}
 		.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
-    color: #fff;
-    background-color: red;
-    border-color: #204d74;
+			color: #fff;
+			background-color: red;
+			border-color: #204d74;
 		}
 		.centered-form .panel {
 			background: rgba(255, 255, 255, 0.8);
-			}
-		.hp-display-1 {
-				color: white !important;
 		}
-		
+		.hp-display-1 {
+			color: white !important;
+		}
 		@media only screen and (max-width: 1139px) {
 			.site-header-top-level-nav.active {
 				height: 132%;
@@ -100,65 +98,81 @@
 			.hmhort{
 				display: none !important;
 			}
-			
 		}
-		/* @media only screen and (max-width: 1247px){
-			.hidden {
-				visibility: unset !important;
-			}
-		} */
 		.pop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    z-index: 100001 !important;
-}
-.pop-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 1rem 1.5rem;
-    width: 38%;
-	height: 60%;
-    border-radius: 0.5rem;
-}
-.close-button {
-    float: right;
-    width: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
-}
-.close-button:hover {
-    background-color: darkgray;
-}
-.show-pop {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-}
-.regFormContainer{
-	text-align: center;
-}
-@media only screen and (max-width: 1132px) {
-	.pop-content{
-		width: 59%;
-    	height: 69%;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			opacity: 0;
+			visibility: hidden;
+			transform: scale(1.1);
+			z-index: 100001 !important;
 		}
+		.pop-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: white;
+			padding: 2rem 1.5rem;
+			width: 31%;
+			border-radius: 1.5rem;
+			box-shadow: 3px 2px 45px black;
+		}
+		.close-button {
+			float: right;
+			width: 2.5rem;
+			line-height: 2.5rem;
+			text-align: center;
+			cursor: pointer;
+			border-radius: 1.25rem;
+			background-color: lightgray;
+		}
+		.close-button:hover {
+			background-color: darkgray;
+		}
+		.show-pop {
+			opacity: 1;
+			visibility: visible;
+			transform: scale(1.0);
+			transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+		}
+		.regFormContainer{
+			text-align: center;
 			
-	}
-</style>
+		}
+		.inpRegForm{
+			padding: 11px 24px;
+			width: 81%;
+			border-radius: 24px;
+			background-color: #ebe4e4;
+			border: gray;
+			outline: none;
+		}
+		.regFormButton{
+			width: 27%;
+			border-radius: 36px;
+			background-color: #4d1a00;
+			color: white;
+			border: black;
+			padding: 6px;
+			outline: none;
+		}
+		@media only screen and (max-width: 1132px) {
+		.pop-content{
+			width: 62%;
+			}		
+		}
+		.logout{
+			font-size: 23px;
+			outline: none;
+			border: none;
+			background-color: Transparent;
+		}
+	</style>
 
 </head>
 
@@ -242,7 +256,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 					</li>
 				</ul>
 
-				<!-- <div class="site-header-menu-buttons" ng-controller="branchLocatorController"  ng-init="init('WA', 'Seattle', '161')" > -->
+				<div class="site-header-menu-buttons">
 				<!-- <button type="button" ng-click="selectState()" class="ship-to-button">California</button>
 				
 				<button type="button" class="site-header-menu-button icon-cog" ng-click="transient.showProdForm = true"></button> -->
@@ -260,18 +274,21 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 
 				<div class="submenu-container">
 					<button type="button" class="site-header-menu-button icon-user trigger">Account</button>
-					<div class="pop">
+					<div class="pop" id="lgPopup">
 						<div class="pop-content">
-							<span class="close-button">×</span>
+							<span class="close-button fa fa-times"></span>
 							<div id="loginBody">
 								<br>
 								<div id="loginBodyCon">
 									<div class="regFormContainer">
-									<h4>LOG IN</h4>
+									<h3 style="color: #4d1a00">LOG IN</h3>
+									<br>
 									<form>
 										<div><input type="text" class="inpRegForm" ng-model="loginModel.userid" placeholder="User ID"></div>
+										<br>
 										<div><input type="password" class="inpRegForm" ng-model="loginModel.password" placeholder="Password"></div>
-										<button class="regFormButton" ng-click="login()">LOGIN</button>
+										<br>
+										<button class="regFormButton" ng-click="login()">Login</button>
 									</form>
 									</div>
 									<!-- <input type="text" ng-model="loginUserId">
@@ -282,6 +299,8 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 						</div>
 					</div>
 				</div>
+				<!-- <i class="fa fa-sign-out" aria-hidden="true" ng-click="logout()"></i> -->
+				<!-- <button class="fa fa-power-off logout" ng-click="logout()"></button> -->
 
 				<button type="button" id="menubutton-3" aria-haspopup="true" aria-controls="menu-3" class="site-header-menu-button hamburger"
 				 ng-class="{ 'active': isShowingHamburgerMenu }" ng-click="toggleHamburgerMenu();">Menu</button>
@@ -396,7 +415,9 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 	<script type="text/javascript" src="js/es6-shim.min.js"></script>
 	<script type="text/javascript" src="js/yepnope.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="js/jquery.flexslider.min.js"></script>
+	<!-- <script src="js/lazyload.js"></script> -->
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/angular-cookies.min.js"></script>
@@ -411,6 +432,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 	<script type="text/javascript" src="js/ngDialog.min.js"></script>
 	<script type="text/javascript" src="js/lodash.min.js"></script>
 	<script type="text/javascript" src="js/angular-google-maps.min.js"></script>
+	
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 	<script src="js/lib.js"></script>
 	<script src="app/app.js"></script>

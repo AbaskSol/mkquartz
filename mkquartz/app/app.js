@@ -276,7 +276,7 @@ function() {
                             $location.path('/dashboard');
                         }
                         else {
-                            $location.path('/login');
+                            $location.path('/');
                             alert("You dont have access");
                         }
                     }
@@ -767,6 +767,12 @@ function() {
         sessionStorage.setItem("isValidURL", false);
         n.loginModel = {};
         n.userData = {};
+        n.menu = t.menu;
+        n.menub = t.menub;
+        n.transient = {
+            showProdForm : false,
+            // showLgBtn :
+        }
         // document.getElementById("js-site-header").style.display = "none";
         // document.getElementById("mkFooter").style.display = "none";
         n.login = function() {
@@ -779,9 +785,11 @@ function() {
               console.log(response.status);
               
                if(response.data.status == "Y" || response.data.sessionob != null){
+                document.getElementById("lgPopup").classList.remove("show-pop");
+                n.userData = {userId:response.data.sessionob.userid,role:response.data.sessionob.role};
+                // localStorage.setItem("LogUser", JSON.stringify({userId:response.data.sessionob.userid,role:response.data.sessionob.role}));
                 n.setHeaderMenu();
                 sessionStorage.setItem("isValidURL", true);
-                n.userData = {userId:response.data.sessionob.userid,role:response.data.sessionob.role};
                 // document.getElementById("loginBody").style.display = "none";
                 // document.getElementById("loginBodyCon").style.display = "none";
                 document.getElementById("js-site-header").style.display = "block";
@@ -793,11 +801,13 @@ function() {
               console.log('Error posting the data..');
             })
           }
-        n.menu = t.menu;
-        n.menub = t.menub;
-        n.transient = {
-            showProdForm : false,
+
+        n.logout = function(){
+            n.userData = {};
+            n.setHeaderMenu();
+            location.href ="#/";
         }
+        
         // document.getElementById("js-site-header").style.display = "block";
         // document.getElementById("mkFooter").style.display = "block";
         // n.toggleMenu = function(){
