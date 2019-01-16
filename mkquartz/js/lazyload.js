@@ -49,12 +49,12 @@
     $.fn.lazyload = function(options) {
 
         var elements = this,
-            $container,
+            $ro,
             settings = {
             threshold       : 0,
             failure_limit   : 0,
             event           : 'scroll',
-            container       : window,
+            ro       : window,
             skip_invisible  : false,
             appear          : null,
             load            : null,
@@ -83,7 +83,7 @@
         function resolveLazyObject(lazyElement) {
 
             var tagName = lazyElement.tagName.toLowerCase();
-            var src     = lazyElement.getAttribute('data-src');
+            var src     = lazyElement.getAttribute('ng-src');
 
             if (tagName === 'img') {
                 lazyElement.src = src;
@@ -104,8 +104,8 @@
 
             var ioSetting = {};
 
-            if (settings.container !== window) {
-                ioSetting['root'] = typeof settings.container[0] === 'undefined' ? settings.container : settings.container[0];
+            if (settings.ro !== window) {
+                ioSetting['root'] = typeof settings.ro[0] === 'undefined' ? settings.ro : settings.ro[0];
             }
 
             var io = new IntersectionObserver(function(entries){
@@ -126,8 +126,8 @@
         } else {
 
             /* Cache container as jQuery object. */
-            $container = (settings.container === undefined ||
-                      settings.container === window) ? $window : $(settings.container);
+            $ro = (settings.ro === undefined ||
+                      settings.ro === window) ? $window : $(settings.ro);
         }
 
 
@@ -166,7 +166,7 @@
 
         /* Fire one scroll event per scroll. Not one scroll event per image. */
         if (0 === settings.event.indexOf('scroll') && !intersectionMode) {
-            $container.on(settings.event, function() {
+            $ro.on(settings.event, function() {
                 return update();
             });
         }
@@ -270,10 +270,10 @@
     $.belowthefold = function(element, settings) {
         var fold;
 
-        if (settings.container === undefined || settings.container === window) {
+        if (settings.ro === undefined || settings.ro === window) {
             fold = winHeight + settings.pageYOffset;
         } else {
-            fold = $(settings.container).offset().top + $(settings.container).height();
+            fold = $(settings.ro).offset().top + $(settings.ro).height();
         }
 
         return fold <= $(element).offset().top - settings.threshold;
@@ -282,10 +282,10 @@
     $.rightoffold = function(element, settings) {
         var fold;
 
-        if (settings.container === undefined || settings.container === window) {
+        if (settings.ro === undefined || settings.ro === window) {
             fold = winWidth + settings.pageXOffset;
         } else {
-            fold = $(settings.container).offset().left + $(settings.container).width();
+            fold = $(settings.ro).offset().left + $(settings.ro).width();
         }
 
         return fold <= $(element).offset().left - settings.threshold;
@@ -294,10 +294,10 @@
     $.abovethetop = function(element, settings) {
         var fold;
 
-        if (settings.container === undefined || settings.container === window) {
+        if (settings.ro === undefined || settings.ro === window) {
             fold = settings.pageYOffset;//(settings.pageYOffset || window.pageYOffset);
         } else {
-            fold = $(settings.container).offset().top;
+            fold = $(settings.ro).offset().top;
         }
         return fold >= $(element).offset().top + settings.threshold  + element.clientHeight;
     };
@@ -305,10 +305,10 @@
     $.leftofbegin = function(element, settings) {
         var fold;
 
-        if (settings.container === undefined || settings.container === window) {
+        if (settings.ro === undefined || settings.ro === window) {
             fold = settings.pageXOffset;
         } else {
-            fold = $(settings.container).offset().left;
+            fold = $(settings.ro).offset().left;
         }
 
         return fold >= $(element).offset().left + settings.threshold + element.clientWidth;

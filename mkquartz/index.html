@@ -172,6 +172,28 @@
 			border: none;
 			background-color: Transparent;
 		}
+		.subchildren{
+			color: black;
+			text-decoration: none;
+			font-size: 13px;
+			/* text-align: left; */
+			padding: 13px;
+		}
+		.dropdown__item, .submenu__item {
+			padding: 4px 12px 9px;
+		}
+		.submenu {
+    		min-width: 170px;
+		}
+		@media only screen and (max-width: 1124px) {
+			.subchildren{
+			color: black !important;
+			text-decoration: none;
+			font-size: 13px;
+			line-height: 2em;
+			padding: 13px;
+		}
+		}
 	</style>
 
 </head>
@@ -227,16 +249,27 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 						</button>
 						<ul ng-show="m.children.length > 0" id="{{ 'menu-' + $index }}" class="submenunavigator submenu hidden">
 							<li ng-repeat="c in m.children" role="none">
-								<a class="dropdown__item" onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')"
+								<a class="dropdown__item" onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('visible')"
 								 ng-href="{{c.url}}" onmouseover="this.style.backgroundColor = 'rgba(0,0,0,.05)'; this.style.textDecoration = 'none'; this.style.color='#000'"
 								 onmouseout="this.style.backgroundColor = 'rgba(0,0,0,0)'">{{c.title}}</a>
+									<div>
+										<ul ng-if="c.children.length">
+											<li ng-repeat="cc in c.children">
+												<a style="color: black;
+												text-decoration: none;
+												font-size: 13px;
+												line-height: 2em;
+												padding: 0px 20px;" ng-href="{{cc.url}}" onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">{{cc.title}}</a>
+											</li>
+										</ul>
+									</div>
 							</li>
 						</ul>
 					</li>
 				</ul>
 
 				<ul id="js-hamburger-menu-1" class="site-header-top-level-nav hm-menu hmvert" ng-class="{ 'active': isShowingHamburgerMenu }">
-					<li ng-repeat="m in menuList" class="submenu-container">
+					<li ng-repeat="m in menuList" ng-if="m.flag" class="submenu-container">
 						<a ng-show="m.children.length == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" 
 						onclick="$('.hm-menu').not($(this).next()).addClass('hidden');$('.hamburger').removeClass('active');"
 						onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'">{{m.title}}</a>
@@ -248,9 +281,20 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 						</button>
 						<ul ng-show="m.children.length > 0" id="{{ 'menu-' + $index }}" class="submenunavigator submenu hidden">
 							<li ng-repeat="c in m.children" role="none">
-								<a class="dropdown__item" onclick="$('.hm-menu').not($(this).next()).addClass('hidden');$('.hamburger').removeClass('active');$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')"
+								<a class="dropdown__item" onclick="$('.hm-menu').not($(this).next()).addClass('hidden');$('.hamburger').removeClass('active');$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('visible')"
 								 ng-href="{{c.url}}" onmouseover="this.style.backgroundColor = 'rgba(0,0,0,.05)'; this.style.textDecoration = 'none'; this.style.color='#000'"
 								 onmouseout="this.style.backgroundColor = 'rgba(0,0,0,0)'">{{c.title}}</a>
+								 <div>
+									<ul ng-if="c.children.length">
+										<li ng-repeat="cc in c.children" style="color: black;
+										text-decoration: none;
+										font-size: 13px;
+										/* text-align: left; */
+										padding: 0px 27px;">
+											<a  class="subchildren" ng-href="{{cc.url}}" onclick="$('.hm-menu').not($(this).next()).addClass('hidden');$('.hamburger').removeClass('active');$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">{{cc.title}}</a>
+										</li>
+									</ul>
+								</div>
 							</li>
 						</ul>
 					</li>
@@ -273,7 +317,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 				</div> -->
 
 				<div class="submenu-container">
-					<button type="button" class="site-header-menu-button icon-user trigger">Account</button>
+					<button type="button" class="site-header-menu-button icon-user trigger" ng-show="!userData.userId">login</button>
 					<div class="pop" id="lgPopup">
 						<div class="pop-content">
 							<span class="close-button fa fa-times"></span>
@@ -300,7 +344,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 					</div>
 				</div>
 				<!-- <i class="fa fa-sign-out" aria-hidden="true" ng-click="logout()"></i> -->
-				<!-- <button class="fa fa-power-off logout" ng-click="logout()"></button> -->
+				<button class="fa fa-power-off logout" ng-if="userData.userId" ng-click="logout()"></button>
 
 				<button type="button" id="menubutton-3" aria-haspopup="true" aria-controls="menu-3" class="site-header-menu-button hamburger"
 				 ng-class="{ 'active': isShowingHamburgerMenu }" ng-click="toggleHamburgerMenu();">Menu</button>
@@ -417,7 +461,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="js/jquery.flexslider.min.js"></script>
-	<!-- <script src="js/lazyload.js"></script> -->
+	<script type="text/javascript" src="js/lazyload.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/angular-cookies.min.js"></script>

@@ -766,7 +766,7 @@ function() {
     angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
         sessionStorage.setItem("isValidURL", false);
         n.loginModel = {};
-        n.userData = {};
+        n.userData = localStorage.getItem("LogUser")?JSON.parse(localStorage.getItem("LogUser")):{};
         n.menu = t.menu;
         n.menub = t.menub;
         n.transient = {
@@ -786,8 +786,8 @@ function() {
               
                if(response.data.status == "Y" || response.data.sessionob != null){
                 document.getElementById("lgPopup").classList.remove("show-pop");
-                n.userData = {userId:response.data.sessionob.userid,role:response.data.sessionob.role};
-                // localStorage.setItem("LogUser", JSON.stringify({userId:response.data.sessionob.userid,role:response.data.sessionob.role}));
+                n.userData = {userId:response.data.sessionob.user,role:response.data.sessionob.role};
+                localStorage.setItem("LogUser", JSON.stringify({userId:response.data.sessionob.user,role:response.data.sessionob.role}));
                 n.setHeaderMenu();
                 sessionStorage.setItem("isValidURL", true);
                 // document.getElementById("loginBody").style.display = "none";
@@ -805,7 +805,9 @@ function() {
         n.logout = function(){
             n.userData = {};
             n.setHeaderMenu();
+            localStorage.setItem("LogUser", "")
             location.href ="#/";
+            n.loginModel = {};
         }
         
         // document.getElementById("js-site-header").style.display = "block";
@@ -851,6 +853,9 @@ function() {
             location.href = "#/login";
         }
         var swaphm = false;
+        // n.hideSubmenubar = function(index){
+        //     document.getElementById('menu-'+index).classList.addClass("hidden");
+        // }
         n.toggleHamburgerMenu = function() {
             document.getElementById("js-hamburger-menu").classList.remove("hidden");
            
@@ -875,7 +880,17 @@ function() {
             {title: "Featured", url:"#/featured/", role:0, children:[
                 {title:"New Arrivals", url:"#/fall-2018"},
                 {title:"Costa Allegra", url:"#/costa-allegra"}]},
-            {title:"Products", url:"#/products/", role:0, children:[]},
+            {title:"Products", url:"#/products/", role:0, children:[
+                {title:"QUARTZ", url:"#/products/QUARTZ", children:[]},
+                {title:"PORCELAIN TILES", url:"#/products/PORCELAINTILES", children:[]},
+                {title:"WOOD LOOK PORCELAIN TILES", url:"#/products/WOODLOOKPORCELAINTILES", children:[]},
+                {title:"MOSAIC TILES", url:"#/products/MOSAICTILES", role:0, children:[
+                    {title:"NATURAL MOSAIC", url:"#/products/NATURALMOSAIC"},
+                    {title:"PORCELAIN MOSAIC", url:"#/products/PORCELAINMOSAIC"},
+                    {title:"CERAMIC MOSAIC", url:"#/products/CERAMICMOSAIC"},
+                    {title:"CRACK MOSAIC", url:"#/products/CRACKMOSAIC"}
+                ]},
+                ]},
             {title:"Gallery", url:"#/gallery", role:0, children:[]},
             {title:"Blog", url:"#/blog", role:0, children:[]},
             {title:"Professionals", url:"#/pros", role:0, children:[]},
@@ -908,10 +923,10 @@ function() {
                 n.productList = data.data;
                 for(var a in n.productList){ 
                     n.productList[a].urlParam = n.productList[a].category.split(' ').join('');
-                    if(n.catList.indexOf(n.productList[a].category) == -1){
-                        n.catList.push(n.productList[a].category)
-                        n.menuList[1].children.push({title: n.productList[a].category, url:"#/products/"+n.productList[a].urlParam})
-                    }
+                    // if(n.catList.indexOf(n.productList[a].category) == -1){
+                    //     n.catList.push(n.productList[a].category)
+                    //     n.menuList[1].children.push({title: n.productList[a].category, url:"#/products/"+n.productList[a].urlParam})
+                    // }
                 }
                 // n.menuList[1].children = n.catList;
             }else{
