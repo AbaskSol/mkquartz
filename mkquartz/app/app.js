@@ -764,6 +764,7 @@ function() {
     }]);
     //########### Menu Controller ##########
     angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
+        //n.incorrect = false;
         sessionStorage.setItem("isValidURL", false);
         n.loginModel = {};
         n.userData = localStorage.getItem("LogUser")?JSON.parse(localStorage.getItem("LogUser")):{};
@@ -795,6 +796,9 @@ function() {
                 document.getElementById("js-site-header").style.display = "block";
                 document.getElementById("mkFooter").style.display = "block";
                 location.href ="#/dashboard";
+              }
+              else{
+                  alert("password incorrect");
               }
               console.log('Data passed for verification..');
             }, function myError(response){

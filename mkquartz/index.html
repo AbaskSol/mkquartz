@@ -177,13 +177,13 @@
 			text-decoration: none;
 			font-size: 13px;
 			/* text-align: left; */
-			padding: 13px;
+			padding: 13px;	
 		}
 		.dropdown__item, .submenu__item {
-			padding: 4px 12px 9px;
+			padding: 9px 9px 5px;
 		}
 		.submenu {
-    		min-width: 170px;
+    		min-width: 172px;
 		}
 		@media only screen and (max-width: 1124px) {
 			.subchildren{
@@ -207,6 +207,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 
 	<div ng-controller="MenuCtrl">
 
+		
 		<!--############## SITE HEADER #################-->
 
 		<div id="js-site-header" class="site-header" ng-cloak>
@@ -240,7 +241,8 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 				<ul id="js-hamburger-menu" class="site-header-top-level-nav hm-menu hmhort" ng-class="{ 'active': isShowingHamburgerMenu }">
 					<li ng-repeat="m in menuList"  ng-if="m.flag" class="submenu-container">
 						<a ng-show="m.children.length == 0" ng-href="{{m.url}}" class="site-header-top-level-nav-item" 
-						onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'">{{m.title}}</a>
+						onmouseover="this.style.textDecoration = 'none'; this.style.color='#000'"
+						onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">{{m.title}}</a>
 						<button ng-show="m.children.length > 0" type="button" class="site-header-top-level-nav-item dropdown-button"
 						 onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">
 
@@ -255,7 +257,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 									<div>
 										<ul ng-if="c.children.length">
 											<li ng-repeat="cc in c.children">
-												<a style="color: black;
+												<a class="dropdown__item" style="color: black;
 												text-decoration: none;
 												font-size: 13px;
 												line-height: 2em;
@@ -332,6 +334,8 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 										<br>
 										<div><input type="password" class="inpRegForm" ng-model="loginModel.password" placeholder="Password"></div>
 										<br>
+										<!-- <div ng-click=""></div> -->
+										<!-- <div id="incorrect" ng-if="incorrect" ><p>Incorrect password or userid</p></div> -->
 										<button class="regFormButton" ng-click="login()">Login</button>
 									</form>
 									</div>
@@ -379,7 +383,7 @@ height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 
 					</h4>
 				</div>
-				<div class="footer-item footer-item__column">
+				<div class="footer-item footer-item__column" onclick="$('.submenunavigator').not($(this).next()).addClass('hidden'); $(this).next().toggleClass('hidden')">
 					<div class="flex-container footer-info">
 						<ul class="footer-info__item">
 							<li class="title">Company Info</li>

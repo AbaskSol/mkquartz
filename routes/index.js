@@ -113,7 +113,7 @@ router.post('/loginuser', function(req, res){
         console.log('loggedin');
       }
       else{
-        res.json({status:"N",sessionob:'{}'});
+        res.json({status:"N",sessionob:null});
         console.log('The password is incorrect..');
       }
     }
