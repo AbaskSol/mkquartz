@@ -268,12 +268,26 @@ function() {
             .when('/wholesale', {
                 templateUrl : '../main/wholesale/index.html'
             })
-            .when('/dashboard' , {
-                templateUrl : '../main/account/dashboard/dashboard.html',
+            .when('/manage-product' , {
+                templateUrl : '../main/account/dashboard/manage-product.html',
                 resolve: {
                     "check":function($rootScope,$location){
-                        if(sessionStorage.getItem("isValidURL") == 'true'){
-                            $location.path('/dashboard');
+                        if(localStorage.getItem("isValidURL") == 'true'){
+                            $location.path('/manage-product');
+                        }
+                        else {
+                            $location.path('/');
+                            alert("You dont have access");
+                        }
+                    }
+                } 
+            })
+            .when('/manage-user' , {
+                templateUrl : '../main/account/dashboard/manage-user.html',
+                resolve: {
+                    "check":function($rootScope,$location){
+                        if(localStorage.getItem("isValidURL") == 'true'){
+                            $location.path('/manage-user');
                         }
                         else {
                             $location.path('/');
@@ -718,7 +732,7 @@ function() {
     "use strict";
     //########## POSTING login details ##########
     angular.module("app").controller("loginCtrl",["$scope","$http",function($scope,$http){
-        sessionStorage.setItem("isValidURL", false);
+        localStorage.setItem("isValidURL", false);
         $scope.loginModel = {};
         // document.getElementById("js-site-header").style.display = "none";
         // document.getElementById("mkFooter").style.display = "none";
@@ -733,7 +747,7 @@ function() {
               console.log(response.status);
               
                if(response.data.status == "Y" || response.data.sessionob != null){
-                sessionStorage.setItem("isValidURL", true);
+                localStorage.setItem("isValidURL", true);
                 localStorage.setItem('loggedUser',JSON.stringify({userId:response.data.sessionob.userid,role:response.data.sessionob.role}));
                 // document.getElementById("loginBody").style.display = "none";
                 // document.getElementById("loginBodyCon").style.display = "none";
@@ -765,7 +779,7 @@ function() {
     //########### Menu Controller ##########
     angular.module("app").controller("MenuCtrl", ["$scope", "$window", "$http", "appSettings","$rootScope", function(n, t, i, r,rsc) {
         //n.incorrect = false;
-        sessionStorage.setItem("isValidURL", false);
+        //localStorage.setItem("isValidURL", false);
         n.loginModel = {};
         n.userData = localStorage.getItem("LogUser")?JSON.parse(localStorage.getItem("LogUser")):{};
         n.menu = t.menu;
@@ -790,12 +804,12 @@ function() {
                 n.userData = {userId:response.data.sessionob.user,role:response.data.sessionob.role};
                 localStorage.setItem("LogUser", JSON.stringify({userId:response.data.sessionob.user,role:response.data.sessionob.role}));
                 n.setHeaderMenu();
-                sessionStorage.setItem("isValidURL", true);
+                localStorage.setItem("isValidURL", true);
                 // document.getElementById("loginBody").style.display = "none";
                 // document.getElementById("loginBodyCon").style.display = "none";
                 document.getElementById("js-site-header").style.display = "block";
                 document.getElementById("mkFooter").style.display = "block";
-                location.href ="#/dashboard";
+                location.href ="#/";
               }
               else{
                   alert("password incorrect");
@@ -812,6 +826,7 @@ function() {
             localStorage.setItem("LogUser", "")
             location.href ="#/";
             n.loginModel = {};
+            localStorage.setItem("isValidURL", false);
         }
         
         // document.getElementById("js-site-header").style.display = "block";
@@ -898,8 +913,8 @@ function() {
             {title:"Gallery", url:"#/gallery", role:0, children:[]},
             {title:"Blog", url:"#/blog", role:0, children:[]},
             {title:"Professionals", url:"#/pros", role:0, children:[]},
-            {title:"Manage Products", url:"#/dashboard", role:1, children:[]},
-            {title:"Manage user", url:"#/dashboard", role:1, children:[]},
+            {title:"Manage Products", url:"#/manage-product", role:1, children:[]},
+            {title:"Manage user", url:"#/manage-user", role:1, children:[]},
             // {title:"signup", url:"#/account", children:[]}
         ]
         n.setHeaderMenu = function(){

@@ -1,0 +1,95 @@
+<head>
+        <style>
+          body {
+            /* text-align: center; */
+          }
+          .tabmenu {
+            margin-top: 20px;
+            border-bottom: 1px solid;
+          }
+      
+          .tabmenu li.active {
+            border: 1px solid;
+            border-bottom: 1px solid #fff;
+          }
+      
+          .tabmenu li {
+            display: inline;
+            cursor: pointer;
+            padding: 0 10px;
+          }
+      
+          .btnAD {
+            display: inline-block;
+            background-color: black;
+            color: #fff;
+            border: none;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 2px;
+          }
+      
+          .btnUrs {
+            display: inline-block;
+            background-color: black;
+            color: #fff;
+            border: none;
+            margin: 5px;
+            padding: 2.5px 5px;
+          }
+      
+          .dashboardMainCon {
+            min-height: 200px;
+            text-align: center;
+          }
+      
+          .dashboardProMenu {
+            width: 100%;
+            padding: 5px;
+            margin: 5px auto;
+          }
+      
+          .dashboardProMenu img {
+            display: block;
+            width: 50%;
+            height: auto;
+            margin: 0 auto;
+          }
+      
+          .dashboardProMenu .productItem {
+            display: inline-block;
+            margin: 2px auto;
+            padding: 10px;
+            background-color: #e3d0c217;
+            width: 250px;
+            border-radius: 2px;
+          }
+          .dashboardProMenu p {
+            margin: 0;
+            color: #fff;
+          }
+        </style>
+      </head>
+      
+      <body>
+      
+        <div class="dashboardMainCon" ng-controller='dashboardMainCtrl'>
+          <!-- <ul class="tabmenu">
+            <li ng-class="{'active': tabName=='tab1'}" ng-click="tabName='products'">PRODUCTS</li>
+            <li ng-class="{'active': tabName=='tab2'}" ng-click="tabName='users'">USERS</li>
+          </ul> -->
+      
+         
+            <div>
+              <div><button class="btnUrs">Change Password</button></div>
+              <div><button class="btnUrs">Register user</button></div>
+            </div>
+          </div>
+        </div>
+      
+        <script>
+          angular.module('app', []).controller('dashboardMainCtrl', function ($scope) {
+            $scope.tabName = "products";
+          });
+        </script>
+      </body>
