@@ -829,6 +829,68 @@ function() {
             localStorage.setItem("isValidURL", false);
         }
         
+        n.register = function() {
+            var postJSON = JSON.stringify({
+              userid: n.reguserid,
+              password: n.regpassword,
+              role: n.regUserRole
+            });
+            console.log(postJSON);
+            i({
+              method: 'POST',
+              url: '/reguser',
+              data: postJSON
+            }).then (function (response) {
+                n.reguserid = '';
+                n.regpassword = '';
+                alert("Registered successfully");
+              console.log('Data passed to server successfully..');
+              console.log(response);
+            },
+            function (err) {
+              console.log('Error posting the data..');
+            })
+          };
+
+        n.changePassword = function(){
+            // n.changePwdData = JSON.stringify({
+            //     userid:n.userData.userId,
+            //     password:n.chgpassword
+            // });
+            n.userData.password = n.orgpassword;
+            i({
+                method: 'POST',
+                url: '/getpwdforchange',
+                data: n.userData
+            }).then(function mySuccess(response){
+                if(response.data.pwdmatch){
+                    if(n.chgpassword == n.cnfpassword){
+                        n.userData.newpassword = n.chgpassword;
+                        i({
+                            method: 'POST',
+                            url: '/chgpassword',
+                            data: n.userData
+                        })
+                        .then(function (response){
+                            n.chgpassword = '';
+                            n.orgpassword = '';
+                            n.cnfpassword = '';
+                            alert("Password Changed successfully");
+                        })
+                    } 
+                    else {
+                        alert('Password did not matched..');
+                    }
+                }
+                else{
+                    console.log('Failed to change the password..');
+                    alert('Original password did not matched..');
+                }
+            },function myError(response){
+
+            })
+        }
+
         // document.getElementById("js-site-header").style.display = "block";
         // document.getElementById("mkFooter").style.display = "block";
         // n.toggleMenu = function(){

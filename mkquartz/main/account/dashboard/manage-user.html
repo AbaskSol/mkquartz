@@ -1,113 +1,210 @@
 <head>
-  <style>
-    body {
-      /* text-align: center; */
-    }
-    .tabmenu {
-      margin-top: 20px;
-      border-bottom: 1px solid;
-    }
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <style>
+          body {
+            /* text-align: center; */
+          }
+          .tabmenu {
+            margin-top: 20px;
+            border-bottom: 1px solid;
+          }
+      
+          .tabmenu li.active {
+            border: 1px solid;
+            border-bottom: 1px solid #fff;
+          }
+      
+          .tabmenu li {
+            display: inline;
+            cursor: pointer;
+            padding: 0 10px;
+          }
+      
+          .btnAD {
+            display: inline-block;
+            background-color: black;
+            color: #fff;
+            border: none;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 2px;
+          }
+      
+          .btnUrs {
+            display: inline-block;
+            background-color: black;
+            color: #fff;
+            border: none;
+            margin: 6px;
+            padding: 13px 29px;
+            border-radius: 20px;
+            outline: none;
+          }
 
-    .tabmenu li.active {
-      border: 1px solid;
-      border-bottom: 1px solid #fff;
-    }
+          .btnUsrs{
+            display: inline-block;
+            background-color: black;
+            color: #fff;
+            border: none;
+            margin: 6px;
+            padding: 13px 41px;
+            border-radius: 20px;
+            outline: none;
+          }
+      
+          .dashboardMainCon {
+            min-height: 500px;
+            text-align: center;
+          }
+      
+          .dashboardProMenu {
+            width: 100%;
+            padding: 5px;
+            margin: 5px auto;
+          }
+      
+          .dashboardProMenu img {
+            display: block;
+            width: 50%;
+            height: auto;
+            margin: 0 auto;
+          }
+      
+          .dashboardProMenu .productItem {
+            display: inline-block;
+            margin: 2px auto;
+            padding: 10px;
+            background-color: #e3d0c217;
+            width: 250px;
+            border-radius: 2px;
+          }
+          .dashboardProMenu p {
+            margin: 0;
+            color: #fff;
+          }
+          .registeruser{
+            border : 1px solid #e7e4e4;
+            width: 354px;
+            height: 335px;
+            text-align: center;
+            border-radius: 17px;
+            box-shadow: 1px 2px 7px grey;
+          }
+          .chgpass{
+            border: 1px solid #e7e4e4;
+            width: 354px;
+            height: 335px;
+            text-align: center;
+            border-radius: 17px;
+            box-shadow: 1px 2px 7px grey;
+          }
+          .reg{
+            padding: 10px 27px;
+            border-radius: 26px;
+            outline: none;
+            border: none;
+            background-color: #bab7bc;
+          }
+          .regbtn{
+            background-color: #4d1a00;
+            width: 47%;
+            border-radius: 36px;
+            color: white;
+            border: black;
+            padding: 6px;
+            outline: none;
+          }
+          .regselect{
+            background-color: #bab7bc;
+            border-radius: 16px;
+            width: 41%;
+            height: 28px;
+            outline: none;
+          }
+        </style>
+      </head>
+      
+      <body>
+      
+        <div class="dashboardMainCon" ng-controller="MenuCtrl">
+          <!-- <ul class="tabmenu">
+            <li ng-class="{'active': tabName=='tab1'}" ng-click="tabName='products'">PRODUCTS</li>
+            <li ng-class="{'active': tabName=='tab2'}" ng-click="tabName='users'">USERS</li>
+          </ul> -->
+          <br><br>
+          <div>
+            <button  class="btnUsrs" ng-click="page='first'">Register User</button>
+            <button class="btnUrs" ng-click="page='second'">Change Password</button>
+          </div>
+          <br>
+          <div ng-init="page='first'"></div>
 
-    .tabmenu li {
-      display: inline;
-      cursor: pointer;
-      padding: 0 10px;
-    }
+          <div class="row">
+            <div ng-show="page === 'first'">
+                <div class="registeruser">
+                  <div><br>
+                    <h3 style="color: #4d1a00">REGISTER</h3><br>
+                    <div>
+                      <div><input type="text" class="reg" ng-model="reguserid" placeholder="User ID"></div><br>
+                      <div><input type="password" class="reg" ng-model="regpassword" placeholder="Password"></div><br>
+                      <div>
+                          <select class="regselect" ng-model="regUserRole">
+                            <option value="" selected disabled hidden>Choose Role</option>
+                            <option value="0">User</option>
+                            <option value="1" default>Admin</option>
+                          </select> 
+                      </div><br>
+                      <button class="regbtn" ng-click="register()">Register</button><br><br><br>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+          <div ng-show="page === 'second'">
+            <div class="chgpass"><br>
+                <h3 style="color: #4d1a00">CHANGE PASSWORD</h3><br>
+                <div>
+                  <div><input type="password" class="reg" ng-model="orgpassword" placeholder="Old Password"></div><br>
+                  <div><input type="password" class="reg" ng-model="chgpassword" placeholder="New Password"></div><br>
+                  <div><input type="password" class="reg" ng-model="cnfpassword" placeholder="Confirm New Password"></div><br>
+                  <button class="regbtn" ng-click="changePassword()">Change Password</button><br><br>
+                </div>
+            </div>
+          </div>
+          </div>
 
-    .btnAD {
-      display: inline-block;
-      background-color: black;
-      color: #fff;
-      border: none;
-      margin: 5px;
-      padding: 5px 10px;
-      border-radius: 2px;
-    }
-
-    .btnUrs {
-      display: inline-block;
-      background-color: black;
-      color: #fff;
-      border: none;
-      margin: 5px;
-      padding: 2.5px 5px;
-    }
-
-    .dashboardMainCon {
-      min-height: 200px;
-      text-align: center;
-    }
-
-    .dashboardProMenu {
-      width: 100%;
-      padding: 5px;
-      margin: 5px auto;
-    }
-
-    .dashboardProMenu img {
-      display: block;
-      width: 50%;
-      height: auto;
-      margin: 0 auto;
-    }
-
-    .dashboardProMenu .productItem {
-      display: inline-block;
-      margin: 2px auto;
-      padding: 10px;
-      background-color: #e3d0c217;
-      width: 250px;
-      border-radius: 2px;
-    }
-    .dashboardProMenu p {
-      margin: 0;
-      color: #fff;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="dashboardMainCon" ng-controller='dashboardMainCtrl'>
-    <!-- <ul class="tabmenu">
-      <li ng-class="{'active': tabName=='tab1'}" ng-click="tabName='products'">PRODUCTS</li>
-      <li ng-class="{'active': tabName=='tab2'}" ng-click="tabName='users'">USERS</li>
-    </ul> -->
-
-    <div ng-switch="tabName">
-      <div ng-switch-default class="dashboardProMenu">
-        <div class="productItem">
-          <p>Product01</p><img src="http://s3-us-east-2.amazonaws.com/mkqimages/images/mkquartz/DOLMATTA1836.jpg" alt="product01"><button class="btnAD">ADD</button><button
-            class="btnAD">DEL</button>
+            <!-- <div>
+              <div><button class="btnUrs">Change Password</button>
+                <div>
+                  <h4>CHANGE PASSWORD</h4>
+                  <div>
+                    <div><input type="password" ng-model="orgpassword" placeholder="Orignal Password"></div>
+                    <div><input type="password" ng-model="chgpassword" placeholder="Change Password"></div>
+                    <div><input type="password" ng-model="cnfpassword" placeholder="Confirm Password"></div>
+                    <button ng-click="changePassword()">REGISTER</button>
+                  </div>
+                </div>
+              </div>
+              <div class="registeruser"><button class="btnUrs">Register user</button>
+                <div>
+                  <h4>REGISTER</h4>
+                  <div>
+                    <div><input type="text" ng-model="reguserid" placeholder="User ID"></div>
+                    <div><input type="password" ng-model="regpassword" placeholder="Password"></div>
+                    <button ng-click="register()">REGISTER</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
         </div>
-        <div class="productItem">
-          <p>Product01</p><img src="http://s3-us-east-2.amazonaws.com/mkqimages/images/mkquartz/DOLMATTA1836.jpg" alt="product02"><button class="btnAD">ADD</button><button
-            class="btnAD">DEL</button>
-        </div>
-        <div class="productItem">
-          <p>Product01</p><img src="http://s3-us-east-2.amazonaws.com/mkqimages/images/mkquartz/DOLMATTA1836.jpg" alt="product03"><button class="btnAD">ADD</button><button
-            class="btnAD">DEL</button>
-        </div>
-        <div class="productItem">
-          <p>Product01</p><img src="http://s3-us-east-2.amazonaws.com/mkqimages/images/mkquartz/DOLMATTA1836.jpg" alt="product04"><button class="btnAD">ADD</button><button
-            class="btnAD">DEL</button>
-        </div>
-      </div>
-      <div ng-switch-when="users">
-        <div><button class="btnUrs">Change Password</button></div>
-        <div><button class="btnUrs">Register user</button></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    angular.module('app', []).controller('dashboardMainCtrl', function ($scope) {
-      $scope.tabName = "products";
-    });
-  </script>
-</body>
+       
+      
+        <script>
+          angular.module('app', []).controller('dashboardMainCtrl', function ($scope) {
+            $scope.tabName = "products";
+          });
+        </script>
+      </body>

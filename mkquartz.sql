@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 16, 2019 at 10:12 AM
+-- Generation Time: Jan 22, 2019 at 08:44 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -204,7 +204,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`userid`, `password`, `sessionid`, `role`) VALUES
-('admin', 'admin', NULL, 1);
+('admin', 'admin', NULL, 1),
+('demo', 'demo', NULL, 0),
+('demo1', 'demo1', NULL, 0),
+('demo2', 'demo5', NULL, 1);
 
 --
 -- Indexes for dumped tables
